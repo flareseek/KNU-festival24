@@ -1,0 +1,35 @@
+name: 💡 Feature Request
+title: "[feat] "
+description: 기능추가
+labels: ["feature"]
+
+body:
+  - type: input
+    id: feature
+    attributes:
+      label: 추가할 기능
+      description: 어떤 기능을 추가할건지 간단하게 작성해주세요.
+      placeholder: 메인 페이지 이미지 수정
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 계획
+      description: 기능 설명 혹은 계획을 작성해주세요.
+      placeholder: |
+        1. 메인페이지에 있는 이미지를 조금만 더 크게 늘릴 계획입니다.
+        - [ ] width 값 수정
+        - [ ] radius 값 수정
+    validations:
+      required: true
+
+  - type: textarea
+    id: etc
+    attributes:
+      label: 기타사항
+      description: 참고해야할 사항이나 추가로 작성할 내용이 있다면 작성해주세요.
+      placeholder: API 문서 참고
+    validations:
+      required: false

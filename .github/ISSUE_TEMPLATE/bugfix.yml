@@ -1,0 +1,35 @@
+name: 🐞 Bug Report
+title: "[fix] "
+description: 버그 제보
+labels: ["bug"]
+
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: 버그 설명
+      description: 어떤 버그인지 자세하게 작성해주세요.
+      placeholder: 메인 페이지 네비게이션 바가 작동하지 않습니다.
+    validations:
+      required: true
+
+  - type: textarea
+    id: path
+    attributes:
+      label: 버그 발생 경로
+      description: 버그가 어떻게 어떤 상황에서 발생했는지 자세하게 작성해주세요.
+      placeholder: |
+        1. 메인 페이지 접속 
+        2. 로고 이미지 클릭 
+        3. 네비게이션 바 고장
+    validations:
+      required: true
+
+  - type: textarea
+    id: etc
+    attributes:
+      label: 기타사항
+      description: 참고해야할 사항이나 추가로 작성할 내용이 있다면 작성해주세요.
+      placeholder: API 문서 참고
+    validations:
+      required: false
