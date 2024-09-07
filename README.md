@@ -12,7 +12,7 @@
 Environment Setup (wiki 참조) <br/>
 [Git Convention](#git-convention) <br/>
 [Code Convention](#code-convention) <br/>
-[Folder Structure](#folder-structure) <br/>
+[Folder Structure](#folder-structures) <br/>
 
 ## Git Convention
 
@@ -40,7 +40,7 @@ Environment Setup (wiki 참조) <br/>
 - `작업태그(키워드): 작업내용 (#이슈번호)`
 - 작업태그: [작업태그](#작업태그) 확인
 - 키워드 (생략 가능): 작업 키워드
-- 작업내용: 한국어 또는 영어로 작성하며, 영어로 작성 시에는 동사원형으로 작성
+- 작업내용: 한국어 또는 영어로 작성하며, 영어로 작성 시에는 동사원형으로 시작
 - 이슈번호 (생략 가능): Github issue 번호
 - e.g
   - `feat(time_table): create TimeTable (#1)`
