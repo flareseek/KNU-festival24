@@ -1,7 +1,9 @@
+import { container } from "./App.css.ts";
+
 function App() {
   return (
     <div>
-      <h1>Hello, KNU Festival!</h1>
+      <h1 className={container}>Hello, KNU Festival!</h1>
       {/*
         <Routes>
           <Route path="/" element={<Home />} />
