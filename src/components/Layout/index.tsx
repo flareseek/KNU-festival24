@@ -1,0 +1,10 @@
+import { Outlet } from "react-router-dom";
+
+// TODO: 모든 페이지에 공통으로 들어가는 레이아웃을 작성합니다. 필요 없으면 삭제해주세요
+export default function Layout() {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+}
