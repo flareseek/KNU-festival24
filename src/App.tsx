@@ -46,7 +46,7 @@ const RouterPath = [
     element: <Notice />,
   },
   {
-    paht: "QnA",
+    path: "QnA",
     element: <QnA />,
   },
   {
