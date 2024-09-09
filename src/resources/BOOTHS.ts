@@ -1,10 +1,7 @@
-interface Booth {
-    id: number;
-    title: string;
+import { BoothFoodtuck } from "../shared/type/booth_foodtruck";
+
+interface Booth extends BoothFoodtuck {
     category: keyof typeof icon_map;
-    imgURL: string;
-    description: string;
-    description2: string;
 }
 
 export const icon_map = {
@@ -15,20 +12,31 @@ export const icon_map = {
 
 const BOOTHS: Booth[] = [
     {
-        "id": 1,
-        "title": "올해도 돌아온 떡삼",
-        "category": "식음료",
-        "imgURL": "",
-        "description": "떡꼬치삼겹살 판매",
-        "description2": "오직 강원대 대동제에서 합리적인 가격에 만나보세요"
+        id: 1,
+        title: "올해도 돌아온 떡삼",
+        place: "미래광장",
+        category: "식음료",
+        imgURL: "",
+        description: "떡꼬치삼겹살 판매",
+        description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요"
     },
     {
-        "id": 2,
-        "title": "올해도 돌아온 떡삼",
-        "category": "식음료",
-        "imgURL": "",
-        "description": "떡꼬치삼겹살 판매",
-        "description2": "오직 강원대 대동제에서 합리적인 가격에 만나보세요"
+        id: 2,
+        title: "올해도 돌아온 떡삼",
+        place: "미래광장",
+        category: "식음료",
+        imgURL: "",
+        description: "떡꼬치삼겹살 판매",
+        description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요"
+    },
+    {
+        id: 3,
+        title: "올해도 돌아온 떡삼",
+        place: "함인섭광장",
+        category: "쇼핑",
+        imgURL: "",
+        description: "떡꼬치삼겹살 판매",
+        description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요"
     }
 ]
 
