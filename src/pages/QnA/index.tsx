@@ -28,7 +28,7 @@ const noticeData: QnaItem[] = [
   {
     id: 1,
     title: "질문이 있어요1",
-    content: "~~~~해서 ~~~~하시길 바랍니다.",
+    content: "~~~~해서 ~~~~하시길 바랍니다!",
   },
   {
     id: 2,
