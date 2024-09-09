@@ -1,8 +1,8 @@
-import { style, globalStyle,globalFontFace } from "@vanilla-extract/css";
+import { style, globalStyle, globalFontFace } from "@vanilla-extract/css";
 
 // body에 글로벌 스타일 적용
 globalStyle("body", {
-  position:'relative',
+  position: "relative",
   margin: 0,
   padding: 0,
   backgroundImage: 'url("src/assets/background.svg")', // 배경 이미지 경로
@@ -21,31 +21,30 @@ globalStyle("::-webkit-scrollbar", {
 });
 
 globalFontFace("PyeongChangPeace", {
-    src: 'url("src/assets/PyeongChangPeace-Bold.otf") format("opentype")',
-    fontWeight: "bold",
-    fontStyle: "normal",
-  });
+  src: 'url("src/assets/PyeongChangPeace-Bold.otf") format("opentype")',
+  fontWeight: "bold",
+  fontStyle: "normal",
+});
 
-export const titleText=style({
-  fontSize:30,
-  fontWeight:500,
-  color:'white',
-  marginTop:60,
-})
+export const titleText = style({
+  fontSize: 30,
+  fontWeight: 500,
+  color: "white",
+  marginTop: 60,
+});
 
- export const subTitleContainer=style({
-    marginBottom:20,
- })
+export const subTitleContainer = style({
+  marginBottom: 20,
+});
 // Subtitle text with custom font applied
 export const subTitleText = style({
-    fontSize: 30,
-    fontWeight: 600,
-    color: "white",
-    marginTop: 0,
-    paddingBottom:0,
-    fontFamily: "PyeongChangPeace, sans-serif", // Apply custom font
-  });
-
+  fontSize: 30,
+  fontWeight: 600,
+  color: "white",
+  marginTop: 0,
+  paddingBottom: 0,
+  fontFamily: "PyeongChangPeace, sans-serif", // Apply custom font
+});
 
 // 상단의 빨간 컨테이너
 export const container = style({
@@ -57,11 +56,11 @@ export const container = style({
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
-  position:'relative',
+  position: "relative",
   width: "100%",
   height: 650,
   display: "flex",
-  margin:'20px 0',
+  margin: "20px 0",
   justifyContent: "center",
   flexDirection: "column",
   alignItems: "center",
@@ -100,8 +99,8 @@ export const qna = style({
 });
 
 export const copyright = style({
-  position:'absolute',
-  bottom:0,
+  position: "absolute",
+  bottom: 0,
   margin: 0,
   padding: 0,
   backgroundImage: 'url("src/assets/copyright.svg")', // 배경 이미지 경로
@@ -118,7 +117,6 @@ export const qnaNumber = style({
   color: "#0081C9",
   marginLeft: 20,
 });
-
 
 export const qnaContentWrapper = style({
   width: "90%", // 부모 요소의 너비에 맞추기
@@ -153,8 +151,8 @@ export const qnaDetail = style({
   overflow: "hidden",
   maxHeight: "500px", // 최대 높이를 설정
   backgroundColor: "rgba(0,129,201,0.3)", // 배경색
-  color:'white',
-  borderRadius:"0 0 5px 5px",
+  color: "white",
+  borderRadius: "0 0 5px 5px",
   padding: "10px",
   marginTop: -12,
   marginBottom: 5,
