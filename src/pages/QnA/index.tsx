@@ -73,7 +73,7 @@ const noticeData: QnaItem[] = [
   // 나머지 공지사항 추가
 ];
 
-function Notice() {
+function QnA() {
   const [currentPage, setCurrentPage] = useState<number>(1); // 현재 페이지 상태
   const [expandedNotices, setExpandedNotices] = useState<number[]>([]); // 확장된 공지 ID들을 관리
   const itemsPerPage = 6;
@@ -175,4 +175,4 @@ function Notice() {
   );
 }
 
-export default Notice;
+export default QnA;
