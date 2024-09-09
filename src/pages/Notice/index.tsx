@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   container,
+  titleText,
   mid,
   notice,
   noticeList,
-  noticeContentWrapper, // 추가된 래퍼 스타일
+  noticeContentWrapper,
   noticeContent,
   noticeContainer,
   searchbar,
-  searchButton,
   searchContainer,
   copyright,
   noticeNumber,
@@ -20,8 +20,8 @@ import {
 interface NoticeItem {
   id: number;
   title: string;
-  content: JSX.Element; // 콘텐츠는 JSX로 처리
-  detail: JSX.Element; // 상세 내용을 위한 필드 추가
+  content: JSX.Element;
+  detail: JSX.Element;
 }
 
 // 임시 데이터 예시
@@ -30,59 +30,53 @@ const noticeData: NoticeItem[] = [
     id: 1,
     title: "2024 강원대학교 백령대동제 개최 안내",
     content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 강원대 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
+    detail: <p>여기는 마지막 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
   },
   {
     id: 2,
     title: "2024 강원대학교 백령대동제 개최 안내",
     content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다.</p>,
+    detail: <p>여기는 룰루 내용입니다. </p>,
   },
   {
     id: 3,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 강원대 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
+    title: "랄랄라 신규 게시물",
+    content: <p>This is the content for notice 2.</p>,
+    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
   },
   {
     id: 4,
     title: "2024 강원대학교 백령대동제 개최 안내",
     content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다.</p>,
+    detail: <p>여기는 룰루 내용입니다. </p>,
   },
   {
     id: 5,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 강원대 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
+    title: "랄랄라 신규 게시물",
+    content: <p>This is the content for notice 2.</p>,
+    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
   },
   {
     id: 6,
     title: "2024 강원대학교 백령대동제 개최 안내",
     content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다.</p>,
+    detail: <p>여기는 룰루 내용입니다. </p>,
   },
   {
     id: 7,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 강원대 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
+    title: "랄랄라 신규 게시물",
+    content: <p>This is the content for notice 2.</p>,
+    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
   },
   {
     id: 8,
     title: "2024 강원대학교 백령대동제 개최 안내",
     content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다.</p>,
+    detail: <p>여기는 룰루 내용입니다. </p>,
   },
   {
     id: 9,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 강원대 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
-  },
-  {
-    id: 10,
-    title: "2024 강원대학교 백령대동제 개최 안내",
+    title: "랄랄라 신규 게시물",
     content: <p>This is the content for notice 2.</p>,
     detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
   },
@@ -93,49 +87,31 @@ function Notice() {
   const [query, setQuery] = useState<string>(""); // 검색어의 타입을 string으로 지정
   const [currentPage, setCurrentPage] = useState<number>(1); // 현재 페이지 상태
   const [expandedNotices, setExpandedNotices] = useState<number[]>([]); // 확장된 공지 ID들을 관리
-  const itemsPerPage = 6; // 한 페이지에 표시할 최대 noticeContainer 개수
+  const itemsPerPage = 6;
 
-  // 각 공지사항의 애니메이션 상태를 관리하는 배열
-  const [animated, setAnimated] = useState<boolean[]>(Array(noticeData.length).fill(false));
-
-  // 공지사항의 텍스트 길이를 확인하여 애니메이션을 적용할지 여부를 결정
-  const noticeRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    noticeRefs.current.forEach((ref, index) => {
-      if (ref) {
-        const contentWidth = ref.scrollWidth;
-        const wrapperWidth = ref.clientWidth;
-        // 텍스트가 컨테이너를 넘으면 애니메이션을 적용
-        setAnimated((prev) => {
-          const updated = [...prev];
-          updated[index] = contentWidth > wrapperWidth;
-          return updated;
-        });
-      }
-    });
-  }, [query, currentPage]);
+  // 가장 최근 게시물의 ID 찾기 (ID가 제일 큰 것이 최신 게시물이라고 가정)
+  const mostRecentNoticeId = Math.max(...noticeData.map((notice) => notice.id));
 
   // 검색어 입력 시 상태 업데이트
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-    setCurrentPage(1); // 검색어가 변경되면 첫 페이지로 이동
+    setCurrentPage(1);
   };
 
   // downbtn 클릭 시 상세 내용을 보여주는 로직
   const toggleNotice = (id: number) => {
     setExpandedNotices((prev) =>
-      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
+      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id]
     );
   };
 
-  // 필터링 로직: query가 있으면 해당 키워드가 포함된 공지만, 없으면 모든 공지를 보여줌
+  // 필터링 로직
   const filteredNotices = noticeData
     .filter((noticeItem) => {
-      const searchText = query.toLowerCase(); // 검색어를 소문자로 변환
+      const searchText = query.toLowerCase();
       return (
-        noticeItem.title.toLowerCase().includes(searchText) || // 제목에 검색어가 포함되었는지 확인
-        noticeItem.detail.props.children.toString().toLowerCase().includes(searchText) // 내용에 검색어가 포함되었는지 확인
+        noticeItem.title.toLowerCase().includes(searchText) ||
+        noticeItem.detail.props.children.toString().toLowerCase().includes(searchText)
       );
     })
     .reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
@@ -153,7 +129,9 @@ function Notice() {
 
   return (
     <div>
-      <div className={container}></div>
+      <div className={container}>
+        <p className={titleText}>공지사항</p>
+      </div>
       <div className={mid}>
         <div className={searchContainer}>
           <input
@@ -163,9 +141,6 @@ function Notice() {
             onChange={handleSearch}
             className={searchbar}
           />
-          <button onClick={() => alert(`Searching for: ${query}`)} className={searchButton}>
-            검색
-          </button>
         </div>
 
         {/* noticeList 렌더링 */}
@@ -181,8 +156,8 @@ function Notice() {
                   {/* 번호와 제목 표시 */}
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
-                    {/* noticeNumber가 1인 게시글에만 'New' 표시 */}
-                    {index + 1 + (currentPage - 1) * itemsPerPage === 1 && (
+                    {/* 가장 최근 게시물에만 'New' 표시 */}
+                    {noticeItem.id === mostRecentNoticeId && (
                       <span
                         style={{
                           marginLeft: "10px",
@@ -198,17 +173,9 @@ function Notice() {
                       </span>
                     )}
                   </div>
-                  {/* 공지사항 콘텐츠에 스크롤 애니메이션 추가 */}
-                  <div
-                    className={noticeContentWrapper}
-                    ref={(el) => (noticeRefs.current[index] = el)}
-                  >
-                    <p
-                      className={animated[index] ? noticeContent : ""}
-                      style={animated[index] ? {} : { animation: "none" }}
-                    >
-                      {noticeItem.title}
-                    </p>
+
+                  <div className={noticeContentWrapper}>
+                    <p className={noticeContent}>{noticeItem.title}</p>
                   </div>
                   {/* downbtn을 클릭하면 토글 */}
                   <button
@@ -216,6 +183,7 @@ function Notice() {
                     onClick={() => toggleNotice(noticeItem.id)}
                   ></button>
                 </div>
+
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}
                 {expandedNotices.includes(noticeItem.id) && (
                   <div className={noticeDetail}>{noticeItem.detail}</div>
