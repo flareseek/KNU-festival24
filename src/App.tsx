@@ -46,7 +46,7 @@ const RouterPath = [
     element: <Notice />,
   },
   {
-    paht: "QnA",
+    path: "QnA",
     element: <QnA />,
   },
   {
@@ -65,5 +65,4 @@ const router = createBrowserRouter([
 function App() {
   return <RouterProvider router={router} />;
 }
-
 export default App;
