@@ -1,4 +1,4 @@
-import { style, globalStyle, keyframes } from "@vanilla-extract/css";
+import { style, globalStyle } from "@vanilla-extract/css";
 
 // body에 글로벌 스타일 적용
 globalStyle("body", {
