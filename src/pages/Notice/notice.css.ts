@@ -2,7 +2,7 @@ import { style, globalStyle, keyframes } from "@vanilla-extract/css";
 
 // body에 글로벌 스타일 적용
 globalStyle("body", {
-  position:'relative',
+  position: "relative",
   margin: 0,
   padding: 0,
   backgroundImage: 'url("src/assets/background.svg")', // 배경 이미지 경로
@@ -20,12 +20,12 @@ globalStyle("::-webkit-scrollbar", {
   height: "0px",
 });
 
-export const titleText=style({
-  fontSize:20,
-  fontWeight:600,
-  color:'white',
-  marginTop:60,
-})
+export const titleText = style({
+  fontSize: 20,
+  fontWeight: 600,
+  color: "white",
+  marginTop: 60,
+});
 // 검색 필드와 버튼을 감싸는 컨테이너
 export const searchContainer = style({
   display: "flex",
@@ -36,7 +36,7 @@ export const searchContainer = style({
   width: "80%",
   height: "40px",
   position: "fixed",
-  top:150,
+  top: 150,
   marginBottom: 20,
 });
 
@@ -53,8 +53,6 @@ export const searchbar = style({
   fontWeight: 500,
 });
 
-
-
 // 상단의 빨간 컨테이너
 export const container = style({
   width: "100%",
@@ -65,11 +63,11 @@ export const container = style({
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
-  position:'relative',
+  position: "relative",
   width: "100%",
   height: 650,
   display: "flex",
-  margin:'20px 0',
+  margin: "20px 0",
   justifyContent: "center",
   flexDirection: "column",
   alignItems: "center",
@@ -108,8 +106,8 @@ export const notice = style({
 });
 
 export const copyright = style({
-  position:'absolute',
-  bottom:0,
+  position: "absolute",
+  bottom: 0,
   margin: 0,
   padding: 0,
   backgroundImage: 'url("src/assets/copyright.svg")', // 배경 이미지 경로
@@ -126,7 +124,6 @@ export const noticeNumber = style({
   color: "#0081C9",
   marginLeft: 20,
 });
-
 
 export const noticeContentWrapper = style({
   width: "90%", // 부모 요소의 너비에 맞추기

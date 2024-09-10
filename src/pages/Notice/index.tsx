@@ -101,7 +101,7 @@ function Notice() {
   // downbtn 클릭 시 상세 내용을 보여주는 로직
   const toggleNotice = (id: number) => {
     setExpandedNotices((prev) =>
-      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
     );
   };
 
