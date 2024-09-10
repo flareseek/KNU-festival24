@@ -3,7 +3,7 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { imagetools } from "vite-imagetools";
-import compression from 'vite-plugin-compression2';
+import compression from "vite-plugin-compression2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
