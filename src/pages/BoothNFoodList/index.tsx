@@ -1,13 +1,14 @@
-import BOOTHS from "../../resources/BOOTHS";
-import FOODTRUCKS from "../../resources/FOODTRUCKS";
-import { PLACE } from "../../shared/type/booth_foodtruck";
+import BOOTHS, { BOOTH_PLACE } from "../../resources/BOOTHS";
+import FOODTRUCKS, { FOODTRUCKS_PLACE } from "../../resources/FOODTRUCKS";
 
 import Card from "./Card";
 import useTabBtns from "./TabBtns";
 
 export default function BoothNFoodList() {
   const { activeTab: typeTab, TabBtns: TypeTabBtns } = useTabBtns(["booth", "foodtruck"]);
-  const { activeTab: placeTab, TabBtns: PlaceTabBtns } = useTabBtns([...PLACE]);
+  const { activeTab: placeTab, TabBtns: PlaceTabBtns } = useTabBtns([
+    ...(typeTab == "booth" ? BOOTH_PLACE : FOODTRUCKS_PLACE),
+  ]);
 
   return (
     <div>
