@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
-import * as styles from '.css.ts';
+import { headerStyles, menuStyles, linksStyles, toggleBtnStyles, logoStyles, menuItemStyles } from './.css.ts';
 
-const Header: React.FC = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+export const Header: React.FC = () => {
+    const [isActive, setIsActive] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
+    const handleToggle = () => {
+        setIsActive(!isActive);
     };
 
     return (
-        <header className={styles.headerContainer}>
-            <div className={styles.logoStyle}>My Website</div>
-
-            {/* 모바일 메뉴 버튼 */}
-            <button className={styles.menuButton} onClick={toggleMenu}>
+        <header className={headerStyles}>
+            <div className={logoStyles}>
+                <i className="fab fa-apple"></i>
+                <a href="">민브로 코딩</a>
+            </div>
+            <ul className={`${menuStyles} ${isActive ? 'active' : ''}`}>
+                <li className={menuItemStyles}><a href="">홈</a></li>
+                <li className={menuItemStyles}><a href="">핫딜</a></li>
+                <li className={menuItemStyles}><a href="">포럼</a></li>
+                <li className={menuItemStyles}><a href="">FAQ</a></li>
+                <li className={menuItemStyles}><a href="">채용</a></li>
+            </ul>
+            <ul className={`${linksStyles} ${isActive ? 'active' : ''}`}>
+                <li><i className="fab fa-facebook-square"></i></li>
+                <li><i className="fab fa-instagram"></i></li>
+            </ul>
+            <button className={toggleBtnStyles} onClick={handleToggle}>
                 ☰
             </button>
-
-            {/* 내비게이션 메뉴: 768px 이하에서는 토글로 표시 */}
-            <nav className={`${styles.navStyle} ${isMenuOpen ? styles.navVisible : ''}`}>
-                <a href="#home" className={styles.navItem}>Home</a>
-                <a href="#about" className={styles.navItem}>About</a>
-                <a href="#services" className={styles.navItem}>Services</a>
-                <a href="#contact" className={styles.navItem}>Contact</a>
-            </nav>
         </header>
     );
 };
 
-export default Header;
+export default Header

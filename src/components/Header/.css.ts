@@ -1,81 +1,85 @@
 import { style } from '@vanilla-extract/css';
 
-export const headerContainer = style({
+export const headerStyles = style({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 20px',
-    backgroundColor: '#fff',
-    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
-
+    backgroundColor: 'beige',
+    padding: '8px 12px',
     '@media': {
-        'screen and (max-width: 768px)': {
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-        },
-    },
-});
-
-export const logoStyle = style({
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: '#333',
-
-    '@media': {
-        'screen and (max-width: 768px)': {
-            fontSize: '1.2rem',
-        },
-    },
-});
-
-export const navStyle = style({
-    display: 'flex',
-    gap: '15px',
-
-    '@media': {
-        'screen and (max-width: 768px)': {
+        'screen and (max-width: 600px)': {
             flexDirection: 'column',
-            gap: '10px',
-            display: 'none', // 처음에는 숨김
+            alignItems: 'flex-start',
+            padding: '8px 24px',
         },
     },
 });
 
-export const navVisible = style({
+export const logoStyles = style({
+    fontSize: '24px',
+    color: 'violet',
+});
+
+export const menuStyles = style({
+    display: 'flex',
+    listStyle: 'none',
+    paddingLeft: 0,
     '@media': {
-        'screen and (max-width: 768px)': {
-            display: 'flex', // 토글로 보임 처리
+        'screen and (max-width: 600px)': {
+            display: 'none',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            selectors: {
+                '&.active': {
+                    display: 'flex',
+                },
+            },
         },
     },
 });
 
-export const navItem = style({
-    color: '#333',
-    textDecoration: 'none',
-    fontSize: '1rem',
-    flexDirection: 'column',
-
+export const menuItemStyles = style({
+    padding: '8px 12px',
     ':hover': {
-        color: '#0070f3',
+        backgroundColor: 'grey',
+        borderRadius: '4px',
     },
-
     '@media': {
-        'screen and (max-width: 768px)': {
-            fontSize: '0.9rem',
+        'screen and (max-width: 600px)': {
+            width: '100%',
+            textAlign: 'center',
         },
     },
 });
 
-export const menuButton = style({
-    display: 'none',
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5rem',
-
+export const linksStyles = style({
+    listStyle: 'none',
+    paddingLeft: 0,
+    color: 'teal',
+    display: 'flex',
     '@media': {
-        'screen and (max-width: 768px)': {
+        'screen and (max-width: 600px)': {
+            display: 'none',
+            justifyContent: 'center',
+            width: '100%',
+            selectors: {
+                '&.active': {
+                    display: 'flex',
+                },
+            },
+        },
+    },
+});
+
+export const toggleBtnStyles = style({
+    display: 'none',
+    position: 'absolute',
+    right: '32px',
+    fontSize: '24px',
+    '@media': {
+        'screen and (max-width: 600px)': {
             display: 'block',
-            cursor: 'pointer',
         },
     },
 });
