@@ -1,5 +1,6 @@
-import BOOTHS, { BOOTH_PLACE } from "../../resources/BOOTHS";
-import FOODTRUCKS, { FOODTRUCKS_PLACE } from "../../resources/FOODTRUCKS";
+import BOOTHS from "../../resources/BOOTHS";
+import FOODTRUCKS from "../../resources/FOODTRUCKS";
+import { BOOTH_PLACE, FOODTRUCKS_PLACE } from "../../shared/type/booth_foodtruck";
 
 import Card from "./Card";
 import useTabBtns from "./TabBtns";
@@ -21,6 +22,7 @@ export default function BoothNFoodList() {
         {(typeTab == "booth" ? BOOTHS : FOODTRUCKS).map((item) =>
           placeTab === item.place ? (
             <Card
+              key={item.id}
               id={item.id}
               title={item.title}
               description={item.description}

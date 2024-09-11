@@ -1,19 +1,4 @@
-import { BoothFoodtuck } from "../shared/type/booth_foodtruck";
-
-export const FOODTRUCKS_PLACE = ["대운동장", "60주년기념관", "미래광장", "함인섭광장"];
-
-interface FoodTruck extends BoothFoodtuck {
-  place: (typeof FOODTRUCKS_PLACE)[number];
-  category: keyof typeof icon_map;
-}
-
-export const icon_map = {
-  한식: "food_bank",
-  일식: "food_bank",
-  아시안: "food_bank",
-  분식: "food_bank",
-  디저트: "food_bank",
-};
+import { FoodTruck } from "../shared/type/booth_foodtruck";
 
 const FOODTRUCKS: FoodTruck[] = [
   {
@@ -23,7 +8,24 @@ const FOODTRUCKS: FoodTruck[] = [
     imgURL: "",
     description: "떡꼬치삼겹살 판매",
     description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요",
+    hours: "11:00 ~ 16:00",
     place: "대운동장",
+    keyword: ["핫 닭꼬치", "주요음식2"],
+    contents: [
+      {
+        h3: "메인요리",
+        list: [
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+        ],
+      },
+    ],
   },
   {
     id: 2,
@@ -32,7 +34,24 @@ const FOODTRUCKS: FoodTruck[] = [
     imgURL: "",
     description: "떡꼬치삼겹살 판매",
     description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요",
+    hours: "11:00 ~ 16:00",
     place: "60주년기념관",
+    keyword: ["핫 닭꼬치", "주요음식2"],
+    contents: [
+      {
+        h3: "메인요리",
+        list: [
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+        ],
+      },
+    ],
   },
 ];
 

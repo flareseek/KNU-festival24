@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { icon_map as booths_icon } from "../../../resources/BOOTHS";
-import { icon_map as foodtruck_icon } from "../../../resources/FOODTRUCKS";
+import { booths_icon, foodtruck_icon } from "../../../shared/type/booth_foodtruck";
 
 const icon_map = { ...booths_icon, ...foodtruck_icon };
 
