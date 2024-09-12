@@ -25,6 +25,3 @@ dist-ssr
 
 # Custom
 .env
-!assets/*
-!resources/*
-!shared/*
