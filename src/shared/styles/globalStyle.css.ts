@@ -1,16 +1,14 @@
 import { globalStyle } from "@vanilla-extract/css";
+
+import backgroundImg from "../../assets/background.png";
 import { vars } from "./vars.css";
 
-// body에 글로벌 스타일 적용
 globalStyle("body", {
   position: "relative",
   margin: 0,
   padding: 0,
-  backgroundImage: 'url("src/assets/background.png")', // 배경 이미지 경로
-  backgroundSize: "cover", // 배경 이미지를 화면 전체에 맞춤
-  backgroundPosition: "center", // 이미지를 화면 중앙에 위치
-  backgroundRepeat: "no-repeat", // 이미지를 반복하지 않도록 설정
-  width: "100%",
+  backgroundImage: `url(${backgroundImg})`, // 배경 이미지 경로
+  backgroundSize: "100% auto",
   fontFamily: vars.font.pretendardRegular,
 });
 
