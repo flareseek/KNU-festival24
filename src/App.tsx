@@ -3,9 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/index.tsx";
 import Main from "./pages/Main/index.tsx";
 import Artist from "./pages/Artist/index.tsx";
-import Booth from "./pages/Booth/index.tsx";
 import BoothNFoodList from "./pages/BoothNFoodList/index.tsx";
-import Foodtruck from "./pages/Foodtruck/index.tsx";
+import BoothNFoodDetail from "./pages/BoothNFoodDetail/index.tsx";
 import Makers from "./pages/Makers/index.tsx";
 import Map from "./pages/Map/index.tsx";
 import Notice from "./pages/Notice/index.tsx";
@@ -22,16 +21,16 @@ const RouterPath = [
     element: <Artist />,
   },
   {
-    path: "booth/:id",
-    element: <Booth />,
-  },
-  {
     path: "booth_foodtruck_list",
     element: <BoothNFoodList />,
   },
   {
-    path: "foodtruck/:id",
-    element: <Foodtruck />,
+    path: "booth_foodtruck_list/booth/:id",
+    element: <BoothNFoodDetail />,
+  },
+  {
+    path: "booth_foodtruck_list/foodtruck/:id",
+    element: <BoothNFoodDetail />,
   },
   {
     path: "makers",
