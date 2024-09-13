@@ -11,6 +11,7 @@ import Map from "./pages/Map/index.tsx";
 import Notice from "./pages/Notice/index.tsx";
 import QnA from "./pages/QnA/index.tsx";
 import Timetable from "./pages/Timetable/index.tsx";
+import "/src/shared/styles/globalStyle.css.ts";
 
 const RouterPath = [
   {

@@ -1,30 +1,5 @@
-import { style, globalStyle, globalFontFace } from "@vanilla-extract/css";
-
-// body에 글로벌 스타일 적용
-globalStyle("body", {
-  position: "relative",
-  margin: 0,
-  padding: 0,
-  backgroundImage: 'url("src/assets/background.svg")', // 배경 이미지 경로
-  backgroundSize: "cover", // 배경 이미지를 화면 전체에 맞춤
-  backgroundPosition: "center", // 이미지를 화면 중앙에 위치
-  backgroundRepeat: "no-repeat", // 이미지를 반복하지 않도록 설정
-  width: "100%",
-  height: "100vh", // 전체 화면 높이 적용
-  overflow: "hidden", // 스크롤바가 나타나지 않도록 설정
-  fontFamily: `'Pretendard', sans-serif`,
-});
-
-globalStyle("::-webkit-scrollbar", {
-  width: "0px",
-  height: "0px",
-});
-
-globalFontFace("PyeongChangPeace", {
-  src: 'url("src/assets/PyeongChangPeace-Bold.otf") format("opentype")',
-  fontWeight: "bold",
-  fontStyle: "normal",
-});
+import { style } from "@vanilla-extract/css";
+import { vars } from "../../shared/styles/vars.css";
 
 export const titleText = style({
   fontSize: 30,
@@ -35,6 +10,8 @@ export const titleText = style({
 
 export const subTitleContainer = style({
   marginBottom: 20,
+  position: "absolute",
+  top: 10,
 });
 // Subtitle text with custom font applied
 export const subTitleText = style({
@@ -43,7 +20,7 @@ export const subTitleText = style({
   color: "white",
   marginTop: 0,
   paddingBottom: 0,
-  fontFamily: "PyeongChangPeace, sans-serif", // Apply custom font
+  fontFamily: vars.font.pyeongChangBold,
 });
 
 // 상단의 빨간 컨테이너
@@ -98,18 +75,7 @@ export const qna = style({
   position: "relative",
 });
 
-export const copyright = style({
-  position: "absolute",
-  bottom: 0,
-  margin: 0,
-  padding: 0,
-  backgroundImage: 'url("src/assets/copyright.svg")', // 배경 이미지 경로
-  backgroundPosition: "center", // 이미지를 화면 중앙에 위치
-  backgroundRepeat: "no-repeat", // 이미지를 반복하지 않도록 설정
-  width: "90%",
-  height: 110, // 전체 화면 높이 적용
-  overflow: "hidden", // 스크롤바가 나타나지 않도록 설정
-});
+
 
 export const qnaNumber = style({
   fontSize: 25,
@@ -133,18 +99,7 @@ export const qnaContent = style({
   color: "black",
   margin: 5,
 });
-export const qnaDownBtn = style({
-  backgroundImage: 'url("src/assets/downbtn.svg")', // 배경 이미지 경로
-  backgroundSize: "cover", // 배경 이미지를 화면 전체에 맞춤
-  backgroundPosition: "center", // 이미지를 화면 중앙에 위치
-  backgroundRepeat: "no-repeat", // 이미지를 반복하지 않도록 설정
-  backgroundColor: "white",
-  width: 30,
-  height: 30,
-  position: "absolute",
-  right: 10,
-  border: "none",
-});
+
 
 // 공지사항 상세 내용 (애니메이션 효과 포함)
 export const qnaDetail = style({

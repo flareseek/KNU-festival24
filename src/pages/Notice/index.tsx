@@ -10,18 +10,18 @@ import {
   noticeContainer,
   searchbar,
   searchContainer,
-  copyright,
   noticeNumber,
-  noticeDownBtn,
   noticeDetail,
 } from "./notice.css.ts"; // 스타일 가져오기
+import downbtn from "/src/assets/downbtn.png";
+import upbtn from "/src/assets/upbtn.png";
 
 // NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
 interface NoticeItem {
   id: number;
   title: string;
-  content: JSX.Element;
-  detail: JSX.Element;
+  content: string;
+  detail: string;
 }
 
 // 임시 데이터 예시
@@ -29,56 +29,56 @@ const noticeData: NoticeItem[] = [
   {
     id: 1,
     title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This 강원대 the content for notice 1.</p>,
-    detail: <p>여기는 마지막 내용입니다. Notice 1에 대한 정보가 더 있습니다.</p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 2,
     title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 룰루 내용입니다. </p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 3,
     title: "랄랄라 신규 게시물",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 4,
     title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 룰루 내용입니다. </p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 5,
     title: "랄랄라 신규 게시물",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 6,
     title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 룰루 내용입니다. </p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 7,
     title: "랄랄라 신규 게시물",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 8,
     title: "2024 강원대학교 백령대동제 개최 안내",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 룰루 내용입니다. </p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 룰루입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   {
     id: 9,
     title: "랄랄라 신규 게시물",
-    content: <p>This is the content for notice 2.</p>,
-    detail: <p>여기는 상세 내용입니다. Notice 2에 대한 정보가 더 있습니다잇.</p>,
+    content: "This 강원대 the content for notice 1.",
+    detail: "여기는 부스내용입니다. Notice 1에 대한 정보가 더 있습니다.",
   },
   // 나머지 공지사항 추가
 ];
@@ -111,7 +111,7 @@ function Notice() {
       const searchText = query.toLowerCase();
       return (
         noticeItem.title.toLowerCase().includes(searchText) ||
-        noticeItem.detail.props.children.toString().toLowerCase().includes(searchText)
+        noticeItem.detail.toLowerCase().includes(searchText)
       );
     })
     .reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
@@ -179,8 +179,20 @@ function Notice() {
                   </div>
                   {/* downbtn을 클릭하면 토글 */}
                   <button
-                    className={noticeDownBtn}
                     onClick={() => toggleNotice(noticeItem.id)}
+                    style={{
+                      backgroundImage: `url(${
+                        expandedNotices.includes(noticeItem.id) ? upbtn : downbtn
+                      })`, // 확장 여부에 따라 이미지 교체
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundColor: "white",
+                      width: 30,
+                      height: 30,
+                      position: "absolute",
+                      right: 10,
+                      border: "none",
+                    }}
                   ></button>
                 </div>
 
@@ -217,9 +229,7 @@ function Notice() {
         )}
       </div>
 
-      <div className={container}>
-        <div className={copyright}></div>
-      </div>
+      <div className={container}></div>
     </div>
   );
 }

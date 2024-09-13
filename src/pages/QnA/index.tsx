@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   container,
   titleText,
@@ -8,15 +8,15 @@ import {
   qnaContentWrapper,
   qnaContent,
   qnaContainer,
-  copyright,
   qnaNumber,
-  qnaDownBtn,
   qnaDetail,
   subTitleText,
   subTitleContainer,
 } from "./qna.css.ts"; // 스타일 가져오기
+import downbtn from "/src/assets/downbtn.png";
+import upbtn from "/src/assets/upbtn.png";
 
-// NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
+// 타입 정의
 interface QnaItem {
   id: number;
   title: string;
@@ -24,11 +24,11 @@ interface QnaItem {
 }
 
 // 임시 데이터 예시
-const noticeData: QnaItem[] = [
+const QnaData: QnaItem[] = [
   {
     id: 1,
     title: "질문이 있어요1",
-    content: "~~~~해서 ~~~~하시길 바랍니다!",
+    content: "~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!",
   },
   {
     id: 2,
@@ -75,18 +75,18 @@ const noticeData: QnaItem[] = [
 
 function QnA() {
   const [currentPage, setCurrentPage] = useState<number>(1); // 현재 페이지 상태
-  const [expandedNotices, setExpandedNotices] = useState<number[]>([]); // 확장된 공지 ID들을 관리
+  const [expandedQna, setExpandedQna] = useState<number[]>([]); // 확장된 공지 ID들을 관리
   const itemsPerPage = 6;
 
   // downbtn 클릭 시 상세 내용을 보여주는 로직
-  const toggleNotice = (id: number) => {
-    setExpandedNotices((prev) =>
+  const toggleQna = (id: number) => {
+    setExpandedQna((prev) =>
       prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
     );
   };
 
   // 필터링 로직
-  const filteredNotices = noticeData.reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
+  const filteredNotices = QnaData.reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
 
   // 현재 페이지에 맞는 데이터 추출
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -128,11 +128,26 @@ function QnA() {
                     <p className={qnaContent}>{QnaItem.title}</p>
                   </div>
                   {/* downbtn을 클릭하면 토글 */}
-                  <button className={qnaDownBtn} onClick={() => toggleNotice(QnaItem.id)}></button>
+                  <button
+                    onClick={() => toggleQna(QnaItem.id)}
+                    style={{
+                      backgroundImage: `url(${
+                        expandedQna.includes(QnaItem.id) ? upbtn : downbtn
+                      })`, // 확장 여부에 따라 이미지 교체
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundColor: "white",
+                      width: 30,
+                      height: 30,
+                      position: "absolute",
+                      right: 10,
+                      border: "none",
+                    }}
+                  ></button>
                 </div>
 
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}
-                {expandedNotices.includes(QnaItem.id) && (
+                {expandedQna.includes(QnaItem.id) && (
                   <div className={qnaDetail}>{QnaItem.content}</div>
                 )}
               </div>
@@ -165,7 +180,7 @@ function QnA() {
       </div>
 
       <div className={container}>
-        <div className={copyright}></div>
+
       </div>
     </div>
   );
