@@ -28,7 +28,8 @@ const QnaData: QnaItem[] = [
   {
     id: 1,
     title: "질문이 있어요1",
-    content: "~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!",
+    content:
+      "~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!~~~~해서 ~~~~하시길 바랍니다!",
   },
   {
     id: 2,
@@ -131,9 +132,7 @@ function QnA() {
                   <button
                     onClick={() => toggleQna(QnaItem.id)}
                     style={{
-                      backgroundImage: `url(${
-                        expandedQna.includes(QnaItem.id) ? upbtn : downbtn
-                      })`, // 확장 여부에 따라 이미지 교체
+                      backgroundImage: `url(${expandedQna.includes(QnaItem.id) ? upbtn : downbtn})`, // 확장 여부에 따라 이미지 교체
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       backgroundColor: "white",
@@ -179,9 +178,7 @@ function QnA() {
         )}
       </div>
 
-      <div className={container}>
-
-      </div>
+      <div className={container}></div>
     </div>
   );
 }

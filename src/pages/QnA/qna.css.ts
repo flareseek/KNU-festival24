@@ -75,8 +75,6 @@ export const qna = style({
   position: "relative",
 });
 
-
-
 export const qnaNumber = style({
   fontSize: 25,
   fontWeight: 700,
@@ -99,7 +97,6 @@ export const qnaContent = style({
   color: "black",
   margin: 5,
 });
-
 
 // 공지사항 상세 내용 (애니메이션 효과 포함)
 export const qnaDetail = style({
