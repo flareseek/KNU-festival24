@@ -1,6 +1,6 @@
 import BOOTHS from "../../resources/BOOTHS";
 import FOODTRUCKS from "../../resources/FOODTRUCKS";
-import { BOOTH_PLACE, FOODTRUCKS_PLACE } from "../../shared/type/booth_foodtruck";
+import { BOOTH_PLACE, FOODTRUCKS_PLACE } from "../../shared/types/booth_foodtruck";
 
 import Card from "./Card";
 import useTabBtns from "./TabBtns";
