@@ -13,8 +13,6 @@ import {
   noticeNumber,
   noticeDetail,
 } from "./notice.css.ts"; // 스타일 가져오기
-import downbtn from "/src/assets/downbtn.png";
-import upbtn from "/src/assets/upbtn.png";
 
 // NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
 interface NoticeItem {
@@ -181,19 +179,20 @@ function Notice() {
                   <button
                     onClick={() => toggleNotice(noticeItem.id)}
                     style={{
-                      backgroundImage: `url(${
-                        expandedNotices.includes(noticeItem.id) ? upbtn : downbtn
-                      })`, // 확장 여부에 따라 이미지 교체
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundColor: "white",
                       width: 30,
                       height: 30,
                       position: "absolute",
+                      color: "#0081e4",
                       right: 10,
                       border: "none",
                     }}
-                  ></button>
+                  >
+                    <span className="material-symbols-outlined">
+                      {expandedNotices.includes(noticeItem.id)
+                        ? "arrow_drop_up"
+                        : "arrow_drop_down"}
+                    </span>
+                  </button>
                 </div>
 
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}

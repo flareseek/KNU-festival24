@@ -13,8 +13,6 @@ import {
   subTitleText,
   subTitleContainer,
 } from "./qna.css.ts"; // 스타일 가져오기
-import downbtn from "/src/assets/downbtn.png";
-import upbtn from "/src/assets/upbtn.png";
 
 // 타입 정의
 interface QnaItem {
@@ -132,17 +130,17 @@ function QnA() {
                   <button
                     onClick={() => toggleQna(QnaItem.id)}
                     style={{
-                      backgroundImage: `url(${expandedQna.includes(QnaItem.id) ? upbtn : downbtn})`, // 확장 여부에 따라 이미지 교체
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundColor: "white",
-                      width: 30,
-                      height: 30,
                       position: "absolute",
                       right: 10,
+                      fontSize: "30px",
+                      color: "#0081e4",
                       border: "none",
                     }}
-                  ></button>
+                  >
+                    <span className="material-symbols-outlined">
+                      {expandedQna.includes(QnaItem.id) ? "arrow_drop_up" : "arrow_drop_down"}
+                    </span>
+                  </button>
                 </div>
 
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}
