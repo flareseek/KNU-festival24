@@ -44,7 +44,7 @@ export const booths_icon = {
 
 // --- FOODTRUCK ---
 
-export const FOODTRUCKS_PLACE = ["대운동장", "60주년기념관", "미래광장", "함인섭광장"];
+export const FOODTRUCKS_PLACE = ["미래광장", "대운동장", "함인섭광장", "60주년기념관"];
 
 export interface FoodTruck extends BoothFoodtuck {
   place: (typeof FOODTRUCKS_PLACE)[number];

@@ -13,7 +13,6 @@ export default function BoothNFoodList() {
 
   return (
     <div>
-      <h1>BoothList</h1>
       <section>
         <TypeTabBtns tabBtnNames={["부스", "푸드트럭"]} />
         <PlaceTabBtns />

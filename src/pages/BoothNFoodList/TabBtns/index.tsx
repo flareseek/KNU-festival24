@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as styles from "./indes.css";
 
 // TODO: 타임테이블에서 가져다 써도 될 것 같아요
 /**
@@ -11,9 +12,13 @@ export default function useTabBtns(tabNames: string[]) {
   const [activeTab, setActiveTab] = useState(tabNames[0]);
   const TabBtns = ({ tabBtnNames }: { tabBtnNames?: string[] }) => {
     return (
-      <div>
+      <div className={styles.tabBtns}>
         {tabNames.map((tabName, index) => (
-          <button key={tabName} onClick={() => setActiveTab(tabName)}>
+          <button
+            key={tabName}
+            className={`${styles.tabBtn} ${activeTab === tabName ? styles.activeTabBtn : styles.inactiveTabBtn}`}
+            onClick={() => setActiveTab(tabName)}
+          >
             {tabBtnNames ? tabBtnNames[index] : tabName}
           </button>
         ))}
