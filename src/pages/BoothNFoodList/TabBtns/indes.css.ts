@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import { vars } from "../../../shared/styles/vars.css";
 
 export const tabBtns = style({
@@ -18,9 +18,20 @@ export const tabBtn = style({
   borderRadius: "40px",
 });
 
+const slideIn = keyframes({
+  "0%": {
+    backgroundPosition: "left",
+  },
+  "100%": {
+    backgroundPosition: "right",
+  },
+});
 export const activeTabBtn = style({
   color: vars.color.white,
-  background: `linear-gradient(90deg, ${vars.color.green3}, ${vars.color.green1}, ${vars.color.blue2})`,
+  animation: `.5s ease 0s ${slideIn}`,
+  background: `linear-gradient(90deg, ${vars.color.white}, ${vars.color.white}, ${vars.color.white}, ${vars.color.green3}, ${vars.color.green1}, ${vars.color.blue2})`,
+  backgroundSize: "200% 100%",
+  backgroundPosition: "right",
 });
 export const inactiveTabBtn = style({
   color: vars.color.blue1,
