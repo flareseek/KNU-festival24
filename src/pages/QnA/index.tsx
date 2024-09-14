@@ -12,6 +12,9 @@ import {
   qnaDetail,
   subTitleText,
   subTitleContainer,
+  pageButton, 
+  activePageButton, 
+  arrowButton, 
 } from "./qna.css.ts"; // 스타일 가져오기
 
 // 타입 정의
@@ -80,12 +83,12 @@ function QnA() {
   // downbtn 클릭 시 상세 내용을 보여주는 로직
   const toggleQna = (id: number) => {
     setExpandedQna((prev) =>
-      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
+      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id]
     );
   };
 
-  // 필터링 로직
-  const filteredNotices = QnaData.reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
+  // 원본 배열을 복사한 후 reverse
+  const filteredNotices = [...QnaData].reverse(); // 복사 후 배열을 내림차순으로 정렬
 
   // 현재 페이지에 맞는 데이터 추출
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -129,13 +132,7 @@ function QnA() {
                   {/* downbtn을 클릭하면 토글 */}
                   <button
                     onClick={() => toggleQna(QnaItem.id)}
-                    style={{
-                      position: "absolute",
-                      right: 10,
-                      fontSize: "30px",
-                      color: "#0081e4",
-                      border: "none",
-                    }}
+                    className={arrowButton} // 스타일 추가
                   >
                     <span className="material-symbols-outlined">
                       {expandedQna.includes(QnaItem.id) ? "arrow_drop_up" : "arrow_drop_down"}
@@ -159,15 +156,7 @@ function QnA() {
               <button
                 key={pageNumber}
                 onClick={() => paginate(pageNumber)}
-                style={{
-                  margin: "5px",
-                  marginTop: "15px",
-                  padding: "5px 10px",
-                  backgroundColor: currentPage === pageNumber ? "#3498db" : "#ddd",
-                  color: currentPage === pageNumber ? "#fff" : "#000",
-                  border: "none",
-                  borderRadius: "3px",
-                }}
+                className={currentPage === pageNumber ? activePageButton : pageButton} // 스타일 적용
               >
                 {pageNumber}
               </button>

@@ -98,7 +98,7 @@ export const qnaContent = style({
   margin: 5,
 });
 
-// 공지사항 상세 내용 (애니메이션 효과 포함)
+
 export const qnaDetail = style({
   overflow: "hidden",
   maxHeight: "500px", // 최대 높이를 설정
@@ -109,4 +109,36 @@ export const qnaDetail = style({
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+});
+
+export const pageButton = style({
+  margin: "5px",
+  marginTop: "15px",
+  padding: "5px 10px",
+  backgroundColor: "#ddd",
+  color: "#000",
+  border: "none",
+  borderRadius: "3px",
+  cursor: "pointer",
+});
+
+export const activePageButton = style({
+  margin: "5px",
+  marginTop: "15px",
+  padding: "5px 10px",
+  backgroundColor: "#3498db", // 활성화된 페이지 배경색
+  color: "#fff", // 활성화된 페이지 글자색
+  border: "none",
+  borderRadius: "3px",
+  cursor: "pointer",
+});
+
+export const arrowButton = style({
+  position: "absolute",
+  right: "10px",
+  fontSize: "30px",
+  color: "#0081e4",
+  border: "none",
+  background: "none", // 배경 없애기
+  cursor: "pointer", // 커서 설정
 });

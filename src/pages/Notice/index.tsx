@@ -12,6 +12,10 @@ import {
   searchContainer,
   noticeNumber,
   noticeDetail,
+  arrowButton,
+  newBadge,
+  pageButton, 
+  activePageButton, 
 } from "./notice.css.ts"; // 스타일 가져오기
 
 // NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
@@ -156,19 +160,7 @@ function Notice() {
                     <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
                     {/* 가장 최근 게시물에만 'New' 표시 */}
                     {noticeItem.id === mostRecentNoticeId && (
-                      <span
-                        style={{
-                          marginLeft: "10px",
-                          padding: "3px 6px",
-                          backgroundColor: "#e74c3c",
-                          color: "#fff",
-                          borderRadius: "3px",
-                          fontSize: "12px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        New
-                      </span>
+                      <span className={newBadge}>New</span>
                     )}
                   </div>
 
@@ -176,17 +168,7 @@ function Notice() {
                     <p className={noticeContent}>{noticeItem.title}</p>
                   </div>
                   {/* downbtn을 클릭하면 토글 */}
-                  <button
-                    onClick={() => toggleNotice(noticeItem.id)}
-                    style={{
-                      width: 30,
-                      height: 30,
-                      position: "absolute",
-                      color: "#0081e4",
-                      right: 10,
-                      border: "none",
-                    }}
-                  >
+                  <button onClick={() => toggleNotice(noticeItem.id)} className={arrowButton}>
                     <span className="material-symbols-outlined">
                       {expandedNotices.includes(noticeItem.id)
                         ? "arrow_drop_up"
@@ -211,15 +193,7 @@ function Notice() {
               <button
                 key={pageNumber}
                 onClick={() => paginate(pageNumber)}
-                style={{
-                  margin: "5px",
-                  marginTop: "15px",
-                  padding: "5px 10px",
-                  backgroundColor: currentPage === pageNumber ? "#3498db" : "#ddd",
-                  color: currentPage === pageNumber ? "#fff" : "#000",
-                  border: "none",
-                  borderRadius: "3px",
-                }}
+                className={currentPage === pageNumber ? activePageButton : pageButton}
               >
                 {pageNumber}
               </button>

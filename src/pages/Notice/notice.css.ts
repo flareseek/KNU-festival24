@@ -108,7 +108,6 @@ export const noticeContent = style({
   margin: 5,
 });
 
-// 공지사항 상세 내용 (애니메이션 효과 포함)
 export const noticeDetail = style({
   overflow: "hidden",
   maxHeight: "500px", // 최대 높이를 설정
@@ -117,4 +116,48 @@ export const noticeDetail = style({
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+});
+
+//새 게시물에 뜨는 new 태그
+export const newBadge = style({
+  marginLeft: "10px",
+  padding: "3px 6px",
+  backgroundColor: "#e74c3c",
+  color: "#fff",
+  borderRadius: "3px",
+  fontSize: "12px",
+  fontWeight: "bold",
+});
+
+export const arrowButton = style({
+  width: "30px",
+  height: "30px",
+  position: "absolute",
+  color: "#0081e4",
+  right: "10px",
+  border: "none",
+  backgroundColor: "transparent",
+  cursor: "pointer",
+});
+
+export const pageButton = style({
+  margin: "5px",
+  marginTop: "15px",
+  padding: "5px 10px",
+  backgroundColor: "#ddd",
+  color: "#000",
+  border: "none",
+  borderRadius: "3px",
+  cursor: "pointer",
+});
+
+export const activePageButton = style({
+  margin: "5px",
+  marginTop: "15px",
+  padding: "5px 10px",
+  backgroundColor: "#3498db",
+  color: "#fff",
+  border: "none",
+  borderRadius: "3px",
+  cursor: "pointer",
 });
