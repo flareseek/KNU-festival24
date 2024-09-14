@@ -1,4 +1,4 @@
-import { BoothFoodtuck } from "../../../shared/type/booth_foodtruck";
+import { BoothFoodtuck } from "../../../shared/types/booth_foodtruck";
 
 type ContentProps = {
   content: BoothFoodtuck["contents"][0];

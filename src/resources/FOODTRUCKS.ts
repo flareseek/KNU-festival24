@@ -1,4 +1,4 @@
-import { FoodTruck } from "../shared/type/booth_foodtruck";
+import { FoodTruck } from "../shared/types/booth_foodtruck";
 
 const FOODTRUCKS: FoodTruck[] = [
   {
