@@ -6,7 +6,8 @@ const BOOTHS: Booth[] = [
     title: "올해도 돌아온 떡삼",
     place: "미래광장",
     category: "식음료",
-    imgURL: "",
+    imgURL:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/450px-Cat_November_2010-1a.jpg",
     description: "떡꼬치삼겹살 판매",
     description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요",
     hours: "11:00 ~ 16:00",

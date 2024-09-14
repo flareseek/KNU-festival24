@@ -1,3 +1,5 @@
+import * as styles from "./index.css.ts";
+
 type OverviewProps = {
   title: string;
   category: string;
@@ -8,17 +10,19 @@ type OverviewProps = {
 
 export default function Overview({ title, category, imgURL, keyword, hours }: OverviewProps) {
   return (
-    <div>
-      <img src={imgURL} alt={title} />
+    <div className={styles.container}>
+      <img src={imgURL} alt={title} className={styles.coverImg} />
       <div>{category}</div>
       <div>
-        {keyword.map((value, index) => (
-          <span key={index}>{value}</span>
-        ))}
-      </div>
-      <div>
-        <span className="material-symbols-outlined">schedule</span>
-        <span>{hours}</span>
+        <div>
+          {keyword.map((value, index) => (
+            <span key={index}>{value}</span>
+          ))}
+        </div>
+        <div>
+          <span className="material-symbols-outlined">schedule</span>
+          <span>{hours}</span>
+        </div>
       </div>
     </div>
   );
