@@ -7,10 +7,11 @@ import useTabBtns from "./TabBtns";
 import { cardContainer } from "./index.css";
 
 export default function BoothNFoodList() {
-  const { activeTab: typeTab, TabBtns: TypeTabBtns } = useTabBtns(["booth", "foodtruck"]);
-  const { activeTab: placeTab, TabBtns: PlaceTabBtns } = useTabBtns([
-    ...(typeTab == "booth" ? BOOTH_PLACE : FOODTRUCKS_PLACE),
-  ]);
+  const { activeTab: typeTab, TabBtns: TypeTabBtns } = useTabBtns(["booth", "foodtruck"], "type");
+  const { activeTab: placeTab, TabBtns: PlaceTabBtns } = useTabBtns(
+    [...(typeTab == "booth" ? BOOTH_PLACE : FOODTRUCKS_PLACE)],
+    "place",
+  );
 
   return (
     <div>
