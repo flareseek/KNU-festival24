@@ -1,6 +1,6 @@
 import { Booth } from "../shared/types/booth_foodtruck";
 
-const BOOTHS: Booth[] = [
+const BOOTHS: Readonly<Booth[]> = [
   {
     id: 1,
     title: "올해도 돌아온 떡삼",
