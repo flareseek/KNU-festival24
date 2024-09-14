@@ -98,7 +98,6 @@ export const qnaContent = style({
   margin: 5,
 });
 
-
 export const qnaDetail = style({
   overflow: "hidden",
   maxHeight: "500px", // 최대 높이를 설정

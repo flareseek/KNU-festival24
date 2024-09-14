@@ -12,9 +12,9 @@ import {
   qnaDetail,
   subTitleText,
   subTitleContainer,
-  pageButton, 
-  activePageButton, 
-  arrowButton, 
+  pageButton,
+  activePageButton,
+  arrowButton,
 } from "./qna.css.ts"; // 스타일 가져오기
 
 // 타입 정의
@@ -83,7 +83,7 @@ function QnA() {
   // downbtn 클릭 시 상세 내용을 보여주는 로직
   const toggleQna = (id: number) => {
     setExpandedQna((prev) =>
-      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
     );
   };
 

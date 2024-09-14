@@ -14,8 +14,8 @@ import {
   noticeDetail,
   arrowButton,
   newBadge,
-  pageButton, 
-  activePageButton, 
+  pageButton,
+  activePageButton,
 } from "./notice.css.ts"; // 스타일 가져오기
 
 // NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
@@ -159,9 +159,7 @@ function Notice() {
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
                     {/* 가장 최근 게시물에만 'New' 표시 */}
-                    {noticeItem.id === mostRecentNoticeId && (
-                      <span className={newBadge}>New</span>
-                    )}
+                    {noticeItem.id === mostRecentNoticeId && <span className={newBadge}>New</span>}
                   </div>
 
                   <div className={noticeContentWrapper}>
