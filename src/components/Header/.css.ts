@@ -103,16 +103,20 @@ export const menuItemStyles = style({
 });
 
 export const menuItemLinkStyles = style({
+  display: "inline-block",
+  padding: "10px 15px",
   color: "white",
   textDecoration: "none",
   fontSize: "16px",
+  borderRadius: "20px",
+  backgroundColor: "rgba(255, 255, 255, 0.1)",
+  transition: "background-color 0.3s ease",
   ":hover": {
-    textDecoration: "underline",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
   },
 });
 
 export const highlightStyles = style({
   fontWeight: "bold",
-  textDecoration: "underline",
+  backgroundColor: "rgba(255, 255, 255, 0.3)",
 });
