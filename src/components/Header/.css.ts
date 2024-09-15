@@ -8,7 +8,6 @@ export const headerStyles = style({
   justifyContent: "space-between",
   alignItems: "center",
   padding: "10px 20px",
-  backgroundColor: "none",
   position: "relative",
 });
 
@@ -42,8 +41,9 @@ export const toggleBtnStyles = style({
   },
 });
 
+const menuTransition = "transform 0.3s ease-out, opacity 0.3s ease-out";
+
 export const menuStyles = style({
-  flexDirection: "column",
   position: "absolute",
   top: "100%",
   left: 0,
@@ -53,7 +53,7 @@ export const menuStyles = style({
   transform: "translateX(-100%)",
   opacity: 0,
   pointerEvents: "none",
-  transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
+  transition: menuTransition,
   selectors: {
     "&.active": {
       transform: "translateX(0)",
@@ -64,8 +64,8 @@ export const menuStyles = style({
   },
   "@media": {
     [`(min-width: ${mobileBreakpoint})`]: {
-      display: "flex",
       position: "static",
+      display: "flex",
       flexDirection: "row",
       boxShadow: "none",
       padding: 0,
@@ -93,13 +93,11 @@ export const menuListStyles = style({
 });
 
 export const menuItemStyles = style({
-  marginBottom: "10px",
   margin: "16px",
   fontSize: "large",
   "@media": {
     [`(min-width: ${mobileBreakpoint})`]: {
-      marginBottom: 0,
-      marginLeft: "20px",
+      margin: "0 0 0 20px",
     },
   },
 });

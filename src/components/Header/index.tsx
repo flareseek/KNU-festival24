@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
-import RouterInfo from "../../shared/routing/RouterInfo.tsx";
+import RouterInfo from "../../shared/routing/RouterInfo";
 import Logo from "../../assets/logo.svg?react";
 import Menu from "../../assets/menu_buton.json";
 import {
@@ -17,13 +17,16 @@ import {
 import { RouterInfoType } from "../../shared/types/Route";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
+const isCurrentPath = (path: string, pathname: string): boolean =>
+  !!matchPath({ path, end: true }, pathname);
+
 export const Header: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
   const location = useLocation();
   const lottieRef = useRef<LottieRefCurrentProps>(null);
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     setIsActive((prevState) => {
       const newState = !prevState;
       if (lottieRef.current) {
@@ -35,15 +38,15 @@ export const Header: React.FC = () => {
       }
       return newState;
     });
-  };
+  }, []);
 
   useEffect(() => {
     const currentRoute = RouterInfo.find((route) =>
-      matchPath({ path: route.path, end: true }, location.pathname)
+      isCurrentPath(route.path, location.pathname)
     );
-    setCurrentPage(currentRoute ? currentRoute.korean : "/");
+    setCurrentPage(currentRoute?.korean ?? "/");
     setIsActive(false);
-    lottieRef.current?.setSpeed(1.2);
+    lottieRef.current?.setSpeed(1.5);
   }, [location.pathname]);
 
   return (
@@ -62,26 +65,23 @@ export const Header: React.FC = () => {
       />
       <nav className={`${menuStyles} ${isActive ? "active" : ""}`}>
         <ul className={menuListStyles}>
-          {RouterInfo.sort((a: RouterInfoType, b: RouterInfoType) =>
-            a.korean.localeCompare(b.korean)
-          ).map(
-            (item) =>
-              item.expose && (
-                <li key={item.path} className={menuItemStyles}>
-                  <Link
-                    to={item.path}
-                    className={`${menuItemLinkStyles} ${
-                      matchPath({ path: item.path, end: true }, location.pathname)
-                        ? highlightStyles
-                        : ""
-                    }`}
-                    onClick={handleToggle}
-                  >
-                    {item.korean}
-                  </Link>
-                </li>
-              )
-          )}
+          {RouterInfo.filter((item) => item.expose)
+            .sort((a: RouterInfoType, b: RouterInfoType) => a.korean.localeCompare(b.korean))
+            .map((item) => (
+              <li key={item.path} className={menuItemStyles}>
+                <Link
+                  to={item.path}
+                  className={`${menuItemLinkStyles} ${
+                    isCurrentPath(item.path, location.pathname)
+                      ? highlightStyles
+                      : ""
+                  }`}
+                  onClick={handleToggle}
+                >
+                  {item.korean}
+                </Link>
+              </li>
+            ))}
         </ul>
       </nav>
     </header>
