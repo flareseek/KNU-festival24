@@ -1,4 +1,4 @@
-import React, { ComponentType, lazy } from 'react';
+import React, { ComponentType, lazy } from "react";
 
 export interface RouterInfoType {
   path: string;
