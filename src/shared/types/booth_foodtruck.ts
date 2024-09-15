@@ -29,7 +29,7 @@ export interface BoothFoodtuck {
 
 // --- BOOTH ---
 
-export const BOOTH_PLACE = ["미래광장", "대운동장", "함인섭광장"];
+export const BOOTH_PLACE = ["미래광장", "대운동장", "함인섭광장"] as const;
 
 export interface Booth extends BoothFoodtuck {
   place: (typeof BOOTH_PLACE)[number];
@@ -40,11 +40,11 @@ export const booths_icon = {
   식음료: "food_bank",
   놀거리: "local_activity",
   쇼핑: "shopping_bag",
-};
+} as const;
 
 // --- FOODTRUCK ---
 
-export const FOODTRUCKS_PLACE = ["대운동장", "60주년기념관", "미래광장", "함인섭광장"];
+export const FOODTRUCKS_PLACE = ["미래광장", "대운동장", "함인섭광장", "60주년기념관"] as const;
 
 export interface FoodTruck extends BoothFoodtuck {
   place: (typeof FOODTRUCKS_PLACE)[number];
@@ -57,4 +57,4 @@ export const foodtruck_icon = {
   아시안: "food_bank",
   분식: "food_bank",
   디저트: "food_bank",
-};
+} as const;
