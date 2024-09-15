@@ -2,12 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout";
 import RouterInfo from "./shared/routing/RouterInfo.tsx";
 
-
 const RouterPath = RouterInfo.map((info) => {
-    return {
-        path: info.path,
-        element: info.element,
-    }
+  return {
+    path: info.path,
+    element: info.element,
+  };
 });
 
 const router = createBrowserRouter([
