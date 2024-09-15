@@ -31,6 +31,10 @@ globalStyle("input, textarea, select", {
   resize: "none",
 });
 
+globalStyle("::-webkit-scrollbar", {
+  width: "0px",
+  height: "0px",
+});
 globalStyle("a", {
   color: "inherit",
   textDecoration: "none",
