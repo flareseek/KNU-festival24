@@ -7,6 +7,8 @@ globalStyle("body", {
   position: "relative",
   backgroundImage: `url(${backgroundImg})`, // 배경 이미지 경로
   backgroundSize: "100% auto",
+});
+globalStyle("#root", {
   fontFamily: vars.font.pretendardRegular,
 });
 
@@ -32,4 +34,8 @@ globalStyle("input, textarea, select", {
 globalStyle("::-webkit-scrollbar", {
   width: "0px",
   height: "0px",
+});
+globalStyle("a", {
+  color: "inherit",
+  textDecoration: "none",
 });
