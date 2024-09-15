@@ -62,9 +62,7 @@ export const Header: React.FC = () => {
    * 컴포넌트가 마운트될 때 현재 페이지를 설정하고, isActive를 false로 초기화함
    */
   useEffect(() => {
-    const currentRoute = RouterInfo.find((route) =>
-      isCurrentPath(route.path, location.pathname),
-    );
+    const currentRoute = RouterInfo.find((route) => isCurrentPath(route.path, location.pathname));
     setCurrentPage(currentRoute?.korean ?? "/");
     setIsActive(false);
     lottieRef.current?.setSpeed(1.5);
@@ -100,9 +98,7 @@ export const Header: React.FC = () => {
                 <Link
                   to={item.path}
                   className={`${menuItemLinkStyles} ${
-                    isCurrentPath(item.path, location.pathname)
-                      ? highlightStyles
-                      : ""
+                    isCurrentPath(item.path, location.pathname) ? highlightStyles : ""
                   }`}
                   onClick={handleToggle}
                 >

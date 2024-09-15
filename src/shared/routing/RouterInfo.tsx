@@ -10,7 +10,7 @@ import Notice from "../../pages/Notice";
 import QnA from "../../pages/QnA";
 import Timetable from "../../pages/Timetable";
 
-export const RouterInfo: RouterInfoType [] = [
+export const RouterInfo: RouterInfoType[] = [
   {
     path: "/",
     element: <Main />,
