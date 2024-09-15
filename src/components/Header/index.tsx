@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import RouterInfo from "../../shared/routing/RouterInfo";
 import Logo from "../../assets/logo.svg?react";
@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
    */
   useEffect(() => {
     const currentRoute = RouterInfo.find((route) =>
-      isCurrentPath(route.path, location.pathname)
+      isCurrentPath(route.path, location.pathname),
     );
     setCurrentPage(currentRoute?.korean ?? "/");
     setIsActive(false);
