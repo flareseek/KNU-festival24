@@ -1,18 +1,18 @@
-import Layout from "./components/Layout/index.tsx";
-import Main from "./pages/Main/index.tsx";
-import Artist from "./pages/Artist/index.tsx";
-import Booth from "./pages/Booth/index.tsx";
-import BoothNFoodList from "./pages/BoothNFoodList/index.tsx";
-import Foodtruck from "./pages/Foodtruck/index.tsx";
-import Makers from "./pages/Makers/index.tsx";
-import Map from "./pages/Map/index.tsx";
-import Notice from "./pages/Notice/index.tsx";
-import QnA from "./pages/QnA/index.tsx";
-import Timetable from "./pages/Timetable/index.tsx";
+import { RouterInfoType } from "../types/Route.ts";
+import Main from "../../pages/Main";
+import Artist from "../../pages/Artist";
+import Booth from "../../pages/Booth";
+import BoothNFoodList from "../../pages/BoothNFoodList";
+import Foodtruck from "../../pages/Foodtruck";
+import Makers from "../../pages/Makers";
+import Map from "../../pages/Map";
+import Notice from "../../pages/Notice";
+import QnA from "../../pages/QnA";
+import Timetable from "../../pages/Timetable";
 
-export const RouterInfo = [
+export const RouterInfo: RouterInfoType [] = [
     {
-        path: "",
+        path: "/",
         element: <Main />,
         english: "Main",
         korean: "메인",
