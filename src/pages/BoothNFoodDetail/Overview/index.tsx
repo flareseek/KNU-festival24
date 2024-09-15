@@ -12,14 +12,16 @@ export default function Overview({ title, category, imgURL, keyword, hours }: Ov
   return (
     <div className={styles.container}>
       <img src={imgURL} alt={title} className={styles.coverImg} />
-      <div>{category}</div>
-      <div>
+      <div className={styles.category}>{category}</div>
+      <div className={styles.bottomContainer}>
         <div>
           {keyword.map((value, index) => (
-            <span key={index}>{value}</span>
+            <span key={index} className={styles.keywordLabel}>
+              {value}
+            </span>
           ))}
         </div>
-        <div>
+        <div className={styles.hoursLabel}>
           <span className="material-symbols-outlined">schedule</span>
           <span>{hours}</span>
         </div>
