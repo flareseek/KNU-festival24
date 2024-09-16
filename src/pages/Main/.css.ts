@@ -89,6 +89,17 @@ export const mainPageIslandTitleStyle = style({
   backgroundColor: "rgba(255, 255, 255, 0.5)",
   borderRadius: "0.5rem",
   padding: "1.5rem",
+  color: "black",
+  selectors: {
+    "&.right": {
+      marginLeft: "1rem",
+      borderRadius: "1rem 0 0 1rem",
+    },
+    "&.left": {
+      marginRight: "1rem",
+      borderRadius: "0 1rem 1rem 0",
+    },
+  },
 });
 
 export const mainPageMapLogoStyle = style({
