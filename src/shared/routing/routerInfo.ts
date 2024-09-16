@@ -1,14 +1,7 @@
-import React, { ComponentType, lazy } from "react";
+import { lazy } from "react";
+import { routerInfoType } from "../types/routing.ts";
 
-export interface RouterInfoType {
-  path: string;
-  element: React.LazyExoticComponent<ComponentType<any>>;
-  english: string;
-  korean: string;
-  expose: boolean;
-}
-
-export const RouterInfo: RouterInfoType[] = [
+export const routerInfo: routerInfoType[] = [
   {
     path: "/",
     element: lazy(() => import("../../pages/Main")),
@@ -81,4 +74,4 @@ export const RouterInfo: RouterInfoType[] = [
   },
 ];
 
-export default RouterInfo;
+export default routerInfo;

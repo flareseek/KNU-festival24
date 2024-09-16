@@ -1,23 +1,25 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Suspense } from 'react';
 import Layout from "./components/Layout";
-import routerInfo from "./shared/routing/routerInfo.tsx";
-
-const RouterPath = routerInfo.map((info) => {
-  return {
-    path: info.path,
-    element: info.element,
-  };
-});
+import routerInfo from "./shared/routing/routerInfo";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: RouterPath,
+    children: routerInfo.map(({ path, element: Element }) => ({
+      path,
+      element: (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Element />
+        </Suspense>
+      ),
+    })),
   },
 ]);
 
 function App() {
   return <RouterProvider router={router} />;
 }
+
 export default App;
