@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import {
-  activePageButton,
   container,
+  titleText,
   mid,
-  pageButton,
+  notice,
+  noticeList,
+  noticeContentWrapper,
+  noticeContent,
+  noticeContainer,
   searchbar,
   searchContainer,
-  titleText,
+  noticeNumber,
+  noticeDetail,
+  arrowButton,
+  newBadge,
+  pageButton,
+  activePageButton,
 } from "./notice.css.ts"; // 스타일 가져오기
 
 // NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
@@ -134,6 +143,45 @@ function Notice() {
             onChange={handleSearch}
             className={searchbar}
           />
+        </div>
+
+        {/* noticeList 렌더링 */}
+        <div className={noticeList}>
+          {filteredNotices.length === 0 ? (
+            <p style={{ textAlign: "center", color: "white", fontSize: "18px" }}>
+              해당하는 게시글이 없어요!
+            </p>
+          ) : (
+            currentNotices.map((noticeItem, index) => (
+              <div className={noticeContainer} key={noticeItem.id}>
+                <div className={notice}>
+                  {/* 번호와 제목 표시 */}
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
+                    {/* 가장 최근 게시물에만 'New' 표시 */}
+                    {noticeItem.id === mostRecentNoticeId && <span className={newBadge}>New</span>}
+                  </div>
+
+                  <div className={noticeContentWrapper}>
+                    <p className={noticeContent}>{noticeItem.title}</p>
+                  </div>
+                  {/* downbtn을 클릭하면 토글 */}
+                  <button onClick={() => toggleNotice(noticeItem.id)} className={arrowButton}>
+                    <span className="material-symbols-outlined">
+                      {expandedNotices.includes(noticeItem.id)
+                        ? "arrow_drop_up"
+                        : "arrow_drop_down"}
+                    </span>
+                  </button>
+                </div>
+
+                {/* 상세 내용 표시 - 확장 시만 보여줌 */}
+                {expandedNotices.includes(noticeItem.id) && (
+                  <div className={noticeDetail}>{noticeItem.detail}</div>
+                )}
+              </div>
+            ))
+          )}
         </div>
 
         {/* 페이지네이션 */}

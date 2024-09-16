@@ -16,8 +16,8 @@ export const searchContainer = style({
   boxShadow: "0 5px 5px rgba(0,0,0,0.25)",
   width: "80%",
   height: "40px",
-  // position: "absolute",
-  // top: 10,
+  position: "absolute",
+  top: 10,
   marginBottom: 20,
 });
 
@@ -132,7 +132,7 @@ export const newBadge = style({
 export const arrowButton = style({
   width: "30px",
   height: "30px",
-  // position: "absolute",
+  position: "absolute",
   color: "#0081e4",
   right: "10px",
   border: "none",
