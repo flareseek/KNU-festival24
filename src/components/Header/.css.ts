@@ -44,7 +44,6 @@ export const toggleBtnStyles = style({
 const menuTransition = "transform 0.3s ease-out, opacity 0.3s ease-out";
 
 export const menuStyles = style({
-  zIndex: 1,
   position: "absolute",
   top: "100%",
   left: 0,
