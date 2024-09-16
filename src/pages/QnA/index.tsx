@@ -101,7 +101,6 @@ function QnA() {
 
   return (
     <div>
-  
       <div className={mid}>
         <div className={subTitleContainer}>
           <p className={subTitleText}>자주 하는 질문</p>
@@ -160,8 +159,6 @@ function QnA() {
           </div>
         )}
       </div>
-
-
     </div>
   );
 }

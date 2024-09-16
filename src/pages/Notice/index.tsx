@@ -98,17 +98,13 @@ function Notice() {
         {/* 공지사항 목록 렌더링 */}
         <div className={noticeList}>
           {filteredNotices.length === 0 ? (
-            <p className={emptyListAlert}>
-              해당하는 게시글이 없어요!
-            </p>
+            <p className={emptyListAlert}>해당하는 게시글이 없어요!</p>
           ) : (
             currentNotices.map((noticeItem, index) => (
               <div className={noticeContainer} key={noticeItem.id}>
                 <div className={notice}>
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p className={noticeNumber}>
-                      {index + 1 + (currentPage - 1) * itemsPerPage}
-                    </p>
+                    <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
                     {/* 공지사항의 renewal이 true일 경우 'New' 배지를 표시 */}
                     {noticeItem.renewal && <span className={newBadge}>New</span>}
                   </div>
@@ -118,14 +114,9 @@ function Notice() {
                   </div>
 
                   {/* downbtn을 클릭하면 토글 */}
-                  <button
-                    onClick={() => toggleNotice(noticeItem.id)}
-                    className={arrowButton}
-                  >
+                  <button onClick={() => toggleNotice(noticeItem.id)} className={arrowButton}>
                     <span className="material-symbols-outlined">
-                      {expandedNoticeId === noticeItem.id
-                        ? "arrow_drop_up"
-                        : "arrow_drop_down"}
+                      {expandedNoticeId === noticeItem.id ? "arrow_drop_up" : "arrow_drop_down"}
                     </span>
                   </button>
                 </div>

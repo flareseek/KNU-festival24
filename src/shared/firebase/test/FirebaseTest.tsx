@@ -46,7 +46,6 @@ function FirebaseTest() {
               title,
               contents,
             });
-          
           }}
         >
           생성

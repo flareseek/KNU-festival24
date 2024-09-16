@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css";
 
-
 // 검색 필드를 감싸는 컨테이너
 export const searchContainer = style({
   display: "flex",
@@ -27,7 +26,6 @@ export const searchbar = style({
   fontSize: "18px",
   fontWeight: 500,
 });
-
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
@@ -88,8 +86,8 @@ export const noticeContentWrapper = style({
 });
 
 export const noticeTitle = style({
-  display:'inline-block',
-  whiteSpace: 'nowrap',
+  display: "inline-block",
+  whiteSpace: "nowrap",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
@@ -97,7 +95,7 @@ export const noticeTitle = style({
 });
 
 export const noticeDetail = style({
-  whiteSpace:'pre-wrap',
+  whiteSpace: "pre-wrap",
   overflow: "hidden",
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
@@ -108,10 +106,10 @@ export const noticeDetail = style({
 
 //검색한 키워드가 없을 경우 뜨는 글귀
 export const emptyListAlert = style({
-  color:'white',
-  fontSize:18,
-  fontWeight:700,
-  textAlign:'center',
+  color: "white",
+  fontSize: 18,
+  fontWeight: 700,
+  textAlign: "center",
 });
 
 //새 게시물에 뜨는 new 태그

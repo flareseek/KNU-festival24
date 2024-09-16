@@ -1,8 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css";
 
-
-
 export const subTitleContainer = style({
   marginBottom: 20,
   position: "absolute",
@@ -17,8 +15,6 @@ export const subTitleText = style({
   paddingBottom: 0,
   fontFamily: vars.font.pyeongChangBold,
 });
-
-
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
