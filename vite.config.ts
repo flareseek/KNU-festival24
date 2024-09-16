@@ -19,6 +19,7 @@ export default defineConfig({
       },
     }),
     imagetools({
+      exclude: "**/*.webp",
       defaultDirectives: () =>
         new URLSearchParams({
           format: "webp",
