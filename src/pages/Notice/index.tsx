@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  container,
-  titleText,
   mid,
   notice,
   noticeList,
   noticeContentWrapper,
-  noticeContent,
+  noticeTitle,
   noticeContainer,
   searchbar,
   searchContainer,
@@ -16,107 +14,57 @@ import {
   newBadge,
   pageButton,
   activePageButton,
+  emptyListAlert,
 } from "./notice.css.ts"; // 스타일 가져오기
-
-// NoticeItem 타입 정의: 제목은 string, 콘텐츠는 JSX.Element로 지정
-interface NoticeItem {
-  id: number;
-  title: string;
-  content: string;
-  detail: string;
-}
-
-// 임시 데이터 예시
-const noticeData: NoticeItem[] = [
-  {
-    id: 1,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 2,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 3,
-    title: "랄랄라 신규 게시물",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 4,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 5,
-    title: "랄랄라 신규 게시물",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 6,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 7,
-    title: "랄랄라 신규 게시물",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 세부내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 8,
-    title: "2024 강원대학교 백령대동제 개최 안내",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 룰루입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  {
-    id: 9,
-    title: "랄랄라 신규 게시물",
-    content: "This 강원대 the content for notice 1.",
-    detail: "여기는 부스내용입니다. Notice 1에 대한 정보가 더 있습니다.",
-  },
-  // 나머지 공지사항 추가
-];
+import { getNoticeList } from "../../shared/firebase/noticeService"; // Firebase에서 getNoticeList 가져오기
+import { NoticeDto } from "../../shared/types/notice"; // NoticeDto 타입 정의
 
 function Notice() {
-  const [query, setQuery] = useState<string>(""); // 검색어의 타입을 string으로 지정
+  const [notices, setNotices] = useState<NoticeDto[]>([]); // 공지사항 목록 상태
+  const [loading, setLoading] = useState<boolean>(true); // 로딩 상태 관리
+  const [query, setQuery] = useState<string>(""); // 검색어 상태
   const [currentPage, setCurrentPage] = useState<number>(1); // 현재 페이지 상태
-  const [expandedNotices, setExpandedNotices] = useState<number[]>([]); // 확장된 공지 ID들을 관리
-  const itemsPerPage = 6;
+  const [expandedNoticeId, setExpandedNoticeId] = useState<string | null>(null); // 확장된 공지 ID를 관리
+  const itemsPerPage = 6; // 페이지당 항목 수
 
-  // 가장 최근 게시물의 ID 찾기 (ID가 제일 큰 것이 최신 게시물이라고 가정)
-  const mostRecentNoticeId = Math.max(...noticeData.map((notice) => notice.id));
+  // Firebase에서 공지사항 데이터를 가져오는 함수
+  const fetchNotices = async () => {
+    try {
+      const noticeList = await getNoticeList(); // Firebase에서 데이터 가져오기
+      setNotices(noticeList); // 데이터를 상태에 저장
+      setLoading(false); // 로딩 완료
+    } catch (error) {
+      console.error("Error fetching notices:", error);
+      setLoading(false); // 에러가 발생해도 로딩 완료로 변경
+    }
+  };
+
+  // 컴포넌트가 처음 렌더링될 때 Firebase에서 데이터를 가져옴
+  useEffect(() => {
+    fetchNotices();
+  }, []);
 
   // 검색어 입력 시 상태 업데이트
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-    setCurrentPage(1);
+    setCurrentPage(1); // 검색 시 첫 페이지로 이동
   };
 
-  // downbtn 클릭 시 상세 내용을 보여주는 로직
-  const toggleNotice = (id: number) => {
-    setExpandedNotices((prev) =>
-      prev.includes(id) ? prev.filter((noticeId) => noticeId !== id) : [...prev, id],
-    );
+  // 공지사항 토글 로직 (한 게시글만 확장되도록 수정)
+  const toggleNotice = (id: string) => {
+    setExpandedNoticeId((prevId) => (prevId === id ? null : id)); // 같은 게시글 클릭 시 축소, 다른 게시글 클릭 시 확장
   };
 
-  // 필터링 로직
-  const filteredNotices = noticeData
+  // 필터링된 공지사항 목록 (검색어 적용 및 내림차순 정렬)
+  const filteredNotices = notices
     .filter((noticeItem) => {
       const searchText = query.toLowerCase();
       return (
         noticeItem.title.toLowerCase().includes(searchText) ||
-        noticeItem.detail.toLowerCase().includes(searchText)
+        noticeItem.contents.toLowerCase().includes(searchText)
       );
     })
-    .reverse(); // 공지사항을 내림차순으로 정렬 (마지막 공지사항이 제일 위로 오게)
+    .reverse(); // 공지사항을 내림차순으로 정렬 (최신 공지사항이 제일 위로 오게)
 
   // 현재 페이지에 맞는 데이터 추출
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -129,11 +77,13 @@ function Notice() {
   // 페이지 변경 함수
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  // 로딩 중일 때 로딩 메시지 표시
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <div className={container}>
-        <p className={titleText}>공지사항</p>
-      </div>
       <div className={mid}>
         <div className={searchContainer}>
           <input
@@ -145,30 +95,35 @@ function Notice() {
           />
         </div>
 
-        {/* noticeList 렌더링 */}
+        {/* 공지사항 목록 렌더링 */}
         <div className={noticeList}>
           {filteredNotices.length === 0 ? (
-            <p style={{ textAlign: "center", color: "white", fontSize: "18px" }}>
+            <p className={emptyListAlert}>
               해당하는 게시글이 없어요!
             </p>
           ) : (
             currentNotices.map((noticeItem, index) => (
               <div className={noticeContainer} key={noticeItem.id}>
                 <div className={notice}>
-                  {/* 번호와 제목 표시 */}
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
-                    {/* 가장 최근 게시물에만 'New' 표시 */}
-                    {noticeItem.id === mostRecentNoticeId && <span className={newBadge}>New</span>}
+                    <p className={noticeNumber}>
+                      {index + 1 + (currentPage - 1) * itemsPerPage}
+                    </p>
+                    {/* 공지사항의 renewal이 true일 경우 'New' 배지를 표시 */}
+                    {noticeItem.renewal && <span className={newBadge}>New</span>}
                   </div>
 
                   <div className={noticeContentWrapper}>
-                    <p className={noticeContent}>{noticeItem.title}</p>
+                    <p className={noticeTitle}>{noticeItem.title}</p>
                   </div>
+
                   {/* downbtn을 클릭하면 토글 */}
-                  <button onClick={() => toggleNotice(noticeItem.id)} className={arrowButton}>
+                  <button
+                    onClick={() => toggleNotice(noticeItem.id)}
+                    className={arrowButton}
+                  >
                     <span className="material-symbols-outlined">
-                      {expandedNotices.includes(noticeItem.id)
+                      {expandedNoticeId === noticeItem.id
                         ? "arrow_drop_up"
                         : "arrow_drop_down"}
                     </span>
@@ -176,8 +131,8 @@ function Notice() {
                 </div>
 
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}
-                {expandedNotices.includes(noticeItem.id) && (
-                  <div className={noticeDetail}>{noticeItem.detail}</div>
+                {expandedNoticeId === noticeItem.id && (
+                  <div className={noticeDetail}>{noticeItem.contents}</div>
                 )}
               </div>
             ))
@@ -199,8 +154,6 @@ function Notice() {
           </div>
         )}
       </div>
-
-      <div className={container}></div>
     </div>
   );
 }

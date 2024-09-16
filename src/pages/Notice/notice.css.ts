@@ -1,13 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css";
 
-export const titleText = style({
-  fontSize: 20,
-  fontWeight: 600,
-  color: "white",
-  marginTop: 60,
-});
-// 검색 필드와 버튼을 감싸는 컨테이너
+
+// 검색 필드를 감싸는 컨테이너
 export const searchContainer = style({
   display: "flex",
   alignItems: "center",
@@ -33,13 +28,6 @@ export const searchbar = style({
   fontWeight: 500,
 });
 
-// 상단의 빨간 컨테이너
-export const container = style({
-  width: "100%",
-  height: 110,
-  display: "flex",
-  justifyContent: "center",
-});
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
@@ -88,7 +76,7 @@ export const notice = style({
 export const noticeNumber = style({
   fontSize: 25,
   fontWeight: 700,
-  color: `${vars.color.blue1}`,
+  color: `${vars.color.blue2}`,
   marginLeft: 20,
 });
 
@@ -99,9 +87,9 @@ export const noticeContentWrapper = style({
   marginLeft: 10,
 });
 
-export const noticeContent = style({
-  display: "inline-block", // 텍스트가 한 줄로 스크롤되도록 설정
-  whiteSpace: "nowrap", // 텍스트를 한 줄로 유지
+export const noticeTitle = style({
+  display:'inline-block',
+  whiteSpace: 'nowrap',
   fontSize: 16,
   fontWeight: 500,
   color: "black",
@@ -109,13 +97,21 @@ export const noticeContent = style({
 });
 
 export const noticeDetail = style({
+  whiteSpace:'pre-wrap',
   overflow: "hidden",
-  maxHeight: "500px", // 최대 높이를 설정
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+});
+
+//검색한 키워드가 없을 경우 뜨는 글귀
+export const emptyListAlert = style({
+  color:'white',
+  fontSize:18,
+  fontWeight:700,
+  textAlign:'center',
 });
 
 //새 게시물에 뜨는 new 태그

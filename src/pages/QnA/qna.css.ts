@@ -1,12 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css";
 
-export const titleText = style({
-  fontSize: 30,
-  fontWeight: 500,
-  color: "white",
-  marginTop: 60,
-});
+
 
 export const subTitleContainer = style({
   marginBottom: 20,
@@ -23,13 +18,7 @@ export const subTitleText = style({
   fontFamily: vars.font.pyeongChangBold,
 });
 
-// 상단의 빨간 컨테이너
-export const container = style({
-  width: "100%",
-  height: 110,
-  display: "flex",
-  justifyContent: "center",
-});
+
 
 // 중간에 검색창을 배치하는 컨테이너
 export const mid = style({
@@ -78,7 +67,7 @@ export const qna = style({
 export const qnaNumber = style({
   fontSize: 25,
   fontWeight: 700,
-  color: `${vars.color.blue1}`,
+  color: `${vars.color.blue2}`,
   marginLeft: 20,
 });
 
