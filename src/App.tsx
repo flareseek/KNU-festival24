@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Suspense } from 'react';
+import { Suspense } from "react";
 import Layout from "./components/Layout";
 import routerInfo from "./shared/routing/routerInfo";
 
