@@ -1,4 +1,4 @@
-import { RouterInfoType } from "../types/Route.ts";
+import { routerInfoType } from "../types/routing.ts";
 import Main from "../../pages/Main";
 import Artist from "../../pages/Artist";
 import Booth from "../../pages/Booth";
@@ -10,7 +10,7 @@ import Notice from "../../pages/Notice";
 import QnA from "../../pages/QnA";
 import Timetable from "../../pages/Timetable";
 
-export const RouterInfo: RouterInfoType[] = [
+export const routerInfo: routerInfoType[] = [
   {
     path: "/",
     element: <Main />,
@@ -83,4 +83,4 @@ export const RouterInfo: RouterInfoType[] = [
   },
 ];
 
-export default RouterInfo;
+export default routerInfo;

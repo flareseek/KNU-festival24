@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
-import RouterInfo from "../../shared/routing/RouterInfo";
+import routerInfo from "../../shared/routing/routerInfo.tsx";
 import Logo from "../../assets/logo.svg?react";
 import Menu from "../../assets/menu_buton.json";
 import {
@@ -14,7 +14,7 @@ import {
   menuStyles,
   toggleBtnStyles,
 } from "./.css.ts";
-import { RouterInfoType } from "../../shared/types/Route";
+import { routerInfoType } from "../../shared/types/routing.ts";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 
 /**
@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
    * 컴포넌트가 마운트될 때 현재 페이지를 설정하고, isActive를 false로 초기화함
    */
   useEffect(() => {
-    const currentRoute = RouterInfo.find((route) => isCurrentPath(route.path, location.pathname));
+    const currentRoute = routerInfo.find((route) => isCurrentPath(route.path, location.pathname));
     setCurrentPage(currentRoute?.korean ?? "/");
     setIsActive(false);
     lottieRef.current?.setSpeed(1.5);
@@ -91,8 +91,8 @@ export const Header: React.FC = () => {
       {/*페이지 메뉴*/}
       <nav className={`${menuStyles} ${isActive ? "active" : ""}`}>
         <ul className={menuListStyles}>
-          {RouterInfo.filter((item) => item.expose)
-            .sort((a: RouterInfoType, b: RouterInfoType) => a.korean.localeCompare(b.korean))
+          {routerInfo.filter((item) => item.expose)
+            .sort((a: routerInfoType, b: routerInfoType) => a.korean.localeCompare(b.korean))
             .map((item) => (
               <li key={item.path} className={menuItemStyles}>
                 <Link
