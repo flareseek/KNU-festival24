@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import backgroundImg from "../../assets/background.png";
+import backgroundImg from "../../assets/background.webp";
 import { vars } from "./vars.css";
 
 globalStyle("body", {
