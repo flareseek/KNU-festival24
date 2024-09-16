@@ -91,7 +91,8 @@ export const Header: React.FC = () => {
       {/*페이지 메뉴*/}
       <nav className={`${menuStyles} ${isActive ? "active" : ""}`}>
         <ul className={menuListStyles}>
-          {routerInfo.filter((item) => item.expose)
+          {routerInfo
+            .filter((item) => item.expose)
             .sort((a: routerInfoType, b: routerInfoType) => a.korean.localeCompare(b.korean))
             .map((item) => (
               <li key={item.path} className={menuItemStyles}>
