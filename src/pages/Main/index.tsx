@@ -1,13 +1,15 @@
-import React from "react";
 import {
   mainPageIslandStyle1,
   mainPageIslandStyle2,
   mainPageIslandStyle3,
   mainPageIslandStyle4,
+  mainPageIslandTitleStyle,
   mainPageLineUpgalleryViewStyle,
   mainPageLogoStyle,
   mainPageMainTitleRowStyle,
-  mainPageMainTitleStyle, mainPageMapLogoStyle,
+  mainPageMainTitleStyle,
+  mainPageMapLogoStyle,
+  mainPageMapStyle,
   mainPageStyle,
   mainPageSubTitleStyle,
 } from "./.css.ts";
@@ -17,6 +19,7 @@ import ham_square_island from "../../assets/ham_square_island.png";
 import memorial_island from "../../assets/memorial_island.png";
 import mirea_square_island from "../../assets/mirea_square_island.png";
 import stadium_island from "../../assets/stadium_island.png";
+import { Link } from "react-router-dom";
 
 const islandList = [
   {
@@ -55,7 +58,8 @@ export default function Main() {
         </div>
 
         <div className={mainPageSubTitleStyle}>
-          <h2>2024.9.23(월) ~ 9.26(목)</h2>
+          <h3>2024.9.23(월) ~ 9.26(목)</h3>
+          <br />
           <p>강원대학교 춘천캠퍼스</p>
         </div>
       </div>
@@ -70,16 +74,20 @@ export default function Main() {
       <div className={mainPageLineUpgalleryViewStyle}>
         {islandList
           .sort((a, b) => a.name.localeCompare(b.name))
-          .map((island, index) => (
-            <div key={index}>
-              <img
-                src={island.image}
-                alt={island.name}
-                className={island.style}
-              />
-              <p>{island.name}</p>
-            </div>
-          ))}
+          .map((island, index) => {
+            const content = [
+              <img key="image" src={island.image} alt={island.name} className={island.style} />,
+              <p key="name" className={mainPageIslandTitleStyle}>
+                {island.name}
+              </p>,
+            ];
+
+            return (
+              <Link className={mainPageMapStyle} key={index} to={"/"}>
+                {index % 2 !== 0 ? content : content.reverse()}
+              </Link>
+            );
+          })}
       </div>
     </div>
   );
