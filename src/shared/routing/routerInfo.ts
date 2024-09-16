@@ -1,82 +1,73 @@
+import { lazy } from "react";
 import { routerInfoType } from "../types/routing.ts";
-import Main from "../../pages/Main";
-import Artist from "../../pages/Artist";
-import Booth from "../../pages/Booth";
-import BoothNFoodList from "../../pages/BoothNFoodList";
-import Foodtruck from "../../pages/Foodtruck";
-import Makers from "../../pages/Makers";
-import Map from "../../pages/Map";
-import Notice from "../../pages/Notice";
-import QnA from "../../pages/QnA";
-import Timetable from "../../pages/Timetable";
 
 export const routerInfo: routerInfoType[] = [
   {
     path: "/",
-    element: <Main />,
+    element: lazy(() => import("../../pages/Main")),
     english: "Main",
     korean: "메인",
     expose: true,
   },
   {
     path: "artist/:id",
-    element: <Artist />,
+    element: lazy(() => import("../../pages/Artist")),
     english: "Artist",
     korean: "아티스트",
     expose: false,
   },
   {
     path: "booth/:id",
-    element: <Booth />,
+    element: lazy(() => import("../../pages/Booth")),
     english: "Booth",
     korean: "부스",
     expose: false,
   },
   {
     path: "booth_foodtruck_list",
-    element: <BoothNFoodList />,
+    element: lazy(() => import("../../pages/BoothNFoodList")),
     english: "Booth & Foodtruck List",
     korean: "부스 & 푸드트럭 리스트",
     expose: true,
   },
   {
     path: "foodtruck/:id",
-    element: <Foodtruck />,
+    element: lazy(() => import("../../pages/Foodtruck")),
     english: "Foodtruck",
     korean: "푸드트럭",
     expose: false,
   },
   {
     path: "makers",
-    element: <Makers />,
+    element: lazy(() => import("../../pages/Makers")),
     english: "Makers",
     korean: "메이커스",
     expose: false,
   },
   {
     path: "map",
-    element: <Map />,
+    element: lazy(() => import("../../pages/Map")),
     english: "Map",
     korean: "지도",
     expose: true,
   },
   {
     path: "notice",
-    element: <Notice />,
+    element: lazy(() => import("../../pages/Notice")),
     english: "Notice",
     korean: "공지사항",
     expose: true,
   },
   {
     path: "QnA",
-    element: <QnA />,
+    element: lazy(() => import("../../pages/QnA")),
     english: "QnA",
     korean: "QnA",
     expose: true,
   },
   {
     path: "timetable",
-    element: <Timetable />,
+    element: lazy(() => import("../../pages/Timetable")),
     english: "Timetable",
     korean: "타임테이블",
     expose: true,
