@@ -27,4 +27,22 @@ export default defineConfig({
         }),
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id: string) => {
+          if (id.includes("node_modules")) {
+            const module: string = id.split("node_modules/").pop()!.split("/")[0];
+            if (module.includes("react")) {
+              return "react-vendor";
+            }
+            // if (module.includes("poo")) {
+            //   return "poo-vendor";
+            // }
+            return `vendor-${module}`;
+          }
+        },
+      },
+    },
+  },
 });
