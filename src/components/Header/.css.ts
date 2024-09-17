@@ -14,6 +14,7 @@ export const headerStyles = style({
   padding: "0.75rem 1.5rem",
   height: "2.25rem",
   backdropFilter: "blur(100px)",
+  backgroundColor: "rgba(54,181,203,0.2)",
   zIndex: 1000,
 });
 
