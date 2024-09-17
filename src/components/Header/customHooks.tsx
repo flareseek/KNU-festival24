@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState } from "react";
  */
 export const useToggle = (initialState = false) => {
   const [state, setState] = useState(initialState);
-  const toggle = useCallback(() => setState(state => !state), []);
+  const toggle = useCallback(() => setState((state) => !state), []);
   return [state, toggle] as const;
 };
 
@@ -21,7 +21,7 @@ export const useMediaQuery = (query: string) => {
     if (typeof window !== "undefined" && window.matchMedia) {
       return window.matchMedia(query).matches;
     }
-    return false;  // SSR 환경 또는 matchMedia 미지원 브라우저에서 기본값 설정
+    return false; // SSR 환경 또는 matchMedia 미지원 브라우저에서 기본값 설정
   });
 
   useEffect(() => {

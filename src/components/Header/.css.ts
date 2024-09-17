@@ -40,7 +40,6 @@ export const currentPageStyles = style({
   },
 });
 
-
 export const toggleBtnStyles = style({
   background: "none",
   border: "none",
@@ -75,7 +74,6 @@ export const menuStyles = style({
   marginTop: "1rem",
   selectors: {
     "&.active": {
-
       transform: "translateX(0)",
       opacity: 1,
       pointerEvents: "auto",

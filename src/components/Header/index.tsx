@@ -30,7 +30,7 @@ const Header: React.FC = () => {
   const currentPage = useCurrentPage();
   const location = useLocation();
   const lottieRef = useRef<LottieRefCurrentProps>(null);
-  const isDesktop = useMediaQuery('(min-width: 1000px)');
+  const isDesktop = useMediaQuery("(min-width: 1000px)");
 
   const handleToggle = useCallback(() => {
     toggleActive();
