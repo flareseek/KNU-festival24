@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
  * @param routerInfo - 라우터 정보 객체(routerInfo.ts)
  * @param pathname - 현재 경로(useLocation() from react-router-dom)
  */
-export const isCurrentPath = (routerInfo: routerInfoType, pathname: Location<any>): boolean => {
+export const isCurrentPath = (routerInfo: routerInfoType, pathname: Location): boolean => {
   const path = routerInfo.path;
   const _pathname = pathname.pathname;
   return !!matchPath({ path, end: true }, _pathname);
