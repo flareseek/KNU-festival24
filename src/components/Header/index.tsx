@@ -30,6 +30,7 @@ const Header: React.FC = () => {
   const currentPage = useCurrentPage();
   const location = useLocation();
   const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery("(min-width: 1000px)");
 
   const handleToggle = useCallback(() => {
@@ -57,8 +58,26 @@ const Header: React.FC = () => {
     }
   }, [isDesktop, isActive, handleToggle]);
 
+  /**
+   * 컴포넌트 외부 클릭 감지
+   */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        if (isActive) {
+          handleToggle();
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive, handleToggle]);
+
   return (
-    <header className={headerStyles}>
+    <header ref={headerRef} className={headerStyles}>
       {/*로고 부분*/}
       <Link to="/">
         <Logo className={logoStyles} />
@@ -90,7 +109,6 @@ const Header: React.FC = () => {
                   className={`${menuItemLinkStyles} ${
                     isCurrentPath(item, location) ? highlightStyles : ""
                   }`}
-                  onClick={handleToggle}
                 >
                   {item.korean}
                 </Link>
