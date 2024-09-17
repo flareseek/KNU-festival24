@@ -63,7 +63,7 @@ export const qna = style({
 export const qnaNumber = style({
   fontSize: 25,
   fontWeight: 700,
-  color: `${vars.color.blue2}`,
+  color: `${vars.color.blue1}`,
   marginLeft: 20,
 });
 

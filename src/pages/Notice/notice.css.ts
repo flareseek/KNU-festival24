@@ -74,7 +74,7 @@ export const notice = style({
 export const noticeNumber = style({
   fontSize: 25,
   fontWeight: 700,
-  color: `${vars.color.blue2}`,
+  color: `${vars.color.blue1}`,
   marginLeft: 20,
 });
 

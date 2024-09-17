@@ -56,15 +56,13 @@ function Notice() {
   };
 
   // 필터링된 공지사항 목록 (검색어 적용 및 내림차순 정렬)
-  const filteredNotices = notices
-    .filter((noticeItem) => {
-      const searchText = query.toLowerCase();
-      return (
-        noticeItem.title.toLowerCase().includes(searchText) ||
-        noticeItem.contents.toLowerCase().includes(searchText)
-      );
-    })
-    .reverse(); // 공지사항을 내림차순으로 정렬 (최신 공지사항이 제일 위로 오게)
+  const filteredNotices = notices.filter((noticeItem) => {
+    const searchText = query.toLowerCase();
+    return (
+      noticeItem.title.toLowerCase().includes(searchText) ||
+      noticeItem.contents.toLowerCase().includes(searchText)
+    );
+  });
 
   // 현재 페이지에 맞는 데이터 추출
   const indexOfLastItem = currentPage * itemsPerPage;
