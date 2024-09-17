@@ -39,12 +39,18 @@ const Header: React.FC = () => {
     }
   }, [isActive, toggleActive]);
 
+  /**
+   * lottie 속도 조절
+   */
   useEffect(() => {
     if (lottieRef.current) {
       lottieRef.current.setSpeed(1.5);
     }
   }, []);
 
+  /**
+   * 데스크탑에서 페이지 이동 시 메뉴 닫기
+   */
   useEffect(() => {
     if (isDesktop && isActive) {
       handleToggle();
