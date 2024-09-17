@@ -19,10 +19,32 @@ const BOOTHS: Readonly<Booth[]> = [
           {
             title: "음식 이름",
             price: 0,
+            imgURL:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/450px-Cat_November_2010-1a.jpg",
           },
           {
             title: "음식 이름",
             price: 0,
+          },
+        ],
+      },
+      {
+        h3: "메인요리",
+        list: [
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
           },
         ],
       },
