@@ -2,8 +2,11 @@ import { useLocation } from "react-router-dom";
 
 import BOOTHS from "../../resources/BOOTHS";
 import FOODTRUCKS from "../../resources/FOODTRUCKS";
+import sparkles from "../../assets/sparkles.svg";
+
 import Content from "./Content";
 import Overview from "./Overview";
+import * as styles from "./index.css.ts";
 
 /**
  * type: 'booth' or 'foodtruck'
@@ -19,17 +22,23 @@ export default function BoothNFoodDetail() {
   }
 
   return (
-    <div>
-      <section>
-        <Overview
-          title={content.title}
-          category={content.category}
-          imgURL={content.imgURL}
-          keyword={content.keyword}
-          hours={content.hours}
-        />
-      </section>
-      <div>{content.description2}</div>
+    <div className={styles.layout}>
+      <div>
+        <section>
+          <Overview
+            title={content.title}
+            category={content.category}
+            imgURL={content.imgURL}
+            keyword={content.keyword}
+            hours={content.hours}
+          />
+        </section>
+        <section className={styles.descriptionContainer}>
+          <div className={styles.description}>{content.description2}</div>
+          <img className={`${styles.sparkles} ${styles.sparkles1}`} src={sparkles} alt="spakles" />
+          <img className={`${styles.sparkles} ${styles.sparkles2}`} src={sparkles} alt="spakles" />
+        </section>
+      </div>
       <section>
         {content.contents.map((value, index) => (
           <Content key={index} content={value} />

@@ -20,6 +20,7 @@ export const h3 = style({
   border: "1px solid white",
   padding: "4px 6px",
   marginBottom: "10px",
+  marginLeft: "10px",
 });
 
 export const card = style({
