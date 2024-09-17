@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import backgroundImg from "../../assets/background.png";
+import backgroundImg from "../../assets/background.webp";
 import { vars } from "./vars.css";
 
 globalStyle("body", {
@@ -31,6 +31,10 @@ globalStyle("input, textarea, select", {
   resize: "none",
 });
 
+globalStyle("::-webkit-scrollbar", {
+  width: "0px",
+  height: "0px",
+});
 globalStyle("a", {
   color: "inherit",
   textDecoration: "none",

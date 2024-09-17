@@ -11,8 +11,12 @@ import { Notice, NoticeDto } from "../types/notice";
 import { db } from "./firebaseConfig";
 import { noticeConverter } from "./noticeConverter";
 
-// 공지사항 생성
-export async function createNotice(newNotice: Notice) {
+/**
+ * 공지사항 생성
+ * @param newNotice 생성할 공지사항의 Notice 객체
+ * @returns 생성된 공지사항의 ID
+ */
+export async function createNotice(newNotice: Notice): Promise<string> {
   try {
     const docRef = await addDoc(collection(db, "notice").withConverter(noticeConverter), newNotice);
     return docRef.id;
@@ -21,7 +25,10 @@ export async function createNotice(newNotice: Notice) {
   }
 }
 
-// 전체 공지사항 조회
+/**
+ * 전체 공지사항 조회
+ * @returns NoticeDto 객체 배열
+ */
 export async function getNoticeList(): Promise<NoticeDto[]> {
   try {
     const querySnapshot = await getDocs(collection(db, "notice").withConverter(noticeConverter));
@@ -35,7 +42,11 @@ export async function getNoticeList(): Promise<NoticeDto[]> {
   }
 }
 
-// 공지사항 조회
+/**
+ * ID를 통한 공지사항 조회
+ * @param noticeId 조회할 공지사항의 ID
+ * @returns NoticeDto 객체
+ */
 export async function getNoticeById(noticeId: string): Promise<NoticeDto> {
   try {
     const docRef = doc(db, "notice", noticeId).withConverter(noticeConverter);
@@ -51,7 +62,11 @@ export async function getNoticeById(noticeId: string): Promise<NoticeDto> {
   }
 }
 
-// 공지사항 수정
+/**
+ * 공지사항 수정
+ * @param noticeId 수정할 공지사항의 ID
+ * @param newNotice 수정할 내용이 담긴 Notice 객체
+ */
 export async function updateNotice(noticeId: string, newNotice: Notice) {
   try {
     const docRef = doc(db, "notice", noticeId).withConverter(noticeConverter);
@@ -61,7 +76,10 @@ export async function updateNotice(noticeId: string, newNotice: Notice) {
   }
 }
 
-// 공지사항 삭제
+/**
+ * 공지사항 삭제
+ * @param noticeId 삭제할 공지사항의 ID
+ */
 export async function deleteNotice(noticeId: string) {
   try {
     await deleteDoc(doc(db, "notice", noticeId));

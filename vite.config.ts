@@ -5,7 +5,6 @@ import svgr from "vite-plugin-svgr";
 import { imagetools } from "vite-imagetools";
 import compression from "vite-plugin-compression2";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
@@ -20,6 +19,7 @@ export default defineConfig({
       },
     }),
     imagetools({
+      exclude: "**/*.webp",
       defaultDirectives: () =>
         new URLSearchParams({
           format: "webp",
@@ -28,4 +28,22 @@ export default defineConfig({
         }),
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id: string) => {
+          if (id.includes("node_modules")) {
+            const module: string = id.split("node_modules/").pop()!.split("/")[0];
+            if (module.includes("react")) {
+              return "react-vendor";
+            }
+            // if (module.includes("poo")) {
+            //   return "poo-vendor";
+            // }
+            return `vendor-${module}`;
+          }
+        },
+      },
+    },
+  },
 });

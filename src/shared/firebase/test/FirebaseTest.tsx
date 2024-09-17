@@ -5,8 +5,8 @@ import {
   getNoticeById,
   updateNotice,
   deleteNotice,
-} from "./noticeService";
-import { NoticeDto } from "../types/notice";
+} from "../noticeService";
+import { NoticeDto } from "../../types/notice";
 
 // 테스트용 컴포넌트 추후 삭제 예정
 function FirebaseTest() {
