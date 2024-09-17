@@ -26,6 +26,7 @@ import Lottie, { LottieRefCurrentProps } from "lottie-light-react";
 const isCurrentPath = (path: string, pathname: string): boolean =>
   !!matchPath({ path, end: true }, pathname);
 
+
 /**
  * Header 컴포넌트
  * @component
@@ -35,6 +36,16 @@ export const Header: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const [currentPage, setCurrentPage] = useState("/");
   const location = useLocation();
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+  };
+
+  // if lodash is available, plz use this - do not remove -
+  // const handleResize = debounce(() => {
+  //   setWidth(window.innerWidth);
+  // }, 200);
 
   // lottie 애니메이션을 제어하기 위한 ref | 참고: https://lottiereact.com/#calling-the-methods
   const lottieRef = useRef<LottieRefCurrentProps>(null);
@@ -67,6 +78,20 @@ export const Header: React.FC = () => {
     setIsActive(false);
     lottieRef.current?.setSpeed(1.5);
   }, [location.pathname]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      // cleanup
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (width >= 1000 && isActive) {
+        handleToggle();
+    }
+  }, [width]);
 
   return (
     <header className={headerStyles}>
