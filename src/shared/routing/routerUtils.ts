@@ -32,7 +32,7 @@ export const useCurrentPage = (): routerInfoType => {
   useEffect(() => {
     const currentRoute = routerInfo.find((route) => isCurrentPath(route, location));
     setCurrentPage(currentRoute ?? nullPage);
-  }, [location.pathname]);
+  }, [nullPage, location]);
 
   return currentPage;
 };
