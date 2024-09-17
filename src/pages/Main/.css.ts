@@ -53,6 +53,7 @@ export const mainPageLineUpgalleryViewStyle = style({
   gap: "1rem",
   marginTop: "1rem",
   width: "80vw",
+  paddingBottom: "2rem",
 });
 
 // 공통 섬 스타일 정의
@@ -112,6 +113,12 @@ export const mainPageMapStyle = style({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "center",
+});
+
+export const mainPageArtistImageStyle= style({
+  aspectRatio: "4/3",
+  maxWidth: "100%",
+  maxHeight: "100%",
 });
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의

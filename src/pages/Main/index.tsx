@@ -21,6 +21,7 @@ import ham_square_island from "../../assets/ham_square_island.png";
 import memorial_island from "../../assets/memorial_island.png";
 import mirea_square_island from "../../assets/mirea_square_island.png";
 import stadium_island from "../../assets/stadium_island.png";
+import Cerasseal from "./Ceraseal.tsx";
 
 interface Island {
   name: string;
@@ -83,7 +84,9 @@ export default function Main() {
       <MainPageLogo className={mainPageLogoStyle} />
 
       <h3>라인업</h3>
-      <div className={mainPageLineUpgalleryViewStyle}>{/* 여기에 라인업 아이템들 추가 가능 */}</div>
+      <div className={mainPageLineUpgalleryViewStyle}>
+        <Cerasseal imgList = {[ham_square_island, mirea_square_island]} />
+      </div>
 
       <h3>축제 지도</h3>
       <MainPageMapLogo className={mainPageMapLogoStyle} />
