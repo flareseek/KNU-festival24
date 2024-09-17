@@ -13,7 +13,8 @@ export const headerStyles = style({
   alignItems: "center",
   padding: "0.75rem 1.5rem",
   height: "2.25rem",
-  backdropFilter: "blur(100px)", // <-이걸 적용하니까
+  backdropFilter: "blur(100px)",
+  zIndex: 1000,
 });
 
 export const logoStyles = style({
