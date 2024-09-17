@@ -15,7 +15,7 @@ import {
   toggleBtnStyles,
 } from "./.css.ts";
 import { routerInfoType } from "../../shared/types/routing.ts";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import Lottie, { LottieRefCurrentProps } from "lottie-light-react";
 
 /**
  * 현재 경로인지 확인하는 함수
