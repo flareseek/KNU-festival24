@@ -13,9 +13,10 @@ export const headerStyles = style({
   alignItems: "center",
   padding: "0.75rem 1.5rem",
   height: "2.25rem",
-  backdropFilter: "blur(100px)",
-  backgroundColor: "rgba(54,181,203,0.2)",
+  backdropFilter: "blur(10px)",
+  backgroundColor: "rgba(54,181,203,0.5)",
   zIndex: 1000,
+  boxShadow: "0 4px 6px rgba(54,181,203, 0.4)",
 });
 
 export const logoStyles = style({
