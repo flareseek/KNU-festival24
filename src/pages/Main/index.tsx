@@ -75,7 +75,7 @@ const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) =>
   );
 };
 
-export default function Main(){
+export default function Main() {
   return (
     <div className={mainPageStyle}>
       <MainTitle />
@@ -94,4 +94,4 @@ export default function Main(){
       </div>
     </div>
   );
-};
+}
