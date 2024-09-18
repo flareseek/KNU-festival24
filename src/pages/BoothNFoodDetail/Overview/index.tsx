@@ -1,3 +1,4 @@
+import ImageModal from "../../../components/ImageModal/index.tsx";
 import * as styles from "./index.css.ts";
 
 type OverviewProps = {
@@ -11,7 +12,7 @@ type OverviewProps = {
 export default function Overview({ title, category, imgURL, keyword, hours }: OverviewProps) {
   return (
     <div className={styles.container}>
-      <img src={imgURL} alt={title} className={styles.coverImg} />
+      <ImageModal src={imgURL} alt={title} />
       <div className={styles.category}>{category}</div>
       <div className={styles.bottomContainer}>
         <div>
