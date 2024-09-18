@@ -14,7 +14,6 @@ function Cerasseal(props: { imgList: string[] }) {
     autoplaySpeed: 2000,
   };
   return (
-    <div className="slider-container">
       <Slider {...settings}>
         {props.imgList.map((img, index) => (
           <div key={index}>
@@ -22,7 +21,6 @@ function Cerasseal(props: { imgList: string[] }) {
           </div>
         ))}
       </Slider>
-    </div>
   );
 }
 

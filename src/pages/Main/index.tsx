@@ -13,7 +13,7 @@ import {
   mainPageMainTitleStyle,
   mainPageMapLogoStyle,
   mainPageMapStyle,
-  mainPageSubTitleStyle,
+  mainPageSubTitleStyle, mainPageMapViewStyle,
 } from "./.css";
 import MainPageLogo from "../../assets/main_page_logo.svg?react";
 import MainPageMapLogo from "../../assets/main_page_map_logo.svg?react";
@@ -90,7 +90,7 @@ export default function Main() {
 
       <h3>축제 지도</h3>
       <MainPageMapLogo className={mainPageMapLogoStyle} />
-      <div className={mainPageLineUpgalleryViewStyle}>
+      <div className={mainPageMapViewStyle}>
         {islandList.map((island, idx) => (
           <IslandItem key={island.name} {...island} index={idx} />
         ))}

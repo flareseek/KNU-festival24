@@ -19,13 +19,22 @@ export const mainPageStyle = style({
   fontWeight: "bold",
   color: "white",
   textAlign: "center",
-  padding: "1rem",
+  // margin: "1rem",
   fontFamily: vars.font.pyeongChangBold,
+  width: "100vw",
 });
 
 export const mainPageLogoStyle = style({
   width: "80vw",
   marginTop: "2rem",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
+    },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    }
+  }
 });
 
 export const mainPageMainTitleStyle = style({
@@ -47,13 +56,31 @@ export const mainPageSubTitleStyle = style({
 });
 
 export const mainPageLineUpgalleryViewStyle = style({
-  maxWidth: "472px",
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-  gap: "1rem",
+
+  // display: "grid",
+  // gridTemplateColumns: "repeat(auto-fill, minmax(100%, 1fr))",
+  // gap: "1rem",
   marginTop: "1rem",
-  width: "80vw",
+  width: "50vw",
   paddingBottom: "2rem",
+});
+
+export const mainPageMapViewStyle = style({
+  marginTop: '1rem',
+  width: '100vw',
+  display: 'grid',
+  gridTemplateColumns: '1fr', // 모바일에서 1열
+  gap: '1rem',
+
+  '@media': {
+    'screen and (min-width: 768px)': {
+      gridTemplateColumns: '1fr 1fr', // 태블릿 이상에서 2열
+    },
+    'screen and (min-width: 1024px)': {
+      gridTemplateColumns: '1fr 1fr', // 추가적인 반응형 설정 가능
+      width: '50vw',
+    },
+  },
 });
 
 // 공통 섬 스타일 정의
@@ -89,7 +116,7 @@ export const mainPageIslandTitleStyle = style({
   display: "inline-block",
   backgroundColor: "rgba(255, 255, 255, 0.5)",
   borderRadius: "0.5rem",
-  padding: "1.5rem",
+  padding: "1rem",
   color: "black",
   selectors: {
     "&.right": {
@@ -106,6 +133,16 @@ export const mainPageIslandTitleStyle = style({
 export const mainPageMapLogoStyle = style({
   animation: `${floatAnimation} 4s ease-in-out infinite`,
   animationDelay: "0.5s",
+  width: "80vw",
+  marginTop: "2rem",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
+    },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    }
+  }
 });
 
 export const mainPageMapStyle = style({
