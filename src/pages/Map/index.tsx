@@ -1,7 +1,9 @@
+import usePlaceSelect from "./PlaceSelect";
 export default function Map() {
+  const { place, PlaceSelect } = usePlaceSelect();
   return (
     <div>
-      <h1>Map</h1>
+      <PlaceSelect />
     </div>
   );
 }
