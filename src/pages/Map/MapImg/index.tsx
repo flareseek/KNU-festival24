@@ -4,13 +4,16 @@ import mirea_square_island from "/src/assets/mirea_square_island.png";
 import stadium_island from "/src/assets/stadium_island.png";
 
 import { PLACE } from "../mapData";
+import * as styles from "./index.css.ts";
+import { MemorialObjs } from "./Objs.tsx";
 
 const islandList = [memorial_island, ham_square_island, stadium_island, mirea_square_island];
 
 export default function MapImg({ placeNum }: { placeNum: number }) {
   return (
-    <div>
-      <img src={islandList[placeNum]} alt={`${PLACE[placeNum]} 지도`} />
+    <div className={styles.container}>
+      <img className={styles.mapImg} src={islandList[placeNum]} alt={`${PLACE[placeNum]} 지도`} />
+      <MemorialObjs />
     </div>
   );
 }
