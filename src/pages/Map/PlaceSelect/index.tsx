@@ -1,26 +1,23 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
+import { PLACE } from "../mapData";
 
 export default function usePlaceSelect() {
-  const PLACE = useMemo(() => ["60주년기념관", "함인섭광장", "대운동장", "미래광장"] as const, []);
-  const [place, setPlace] = useState<(typeof PLACE)[number]>(PLACE[0]);
+  const [placeNum, setPlaceNum] = useState(0);
 
   const PlaceSelect = useCallback(
     () => (
       <div>
-        <select
-          defaultValue={PLACE[0]}
-          onChange={(e) => setPlace(e.target.value as (typeof PLACE)[number])}
-        >
-          {PLACE.map((p) => (
-            <option key={p} value={p}>
+        <select defaultValue={0} onChange={(e) => setPlaceNum(Number(e.target.value))}>
+          {PLACE.map((p, i) => (
+            <option key={p} value={i}>
               {p}
             </option>
           ))}
         </select>
       </div>
     ),
-    [PLACE],
+    [],
   );
 
-  return { place, PlaceSelect };
+  return { placeNum, PlaceSelect };
 }

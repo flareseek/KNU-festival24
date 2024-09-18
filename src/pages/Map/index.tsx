@@ -1,9 +1,11 @@
+import MapImg from "./MapImg";
 import usePlaceSelect from "./PlaceSelect";
 export default function Map() {
-  const { place, PlaceSelect } = usePlaceSelect();
+  const { placeNum, PlaceSelect } = usePlaceSelect();
   return (
     <div>
       <PlaceSelect />
+      <MapImg placeNum={placeNum} />
     </div>
   );
 }
