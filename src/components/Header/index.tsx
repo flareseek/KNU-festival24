@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
    */
   const handleToggle = useCallback(() => {
     setIsActive((prevState) => {
-        const newState = !prevState;
+      const newState = !prevState;
       if (lottieRef.current) {
         if (newState) {
           lottieRef.current.playSegments([0, 60], true);

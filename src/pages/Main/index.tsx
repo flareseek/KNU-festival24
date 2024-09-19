@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  mainPageStyle,
   mainPageIslandStyle1,
   mainPageIslandStyle2,
   mainPageIslandStyle3,
@@ -13,7 +12,9 @@ import {
   mainPageMainTitleStyle,
   mainPageMapLogoStyle,
   mainPageMapStyle,
-  mainPageSubTitleStyle, mainPageMapViewStyle,
+  mainPageMapViewStyle,
+  mainPageStyle,
+  mainPageSubTitleStyle,
 } from "./.css";
 import MainPageLogo from "../../assets/main_page_logo.svg?react";
 import MainPageMapLogo from "../../assets/main_page_map_logo.svg?react";
@@ -28,6 +29,17 @@ interface Island {
   image: string;
   style: string;
 }
+
+const settings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  initialSlide: 2,
+  autoplay: true,
+  speed: 2000,
+  autoplaySpeed: 2000,
+};
 
 const islandList: Island[] = [
   { name: "함인섭 광장", image: ham_square_island, style: mainPageIslandStyle1 },
@@ -85,7 +97,7 @@ export default function Main() {
 
       <h3>라인업</h3>
       <div className={mainPageLineUpgalleryViewStyle}>
-        <Cerasseal imgList = {[ham_square_island, mirea_square_island]} />
+        <Cerasseal imgList={[ham_square_island, mirea_square_island]} settings={settings} />
       </div>
 
       <h3>축제 지도</h3>

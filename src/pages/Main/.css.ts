@@ -19,7 +19,6 @@ export const mainPageStyle = style({
   fontWeight: "bold",
   color: "white",
   textAlign: "center",
-  // margin: "1rem",
   fontFamily: vars.font.pyeongChangBold,
   width: "100vw",
 });
@@ -33,8 +32,8 @@ export const mainPageLogoStyle = style({
     },
     "(min-width: 1500px)": {
       width: "30vw",
-    }
-  }
+    },
+  },
 });
 
 export const mainPageMainTitleStyle = style({
@@ -46,6 +45,7 @@ export const mainPageMainTitleStyle = style({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+  padding: "0 1rem",
 });
 
 export const mainPageSubTitleStyle = style({
@@ -56,29 +56,24 @@ export const mainPageSubTitleStyle = style({
 });
 
 export const mainPageLineUpgalleryViewStyle = style({
-
-  // display: "grid",
-  // gridTemplateColumns: "repeat(auto-fill, minmax(100%, 1fr))",
-  // gap: "1rem",
   marginTop: "1rem",
-  width: "50vw",
+  width: "80vw",
   paddingBottom: "2rem",
 });
 
 export const mainPageMapViewStyle = style({
-  marginTop: '1rem',
-  width: '100vw',
-  display: 'grid',
-  gridTemplateColumns: '1fr', // 모바일에서 1열
-  gap: '1rem',
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr", // 모바일에서 1열
+  gap: "1rem",
 
-  '@media': {
-    'screen and (min-width: 768px)': {
-      gridTemplateColumns: '1fr 1fr', // 태블릿 이상에서 2열
+  "@media": {
+    "screen and (min-width: 768px)": {
+      gridTemplateColumns: "1fr 1fr", // 태블릿 이상에서 2열
     },
-    'screen and (min-width: 1024px)': {
-      gridTemplateColumns: '1fr 1fr', // 추가적인 반응형 설정 가능
-      width: '50vw',
+    "screen and (min-width: 1024px)": {
+      gridTemplateColumns: "1fr 1fr", // 추가적인 반응형 설정 가능
+      width: "50vw",
     },
   },
 });
@@ -86,7 +81,7 @@ export const mainPageMapViewStyle = style({
 // 공통 섬 스타일 정의
 const createIslandStyle = (animationDelay: string) =>
   style({
-    width: "100%",
+    width: "80%",
     height: "auto",
     objectFit: "cover",
     borderRadius: "1rem",
@@ -103,8 +98,17 @@ const createIslandStyle = (animationDelay: string) =>
 
 export const mainPageMainTitleRowStyle = style({
   display: "flex",
-  justifyContent: "space-between", // 글자 간 간격 유지
-  width: "100%", // 부모 컨테이너의 전체 너비를 사용하여 간격을 정확히 맞춤
+  justifyContent: "space-between",
+  // paddingLeft: "1rem",
+  width: "100%",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
+    },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    },
+  },
 });
 
 export const mainPageIslandTitleStyle = style({
@@ -141,21 +145,24 @@ export const mainPageMapLogoStyle = style({
     },
     "(min-width: 1500px)": {
       width: "30vw",
-    }
-  }
+    },
+  },
 });
 
 export const mainPageMapStyle = style({
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
+  left: 0,
+  right: 0,
 });
 
-export const mainPageArtistImageStyle= style({
-  aspectRatio: "4/3",
+export const mainPageArtistImageStyle = style({
+  aspectRatio: "16/9",
   maxWidth: "100%",
   maxHeight: "100%",
+  // width: "100%",
 });
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의
