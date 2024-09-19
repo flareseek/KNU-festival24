@@ -18,3 +18,8 @@ export interface SliderSettings{
 export interface IslandItemProps extends Island {
     index: number;
 }
+
+export interface artistInfoListProps {
+    name: string;
+    image: string;
+}

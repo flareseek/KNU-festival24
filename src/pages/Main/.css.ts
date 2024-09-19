@@ -57,7 +57,8 @@ export const mainPageSubTitleStyle = style({
 
 export const mainPageLineUpgalleryViewStyle = style({
   marginTop: "1rem",
-  width: "80vw",
+  width: "50vw",
+  height: "auto",
   paddingBottom: "2rem",
 });
 
@@ -159,10 +160,9 @@ export const mainPageMapStyle = style({
 });
 
 export const mainPageArtistImageStyle = style({
-  aspectRatio: "16/9",
+  // aspectRatio: "16/9",
   maxWidth: "100%",
   maxHeight: "100%",
-  // width: "100%",
 });
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의

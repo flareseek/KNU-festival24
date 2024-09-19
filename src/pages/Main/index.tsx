@@ -22,6 +22,7 @@ import ham_square_island from "../../assets/island/ham_square_island.png";
 import memorial_island from "../../assets/island/memorial_island.png";
 import mirea_square_island from "../../assets/island/mirea_square_island.png";
 import stadium_island from "../../assets/island/stadium_island.png";
+import {artistList} from "./artistImport.ts"
 import Cerasseal from "./Ceraseal.tsx";
 import {Island, IslandItemProps, SliderSettings} from "../../shared/types/mainPage.ts";
 
@@ -88,7 +89,7 @@ export default function Main() {
 
       <h3>라인업</h3>
       <div className={mainPageLineUpgalleryViewStyle}>
-        <Cerasseal imgList={[ham_square_island, mirea_square_island]} settings={settings} />
+        <Cerasseal imgList={artistList} settings={settings} />
       </div>
 
       <h3>축제 지도</h3>
