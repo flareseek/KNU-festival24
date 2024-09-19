@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {
+    mainPageHeadLineStyle,
     mainPageIslandStyle1,
     mainPageIslandStyle2,
     mainPageIslandStyle3,
@@ -12,9 +13,9 @@ import {
     mainPageMainTitleStyle,
     mainPageMapLogoStyle,
     mainPageMapStyle,
-    mainPageMapViewStyle,
+    mainPageMapViewStyle, mainPageQuickLinkContainerStyle, mainPageQuickLinkStyle,
     mainPageStyle,
-    mainPageSubTitleStyle,
+    mainPageSubTitleStyle, mainPageVideoStyle,
 } from "./.css";
 import MainPageLogo from "../../assets/logo/main_page_logo.svg?react";
 import MainPageMapLogo from "../../assets/island/main_page_map_logo.svg?react";
@@ -25,15 +26,19 @@ import stadium_island from "../../assets/island/stadium_island.png";
 import {artistList} from "./artistImport.ts"
 import Cerasseal from "./Ceraseal.tsx";
 import {Island, IslandItemProps, SliderSettings} from "../../shared/types/mainPage.ts";
+import {highlightStyles, menuItemLinkStyles, menuItemStyles, menuListStyles} from "../../components/Header/.css.ts";
+import routerInfo from "../../shared/routing/routerInfo.ts";
+import {routerInfoType} from "../../shared/types/routing.ts";
+import {isCurrentPath} from "../../shared/routing/routerUtils.ts";
 
 const settings:SliderSettings = {
-  dots: true,
+  dots: false,
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   initialSlide: 2,
   autoplay: true,
-  speed: 2000,
+  speed: 1500,
   autoplaySpeed: 2000,
 };
 
@@ -63,6 +68,17 @@ const SubTitle: React.FC = () => (
   </div>
 );
 
+const QuickLink: React.FC = () => (
+    <div className={mainPageQuickLinkContainerStyle}>
+        {routerInfo.filter((info: routerInfoType) => info.mainPage).sort((a: routerInfoType, b: routerInfoType) => a.korean.localeCompare(b.korean)).map((info: routerInfoType) => (
+            <Link key={info.path} to={info.path}>
+                <p className={mainPageQuickLinkStyle}>{`${info.korean}→`}</p>
+            </Link>
+        ))
+        }
+    </div>
+);
+
 const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) => {
   const isRight = index % 2 !== 0;
 
@@ -86,13 +102,16 @@ export default function Main() {
       <MainTitle />
       <SubTitle />
       <MainPageLogo className={mainPageLogoStyle} />
-
+        <QuickLink />
       <h3>라인업</h3>
+        <hr className={mainPageHeadLineStyle}/>
       <div className={mainPageLineUpgalleryViewStyle}>
         <Cerasseal imgList={artistList} settings={settings} />
       </div>
 
       <h3>축제 지도</h3>
+        <hr className={mainPageHeadLineStyle}/>
+        <p className={mainPageSubTitleStyle}>장소를 탭하면 각 장소의 세부 지도를 봇 수 있어요 </p>
       <MainPageMapLogo className={mainPageMapLogoStyle} />
       <div className={mainPageMapViewStyle}>
         {islandList.map((island, idx) => (

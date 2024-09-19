@@ -55,11 +55,35 @@ export const mainPageSubTitleStyle = style({
   fontWeight: "300",
 });
 
+export const mainPageQuickLinkContainerStyle = style({
+  display: "flex",
+  flexDirection: "column",
+    alignItems: "start",
+  marginTop: "1rem",
+    marginBottom: "1rem",
+});
+
+export const mainPageQuickLinkStyle = style({
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    color: "white",
+    textDecoration: "none",
+    margin: "0.5rem",
+});
+
 export const mainPageLineUpgalleryViewStyle = style({
   marginTop: "1rem",
-  width: "50vw",
+  width: "60vw",
   height: "auto",
   paddingBottom: "2rem",
+    "@media": {
+        "(min-width: 1000px)": {
+        width: "50vw",
+        },
+        "(min-width: 1500px)": {
+        width: "30vw",
+        },
+    },
 });
 
 export const mainPageMapViewStyle = style({
@@ -74,7 +98,7 @@ export const mainPageMapViewStyle = style({
     },
     "screen and (min-width: 1024px)": {
       gridTemplateColumns: "1fr 1fr", // 추가적인 반응형 설정 가능
-      width: "50vw",
+      width: "60vw",
     },
   },
 });
@@ -102,15 +126,21 @@ export const mainPageMainTitleRowStyle = style({
   justifyContent: "space-between",
   // paddingLeft: "1rem",
   width: "100%",
-  "@media": {
-    "(min-width: 1000px)": {
-      width: "50vw",
-    },
-    "(min-width: 1500px)": {
-      width: "30vw",
-    },
-  },
 });
+
+export const mainPageVideoStyle = style({
+    width: "80vw",
+    marginTop: "2rem",
+    "@media": {
+        "(min-width: 1000px)": {
+        width: "50vw",
+        },
+        "(min-width: 1500px)": {
+        width: "30vw",
+        },
+    },
+});
+
 
 export const mainPageIslandTitleStyle = style({
   writingMode: "vertical-rl",
@@ -163,6 +193,21 @@ export const mainPageArtistImageStyle = style({
   // aspectRatio: "16/9",
   maxWidth: "100%",
   maxHeight: "100%",
+});
+
+export const mainPageHeadLineStyle = style({
+  width: "80vw",
+  height: "1px",
+  backgroundColor: "white",
+  // margin: "2rem 0",
+    "@media": {
+        "(min-width: 1000px)": {
+        width: "50vw",
+        },
+        "(min-width: 1500px)": {
+        width: "30vw",
+        },
+    },
 });
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의
