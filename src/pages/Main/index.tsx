@@ -1,36 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {
-  mainPageIslandStyle1,
-  mainPageIslandStyle2,
-  mainPageIslandStyle3,
-  mainPageIslandStyle4,
-  mainPageIslandTitleStyle,
-  mainPageLineUpgalleryViewStyle,
-  mainPageLogoStyle,
-  mainPageMainTitleRowStyle,
-  mainPageMainTitleStyle,
-  mainPageMapLogoStyle,
-  mainPageMapStyle,
-  mainPageMapViewStyle,
-  mainPageStyle,
-  mainPageSubTitleStyle,
+    mainPageIslandStyle1,
+    mainPageIslandStyle2,
+    mainPageIslandStyle3,
+    mainPageIslandStyle4,
+    mainPageIslandTitleStyle,
+    mainPageLineUpgalleryViewStyle,
+    mainPageLogoStyle,
+    mainPageMainTitleRowStyle,
+    mainPageMainTitleStyle,
+    mainPageMapLogoStyle,
+    mainPageMapStyle,
+    mainPageMapViewStyle,
+    mainPageStyle,
+    mainPageSubTitleStyle,
 } from "./.css";
-import MainPageLogo from "../../assets/main_page_logo.svg?react";
-import MainPageMapLogo from "../../assets/main_page_map_logo.svg?react";
-import ham_square_island from "../../assets/ham_square_island.png";
-import memorial_island from "../../assets/memorial_island.png";
-import mirea_square_island from "../../assets/mirea_square_island.png";
-import stadium_island from "../../assets/stadium_island.png";
+import MainPageLogo from "../../assets/logo/main_page_logo.svg?react";
+import MainPageMapLogo from "../../assets/island/main_page_map_logo.svg?react";
+import ham_square_island from "../../assets/island/ham_square_island.png";
+import memorial_island from "../../assets/island/memorial_island.png";
+import mirea_square_island from "../../assets/island/mirea_square_island.png";
+import stadium_island from "../../assets/island/stadium_island.png";
 import Cerasseal from "./Ceraseal.tsx";
+import {Island, IslandItemProps, SliderSettings} from "../../shared/types/mainPage.ts";
 
-interface Island {
-  name: string;
-  image: string;
-  style: string;
-}
-
-const settings = {
+const settings:SliderSettings = {
   dots: true,
   infinite: true,
   slidesToShow: 1,
@@ -66,10 +61,6 @@ const SubTitle: React.FC = () => (
     <p>강원대학교 춘천캠퍼스</p>
   </div>
 );
-
-interface IslandItemProps extends Island {
-  index: number;
-}
 
 const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) => {
   const isRight = index % 2 !== 0;

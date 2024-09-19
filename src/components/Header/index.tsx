@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, matchPath, useLocation } from "react-router-dom";
 import routerInfo from "../../shared/routing/routerInfo";
-import Logo from "../../assets/logo.svg?react";
+import Logo from "../../assets/logo/logo.svg?react";
 import Menu from "../../assets/menu_buton.json";
 import {
   currentPageStyles,
