@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Link, matchPath, useLocation } from "react-router-dom";
+import React, { useCallback, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import routerInfo from "../../shared/routing/routerInfo";
 import Logo from "../../assets/logo.svg?react";
 import Menu from "../../assets/menu_buton.json";
@@ -15,68 +15,76 @@ import {
   toggleBtnStyles,
 } from "./.css.ts";
 import { routerInfoType } from "../../shared/types/routing.ts";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import Lottie, { LottieRefCurrentProps } from "lottie-light-react";
+import { useMediaQuery, useToggle } from "./customHooks.tsx";
 
-/**
- * 현재 경로인지 확인하는 함수
- * @param path 비교할 경로
- * @param pathname 현재 경로(useLocation().pathname)
- * @return boolean
- */
-const isCurrentPath = (path: string, pathname: string): boolean =>
-  !!matchPath({ path, end: true }, pathname);
+import { isCurrentPath, useCurrentPage } from "../../shared/routing/routerUtils.ts";
 
 /**
  * Header 컴포넌트
  * @component
  * @returns {React.ReactElement} Header 컴포넌트 요소
  */
-export const Header: React.FC = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [currentPage, setCurrentPage] = useState("/");
+const Header: React.FC = () => {
+  const [isActive, toggleActive] = useToggle(false);
+  const currentPage = useCurrentPage();
   const location = useLocation();
-
-  // lottie 애니메이션을 제어하기 위한 ref | 참고: https://lottiereact.com/#calling-the-methods
   const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery("(min-width: 1000px)");
+
+  const handleToggle = useCallback(() => {
+    toggleActive();
+    if (lottieRef.current) {
+      lottieRef.current.playSegments(isActive ? [60, 120] : [0, 60], true);
+    }
+  }, [isActive, toggleActive]);
 
   /**
-   * 토글 버튼 클릭 이벤트 핸들러
-   * @function handleToggle
-   * @return {void}
+   * lottie 속도 조절
    */
-  const handleToggle = useCallback(() => {
-    setIsActive((prevState) => {
-      const newState = !prevState;
-      if (lottieRef.current) {
-        if (newState) {
-          lottieRef.current.playSegments([0, 60], true);
-        } else {
-          lottieRef.current.playSegments([60, 120], true);
-        }
-      }
-      return newState;
-    });
+  useEffect(() => {
+    if (lottieRef.current) {
+      lottieRef.current.setSpeed(1.5);
+    }
   }, []);
 
   /**
-   * 컴포넌트가 마운트될 때 현재 페이지를 설정하고, isActive를 false로 초기화함
+   * 데스크탑에서 페이지 이동 시 메뉴 닫기
    */
   useEffect(() => {
-    const currentRoute = routerInfo.find((route) => isCurrentPath(route.path, location.pathname));
-    setCurrentPage(currentRoute?.korean ?? "/");
-    setIsActive(false);
-    lottieRef.current?.setSpeed(1.5);
-  }, [location.pathname]);
+    if (isDesktop && isActive) {
+      handleToggle();
+    }
+  }, [isDesktop, isActive, handleToggle]);
+
+  /**
+   * 컴포넌트 외부 클릭 감지
+   */
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        if (isActive) {
+          handleToggle();
+        }
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive, handleToggle]);
 
   return (
-    <header className={headerStyles}>
+    <header ref={headerRef} className={headerStyles}>
       {/*로고 부분*/}
       <Link to="/">
         <Logo className={logoStyles} />
       </Link>
 
       {/*현재 페이지 출력 부분*/}
-      <span className={currentPageStyles}>{currentPage}</span>
+      <span className={currentPageStyles}>{currentPage.korean}</span>
 
       {/*토글 버튼 (lottie)*/}
       <Lottie
@@ -92,16 +100,15 @@ export const Header: React.FC = () => {
       <nav className={`${menuStyles} ${isActive ? "active" : ""}`}>
         <ul className={menuListStyles}>
           {routerInfo
-            .filter((item) => item.expose)
+            .filter((item: routerInfoType) => item.expose)
             .sort((a: routerInfoType, b: routerInfoType) => a.korean.localeCompare(b.korean))
-            .map((item) => (
+            .map((item: routerInfoType) => (
               <li key={item.path} className={menuItemStyles}>
                 <Link
                   to={item.path}
                   className={`${menuItemLinkStyles} ${
-                    isCurrentPath(item.path, location.pathname) ? highlightStyles : ""
+                    isCurrentPath(item, location) ? highlightStyles : ""
                   }`}
-                  onClick={handleToggle}
                 >
                   {item.korean}
                 </Link>
@@ -113,4 +120,4 @@ export const Header: React.FC = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
