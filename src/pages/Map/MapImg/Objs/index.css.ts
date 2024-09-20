@@ -1,5 +1,5 @@
 import { keyframes, style } from "@vanilla-extract/css";
-import { vars } from "../../../shared/styles/vars.css";
+import { vars } from "../../../../shared/styles/vars.css";
 
 export const movDiv = style({
   position: "absolute",

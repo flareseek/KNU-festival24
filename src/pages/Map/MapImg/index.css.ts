@@ -5,7 +5,7 @@ const floating = keyframes({
     transform: "translateY(0)",
   },
   "100%": {
-    transform: "translateY(-5px)",
+    transform: "translateY(-7px)",
   },
 });
 export const container = style({
