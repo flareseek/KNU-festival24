@@ -22,4 +22,5 @@ export interface IslandItemProps extends Island {
 export interface artistInfoListProps {
     name: string;
     image: string;
+    url: string;
 }

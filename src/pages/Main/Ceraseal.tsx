@@ -1,18 +1,25 @@
 import Slider from "react-slick";
-import { mainPageArtistImageStyle } from "./.css.ts";
-import { SliderSettings } from "../../shared/types/mainPage.ts";
+import {mainPageArtistImageStyle, mainPageArtistInfoStyle, mainPageArtistMoreInfoIconStyle} from "./.css.ts";
+import {artistInfoListProps, SliderSettings} from "../../shared/types/mainPage.ts";
+import {Link} from "react-router-dom";
+import Lottie from "lottie-light-react";
+import more_button from "../../assets/more_button.json";
 
 interface SliderComponentProps {
-  imgList: string[];
+    infoList: artistInfoListProps[];
   settings: SliderSettings;
 }
 
-const SliderComponent: React.FC<SliderComponentProps> = ({ imgList, settings }) => {
-  return (
+const SliderComponent: React.FC<SliderComponentProps> = ({ infoList, settings }) => {
+  console.log(infoList);
+    return (
       <Slider {...settings}>
-        {imgList.map((img, index) => (
+        {infoList.map((info, index) => (
             <div key={index}>
-              <img src={img} className={mainPageArtistImageStyle} alt="artist" />
+              <img src={info.image} className={mainPageArtistImageStyle} alt="artist" />
+                <Link className={mainPageArtistInfoStyle} to={info.url}>{info.name}
+                <Lottie className={mainPageArtistMoreInfoIconStyle} animationData={more_button}/>
+                </Link>
             </div>
         ))}
       </Slider>

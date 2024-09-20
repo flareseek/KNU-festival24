@@ -25,7 +25,6 @@ export const mainPageStyle = style({
 
 export const mainPageLogoStyle = style({
   width: "80vw",
-  marginTop: "2rem",
   "@media": {
     "(min-width: 1000px)": {
       width: "50vw",
@@ -59,11 +58,12 @@ export const mainPageQuickLinkContainerStyle = style({
   display: "flex",
   flexDirection: "column",
     alignItems: "start",
-  marginTop: "1rem",
+  marginTop: "2rem",
     marginBottom: "1rem",
 });
 
 export const mainPageQuickLinkStyle = style({
+    cursor: "pointer",
     fontSize: "1.5rem",
     fontWeight: "bold",
     color: "white",
@@ -155,11 +155,11 @@ export const mainPageIslandTitleStyle = style({
   color: "black",
   selectors: {
     "&.right": {
-      marginLeft: "1rem",
+      marginLeft: "0.5rem",
       borderRadius: "1rem 0 0 1rem",
     },
     "&.left": {
-      marginRight: "1rem",
+      marginRight: "0.5rem",
       borderRadius: "0 1rem 1rem 0",
     },
   },
@@ -199,7 +199,6 @@ export const mainPageHeadLineStyle = style({
   width: "80vw",
   height: "1px",
   backgroundColor: "white",
-  // margin: "2rem 0",
     "@media": {
         "(min-width: 1000px)": {
         width: "50vw",
@@ -209,6 +208,30 @@ export const mainPageHeadLineStyle = style({
         },
     },
 });
+
+export const mainPageArtistInfoStyle = style({
+  display: "inline-flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop: "1rem",
+    borderRadius: "20px",
+    padding: "0.5rem",
+    backgroundColor: "rgba(54,181,203,0.9)",
+    fontFamily: vars.font.pretendardRegular,
+    fontWeight: "lighter",
+    fontSize: "1rem",
+});
+
+export const mainPageArtistMoreInfoIconStyle = style({
+    width: "1rem",
+    height: "auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "0.5rem",
+});
+
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의
 export const mainPageIslandStyle1 = createIslandStyle("0.5s");
