@@ -30,6 +30,7 @@ import Cerasseal from "./Ceraseal.tsx";
 import { Island, IslandItemProps, SliderSettings } from "../../shared/types/mainPage.ts";
 import routerInfo from "../../shared/routing/routerInfo.ts";
 import { routerInfoType } from "../../shared/types/routing.ts";
+import {MAP_60TH_URL, MAP_HAM_MIREA_URL, MAP_HAM_URL, MAP_STADIUM_URL} from "../../shared/mainPageConst.ts";
 
 const settings: SliderSettings = {
   dots: false,
@@ -43,10 +44,10 @@ const settings: SliderSettings = {
 };
 
 const islandList: Island[] = [
-  { name: "함인섭 광장", image: ham_square_island, style: mainPageIslandStyle1 },
-  { name: "60주년 기념관", image: memorial_island, style: mainPageIslandStyle2 },
-  { name: "미래광장", image: mirea_square_island, style: mainPageIslandStyle3 },
-  { name: "대운동장", image: stadium_island, style: mainPageIslandStyle4 },
+  { name: "함인섭 광장", image: ham_square_island, style: mainPageIslandStyle1, url: MAP_HAM_URL },
+  { name: "60주년 기념관", image: memorial_island, style: mainPageIslandStyle2, url: MAP_60TH_URL },
+  { name: "미래광장", image: mirea_square_island, style: mainPageIslandStyle3, url: MAP_HAM_MIREA_URL },
+  { name: "대운동장", image: stadium_island, style: mainPageIslandStyle4, url: MAP_STADIUM_URL },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 const MainTitle: React.FC = () => (
@@ -89,7 +90,7 @@ const QuickLink: React.FC<{ mapSectionRef: RefObject<HTMLDivElement> }> = ({ map
   );
 };
 
-const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) => {
+const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, url, index}) => {
   const isRight = index % 2 !== 0;
 
   const content = [
@@ -100,7 +101,7 @@ const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) =>
   ];
 
   return (
-    <Link className={mainPageMapStyle} to="/">
+    <Link className={mainPageMapStyle} to={url}>
       {isRight ? content : content.reverse()}
     </Link>
   );

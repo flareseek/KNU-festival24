@@ -15,13 +15,12 @@ interface SliderComponentProps {
 }
 
 const SliderComponent: React.FC<SliderComponentProps> = ({ infoList, settings }) => {
-  console.log(infoList);
   return (
     <Slider {...settings}>
       {infoList.map((info, index) => (
         <div key={index}>
           <img src={info.image} className={mainPageArtistImageStyle} alt="artist" />
-          <Link className={mainPageArtistInfoStyle} to={info.url}>
+          <Link className={mainPageArtistInfoStyle} to={`artist/${info.url}`}>
             {info.name}
             <Lottie className={mainPageArtistMoreInfoIconStyle} animationData={more_button} />
           </Link>

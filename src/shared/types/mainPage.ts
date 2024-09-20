@@ -2,6 +2,7 @@ export interface Island {
   name: string;
   image: string;
   style: string;
+  url: string;
 }
 
 export interface SliderSettings {
