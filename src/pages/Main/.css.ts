@@ -1,4 +1,4 @@
-import { style, keyframes } from "@vanilla-extract/css";
+import { keyframes, style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css.ts";
 
 // 둥둥 떠다니는 애니메이션 정의
@@ -57,18 +57,18 @@ export const mainPageSubTitleStyle = style({
 export const mainPageQuickLinkContainerStyle = style({
   display: "flex",
   flexDirection: "column",
-    alignItems: "start",
+  alignItems: "start",
   marginTop: "2rem",
-    marginBottom: "1rem",
+  marginBottom: "1rem",
 });
 
 export const mainPageQuickLinkStyle = style({
-    cursor: "pointer",
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    color: "white",
-    textDecoration: "none",
-    margin: "0.5rem",
+  cursor: "pointer",
+  fontSize: "1.5rem",
+  fontWeight: "bold",
+  color: "white",
+  textDecoration: "none",
+  margin: "0.5rem",
 });
 
 export const mainPageLineUpgalleryViewStyle = style({
@@ -76,14 +76,14 @@ export const mainPageLineUpgalleryViewStyle = style({
   width: "60vw",
   height: "auto",
   paddingBottom: "2rem",
-    "@media": {
-        "(min-width: 1000px)": {
-        width: "50vw",
-        },
-        "(min-width: 1500px)": {
-        width: "30vw",
-        },
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
     },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    },
+  },
 });
 
 export const mainPageMapViewStyle = style({
@@ -129,18 +129,17 @@ export const mainPageMainTitleRowStyle = style({
 });
 
 export const mainPageVideoStyle = style({
-    width: "80vw",
-    marginTop: "2rem",
-    "@media": {
-        "(min-width: 1000px)": {
-        width: "50vw",
-        },
-        "(min-width: 1500px)": {
-        width: "30vw",
-        },
+  width: "80vw",
+  marginTop: "2rem",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
     },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    },
+  },
 });
-
 
 export const mainPageIslandTitleStyle = style({
   writingMode: "vertical-rl",
@@ -199,14 +198,14 @@ export const mainPageHeadLineStyle = style({
   width: "80vw",
   height: "1px",
   backgroundColor: "white",
-    "@media": {
-        "(min-width: 1000px)": {
-        width: "50vw",
-        },
-        "(min-width: 1500px)": {
-        width: "30vw",
-        },
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "50vw",
     },
+    "(min-width: 1500px)": {
+      width: "30vw",
+    },
+  },
 });
 
 export const mainPageArtistInfoStyle = style({
@@ -215,23 +214,22 @@ export const mainPageArtistInfoStyle = style({
   alignItems: "center",
   justifyContent: "center",
   marginTop: "1rem",
-    borderRadius: "20px",
-    padding: "0.5rem",
-    backgroundColor: "rgba(54,181,203,0.9)",
-    fontFamily: vars.font.pretendardRegular,
-    fontWeight: "lighter",
-    fontSize: "1rem",
+  borderRadius: "20px",
+  padding: "0.5rem",
+  backgroundColor: "rgba(54,181,203,0.9)",
+  fontFamily: vars.font.pretendardRegular,
+  fontWeight: "lighter",
+  fontSize: "1rem",
 });
 
 export const mainPageArtistMoreInfoIconStyle = style({
-    width: "1rem",
-    height: "auto",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: "0.5rem",
+  width: "1rem",
+  height: "auto",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "0.5rem",
 });
-
 
 // 각 섬에 특화된 스타일을 공통 함수로 정의
 export const mainPageIslandStyle1 = createIslandStyle("0.5s");

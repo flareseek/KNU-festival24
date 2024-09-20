@@ -8,7 +8,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Main",
     korean: "메인",
     expose: true,
-    mainPage: false
+    mainPage: false,
   },
   {
     path: "artist/:id",

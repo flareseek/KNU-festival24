@@ -1,21 +1,23 @@
-import React, {RefObject, useRef} from "react";
-import {Link} from "react-router-dom";
+import React, { RefObject, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
-    mainPageHeadLineStyle,
-    mainPageIslandStyle1,
-    mainPageIslandStyle2,
-    mainPageIslandStyle3,
-    mainPageIslandStyle4,
-    mainPageIslandTitleStyle,
-    mainPageLineUpgalleryViewStyle,
-    mainPageLogoStyle,
-    mainPageMainTitleRowStyle,
-    mainPageMainTitleStyle,
-    mainPageMapLogoStyle,
-    mainPageMapStyle,
-    mainPageMapViewStyle, mainPageQuickLinkContainerStyle, mainPageQuickLinkStyle,
-    mainPageStyle,
-    mainPageSubTitleStyle, mainPageVideoStyle,
+  mainPageHeadLineStyle,
+  mainPageIslandStyle1,
+  mainPageIslandStyle2,
+  mainPageIslandStyle3,
+  mainPageIslandStyle4,
+  mainPageIslandTitleStyle,
+  mainPageLineUpgalleryViewStyle,
+  mainPageLogoStyle,
+  mainPageMainTitleRowStyle,
+  mainPageMainTitleStyle,
+  mainPageMapLogoStyle,
+  mainPageMapStyle,
+  mainPageMapViewStyle,
+  mainPageQuickLinkContainerStyle,
+  mainPageQuickLinkStyle,
+  mainPageStyle,
+  mainPageSubTitleStyle,
 } from "./.css";
 import MainPageLogo from "../../assets/logo/main_page_logo.svg?react";
 import MainPageMapLogo from "../../assets/island/main_page_map_logo.svg?react";
@@ -23,15 +25,13 @@ import ham_square_island from "../../assets/island/ham_square_island.png";
 import memorial_island from "../../assets/island/memorial_island.png";
 import mirea_square_island from "../../assets/island/mirea_square_island.png";
 import stadium_island from "../../assets/island/stadium_island.png";
-import {artistInfoList, artistList} from "./artistImport.ts"
+import { artistInfoList } from "./artistImport.ts";
 import Cerasseal from "./Ceraseal.tsx";
-import {Island, IslandItemProps, SliderSettings} from "../../shared/types/mainPage.ts";
-import {highlightStyles, menuItemLinkStyles, menuItemStyles, menuListStyles} from "../../components/Header/.css.ts";
+import { Island, IslandItemProps, SliderSettings } from "../../shared/types/mainPage.ts";
 import routerInfo from "../../shared/routing/routerInfo.ts";
-import {routerInfoType} from "../../shared/types/routing.ts";
-import {isCurrentPath} from "../../shared/routing/routerUtils.ts";
+import { routerInfoType } from "../../shared/types/routing.ts";
 
-const settings:SliderSettings = {
+const settings: SliderSettings = {
   dots: false,
   infinite: true,
   slidesToShow: 1,
@@ -69,26 +69,24 @@ const SubTitle: React.FC = () => (
 );
 
 const QuickLink: React.FC<{ mapSectionRef: RefObject<HTMLDivElement> }> = ({ mapSectionRef }) => {
-    const scrollToMapSection = () => {
-        // console.log(mapSectionRef);
-        mapSectionRef.current?.scrollIntoView({ behavior: "smooth" });
-    };
+  const scrollToMapSection = () => {
+    // console.log(mapSectionRef);
+    mapSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-    return (
-        <div className={mainPageQuickLinkContainerStyle}>
-            <p className={mainPageQuickLinkStyle} onClick={scrollToMapSection}>{`지도→`}</p>
-            {routerInfo
-                .filter((info: routerInfoType) => info.mainPage)
-                .sort((a: routerInfoType, b: routerInfoType) =>
-                    a.korean.localeCompare(b.korean)
-                )
-                .map((info: routerInfoType) => (
-                    <Link key={info.path} to={info.path}>
-                        <p className={mainPageQuickLinkStyle}>{`${info.korean}→`}</p>
-                    </Link>
-                ))}
-        </div>
-    );
+  return (
+    <div className={mainPageQuickLinkContainerStyle}>
+      <p className={mainPageQuickLinkStyle} onClick={scrollToMapSection}>{`지도→`}</p>
+      {routerInfo
+        .filter((info: routerInfoType) => info.mainPage)
+        .sort((a: routerInfoType, b: routerInfoType) => a.korean.localeCompare(b.korean))
+        .map((info: routerInfoType) => (
+          <Link key={info.path} to={info.path}>
+            <p className={mainPageQuickLinkStyle}>{`${info.korean}→`}</p>
+          </Link>
+        ))}
+    </div>
+  );
 };
 
 const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) => {
@@ -109,23 +107,23 @@ const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, index }) =>
 };
 
 export default function Main() {
-    const mapSectionRef = useRef<HTMLDivElement>(null);
+  const mapSectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className={mainPageStyle}>
       <MainTitle />
       <SubTitle />
-        <QuickLink mapSectionRef={mapSectionRef}/>
+      <QuickLink mapSectionRef={mapSectionRef} />
       <MainPageLogo className={mainPageLogoStyle} />
       <h3>라인업</h3>
-        <hr className={mainPageHeadLineStyle}/>
+      <hr className={mainPageHeadLineStyle} />
       <div className={mainPageLineUpgalleryViewStyle}>
         <Cerasseal infoList={artistInfoList} settings={settings} />
       </div>
 
       <h3 ref={mapSectionRef}>축제 지도</h3>
-        <hr className={mainPageHeadLineStyle}/>
-        <p className={mainPageSubTitleStyle}>장소를 탭하면 세부 지도를 볼 수 있어요 </p>
+      <hr className={mainPageHeadLineStyle} />
+      <p className={mainPageSubTitleStyle}>장소를 탭하면 세부 지도를 볼 수 있어요 </p>
       <MainPageMapLogo className={mainPageMapLogoStyle} />
       <div className={mainPageMapViewStyle}>
         {islandList.map((island, idx) => (
