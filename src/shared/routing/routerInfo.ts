@@ -8,6 +8,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Main",
     korean: "메인",
     expose: true,
+    mainPage: false,
   },
   {
     path: "artist/:id",
@@ -15,6 +16,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Artist",
     korean: "아티스트",
     expose: false,
+    mainPage: false,
   },
   {
     path: "booth/:id",
@@ -22,6 +24,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Booth",
     korean: "부스",
     expose: false,
+    mainPage: false,
   },
   {
     path: "booth_foodtruck_list",
@@ -29,6 +32,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Booth & Foodtruck List",
     korean: "부스 & 푸드트럭 리스트",
     expose: true,
+    mainPage: true,
   },
   {
     path: "foodtruck/:id",
@@ -36,6 +40,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Foodtruck",
     korean: "푸드트럭",
     expose: false,
+    mainPage: false,
   },
   {
     path: "makers",
@@ -43,6 +48,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Makers",
     korean: "메이커스",
     expose: false,
+    mainPage: false,
   },
   {
     path: "map",
@@ -50,6 +56,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Map",
     korean: "지도",
     expose: true,
+    mainPage: false,
   },
   {
     path: "notice",
@@ -57,6 +64,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Notice",
     korean: "공지사항",
     expose: true,
+    mainPage: true,
   },
   {
     path: "QnA",
@@ -64,6 +72,7 @@ export const routerInfo: routerInfoType[] = [
     english: "QnA",
     korean: "QnA",
     expose: true,
+    mainPage: true,
   },
   {
     path: "timetable",
@@ -71,6 +80,7 @@ export const routerInfo: routerInfoType[] = [
     english: "Timetable",
     korean: "타임테이블",
     expose: true,
+    mainPage: true,
   },
 ];
 

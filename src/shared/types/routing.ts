@@ -9,6 +9,7 @@ import React, { ComponentType } from "react";
  * @property {string} english - 영어 이름
  * @property {string} korean - 한글 이름
  * @property {boolean} expose - 헤더 노출 여부
+ * @property {boolean} mainPage - 메인 페이지 퀵링크 항목 공개 여부
  */
 export interface routerInfoType {
   path: string;
@@ -16,4 +17,5 @@ export interface routerInfoType {
   english: string;
   korean: string;
   expose: boolean;
+  mainPage: boolean;
 }
