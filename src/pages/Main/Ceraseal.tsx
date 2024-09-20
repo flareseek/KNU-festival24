@@ -14,6 +14,11 @@ interface SliderComponentProps {
   settings: SliderSettings;
 }
 
+/**
+ * 아티스트 정보를 슬라이더로 보여주는 컴포넌트
+ * @param infoList 아티스트 정보 리스트(artistImport.ts)
+ * @param settings 슬라이더 설정
+ */
 const SliderComponent: React.FC<SliderComponentProps> = ({ infoList, settings }) => {
   return (
     <Slider {...settings}>
