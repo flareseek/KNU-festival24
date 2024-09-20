@@ -10,6 +10,7 @@ globalStyle("body", {
   backgroundRepeat: "repeat-y",
   minHeight: "100vh",
   width: "100%",
+  paddingTop: "3.75rem",
 });
 globalStyle("#root", {
   fontFamily: vars.font.pretendardRegular,
