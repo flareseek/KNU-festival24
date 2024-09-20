@@ -14,9 +14,9 @@ export const headerStyles = style({
   padding: "0.75rem 1.5rem",
   height: "2.25rem",
   backdropFilter: "blur(10px)",
-  backgroundColor: "rgba(54,181,203,0.5)",
+  backgroundColor: "rgba(79,205,197,0.5)",
   zIndex: 1000,
-  boxShadow: "0 4px 6px rgba(54,181,203, 0.4)",
+  boxShadow: "0 4px 6px rgba(79,205,197, 0.4)",
 });
 
 export const logoStyles = style({
