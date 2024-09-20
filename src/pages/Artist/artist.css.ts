@@ -14,7 +14,6 @@ export const mid = style({
 
 export const artistPicContainer = style({
   width: "100%",
-  height: "100vw",
   backgroundColor: "gray",
   backgroundSize: "cover", // 배경 이미지를 화면 전체에 맞춤
   backgroundPosition: "center", // 이미지를 화면 중앙에 위치
@@ -36,6 +35,7 @@ export const artistIntro = style({
 
 export const artistIntroTitle = style({
   marginLeft: 15,
+  marginBottom:10,
   fontSize: 20,
   color: "white",
   fontFamily: `${vars.font.pyeongChangBold}`,
@@ -62,7 +62,7 @@ export const artistSong = style({
   height: 80,
   display: "flex",
   alignItems: "center",
-  padding: "5px 10px",
+  padding: "2px 10px",
 });
 
 export const albumCover = style({

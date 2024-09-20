@@ -13,55 +13,61 @@ import {
   albumTitle,
   artistDetailContainer,
 } from "./artist.css.ts"; // 스타일 가져오기
+import { artistData } from "./artistData.ts";
 
 function Artist() {
   return (
     <div>
       <div className={mid}>
-        <div className={artistPicContainer}></div>
+        <img src={artistData.Choiyuree.picture} className={artistPicContainer}></img>
         <div className={artistDetailContainer}>
           <div className={artistIntro}>
             <p className={artistIntroTitle}>아티스트 소개</p>
             <p className={artistIntroContent}>
-              DAY6는 2015년 JYP 엔터테인먼트에서 데뷔한 5인조 보이 밴드로, 멤버들은 성진(리더, 기타,
-              보컬), Young K(베이스, 보컬), 원필(키보드, 보컬), 도운(드럼)으로 구성되어 있습니다.
-              DAY6는 K-팝 밴드로서의 정체성을 확립하며, 감성적인 록과 팝 록을 주된 장르로 활동하고
-              있습니다. 모든 멤버들이 작사, 작곡에 참여하며, 이들의 음악은 진솔한 가사와 강렬한
-              멜로디로 많은 팬들의 사랑을 받고 있습니다.
+              {artistData.Choiyuree.description}
             </p>
           </div>
 
           <div className={artistSongsContainer}>
             <p className={artistIntroTitle}>아티스트 주요 인기곡</p>
             <div className={artistSongsList}>
-              <div className={artistSong}>
+              <a className={artistSong} href={artistData.Choiyuree.firstSong[2]}>
+
                 <div className={albumCover}></div>
                 <div className={albumContainer}>
-                  <p className={songTitle}>Welcome to the show</p>
-                  <p className={albumTitle}>Fourever - EP - 2024년</p>
+                  <p className={songTitle}>{artistData.Choiyuree.firstSong[0]}</p>
+                  <p className={albumTitle}>{artistData.Choiyuree.firstSong[1]}</p>
                 </div>
-              </div>
-              <div className={artistSong}>
+              
+              </a>
+              
+              <a className={artistSong} href={artistData.Choiyuree.secondSong[2]}>
+
                 <div className={albumCover}></div>
                 <div className={albumContainer}>
-                  <p className={songTitle}>Welcome to the show</p>
-                  <p className={albumTitle}>Fourever - EP - 2024년</p>
+                  <p className={songTitle}>{artistData.Choiyuree.secondSong[0]}</p>
+                  <p className={albumTitle}>{artistData.Choiyuree.secondSong[1]}</p>
                 </div>
-              </div>
-              <div className={artistSong}>
+              
+              </a>
+              <a className={artistSong} href={artistData.Choiyuree.thirdSong[2]}>
+
                 <div className={albumCover}></div>
                 <div className={albumContainer}>
-                  <p className={songTitle}>Welcome to the show</p>
-                  <p className={albumTitle}>Fourever - EP - 2024년</p>
+                  <p className={songTitle}>{artistData.Choiyuree.thirdSong[0]}</p>
+                  <p className={albumTitle}>{artistData.Choiyuree.thirdSong[1]}</p>
                 </div>
-              </div>
-              <div className={artistSong}>
+              
+              </a>
+              <a className={artistSong} href={artistData.Choiyuree.fourthSong[2]}>
+
                 <div className={albumCover}></div>
                 <div className={albumContainer}>
-                  <p className={songTitle}>Welcome to the show</p>
-                  <p className={albumTitle}>Fourever - EP - 2024년</p>
+                  <p className={songTitle}>{artistData.Choiyuree.fourthSong[0]}</p>
+                  <p className={albumTitle}>{artistData.Choiyuree.fourthSong[1]}</p>
                 </div>
-              </div>
+              
+              </a>
             </div>
           </div>
         </div>
