@@ -150,7 +150,7 @@ const IslandItem: React.FC<IslandItemProps> = ({ name, image, style, url, index 
  * 메인페이지의 메인 컴포넌트.
  */
 export default function Main() {
-  const mapSectionRef = useRef<HTMLDivElement>();
+  const mapSectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className={mainPageStyle}>
