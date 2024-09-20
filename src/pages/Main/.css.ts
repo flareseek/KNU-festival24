@@ -73,7 +73,7 @@ export const mainPageQuickLinkStyle = style({
 
 export const mainPageLineUpgalleryViewStyle = style({
   marginTop: "1rem",
-  width: "60vw",
+  width: "65vw",
   height: "auto",
   paddingBottom: "2rem",
   "@media": {
