@@ -13,7 +13,7 @@ const pyeongChangLight = fontFace({
 
 export const vars = createGlobalTheme("#root", {
   color: {
-    blue1: "#CFCECE",
+    blue1: "#0781CD",
     blue2: "#029FD7",
     blue3: "#C9CEE1",
     green1: "#04D1C3",
