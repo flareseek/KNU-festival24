@@ -16,7 +16,7 @@ export const ARTIST_GUMMY_URL: string = "7";
 
 //<Link className={mainPageMapStyle} to={url}>
 //세부 지도는 아직 라우터가 잡히지 않아 별로의 경로를 사전에 지정하지 않았습니다.
-export const MAP_HAM_URL: string = "/";
-export const MAP_60TH_URL: string = "/";
-export const MAP_HAM_MIREA_URL: string = "/";
-export const MAP_STADIUM_URL: string = "/";
+export const MAP_HAM_URL: string = "/map?place=함인섭광장";
+export const MAP_60TH_URL: string = "/map?place=60주년기념관";
+export const MAP_HAM_MIREA_URL: string = "/map?place=미래광장";
+export const MAP_STADIUM_URL: string = "/map?place=대운동장";
