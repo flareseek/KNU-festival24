@@ -12,9 +12,7 @@ export default function Overview({ title, imgURL }: OverviewProps) {
       <ImageModal src={imgURL} alt={title} />
       <div className={styles.bottomContainer}>
         <div>
-          <span className={styles.keywordLabel}>
-            {title}
-          </span>
+          <span className={styles.keywordLabel}>{title}</span>
         </div>
         <div className={styles.hoursLabel}>
           <span className="material-symbols-outlined">schedule</span>
