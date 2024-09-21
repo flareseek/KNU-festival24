@@ -87,7 +87,7 @@ export const qnaContentWrapper = style({
 
 export const qnaContent = style({
   display: "inline-block", // 텍스트가 한 줄로 스크롤되도록 설정
-  whiteSpace: "pre-line", // 텍스트를 한 줄로 유지
+  whiteSpace: "pre-line",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
