@@ -21,7 +21,7 @@ export interface BoothFoodtuck {
     h3: string;
     list: {
       title: string;
-      price: number;
+      price?: number;
       imgURL?: string;
     }[];
   }[];

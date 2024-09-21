@@ -19,8 +19,8 @@ export const routerInfo: routerInfoType[] = [
     mainPage: false,
   },
   {
-    path: "booth/:id",
-    element: lazy(() => import("../../pages/Booth")),
+    path: "booth_foodtruck_list/booth/:id",
+    element: lazy(() => import("../../pages/BoothNFoodDetail")),
     english: "Booth",
     korean: "부스",
     expose: false,
@@ -35,8 +35,8 @@ export const routerInfo: routerInfoType[] = [
     mainPage: true,
   },
   {
-    path: "foodtruck/:id",
-    element: lazy(() => import("../../pages/Foodtruck")),
+    path: "booth_foodtruck_list/foodtruck/:id",
+    element: lazy(() => import("../../pages/BoothNFoodDetail")),
     english: "Foodtruck",
     korean: "푸드트럭",
     expose: false,
