@@ -156,14 +156,16 @@ export default function Timetable() {
           </React.Fragment>
         ))}
       </div>
-      {TIME_TABLE_FILTER.map((timeTable, index) => (
-        <FilterButton
-          key={index}
-          timeTable={timeTable}
-          onClick={handleFilterClick}
-          isActive={clearTime(timeTable.date).getTime() === viewTime.getTime()}
-        />
-      ))}
+      <div>
+        {TIME_TABLE_FILTER.map((timeTable, index) => (
+          <FilterButton
+            key={index}
+            timeTable={timeTable}
+            onClick={handleFilterClick}
+            isActive={clearTime(timeTable.date).getTime() === viewTime.getTime()}
+          />
+        ))}
+      </div>
     </section>
   );
 }

@@ -126,6 +126,7 @@ export const artistInfoTitle = style({
 export const artistItem = style({
   display: "flex",
   alignItems: "center",
+  alignContent: "center",
   marginBottom: "10px",
   "@media": {
     "screen and (max-width: 768px)": {
@@ -148,11 +149,11 @@ export const artistImage = style({
 });
 
 export const artistName = style({
-  fontSize: "0.9rem",
-  fontFamily: vars.font.pretendardRegular,
+  fontSize: "2rem",
+  fontFamily: vars.font.pyeongChangLight,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "0.8rem",
+      fontSize: "2rem",
     },
   },
 });
