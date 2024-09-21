@@ -15,7 +15,7 @@ export const searchContainer = style({
   marginBottom: 20,
   "@media": {
     "(max-width: 375px)": {
-      //Iphone SE 같은 소형폰
+      //Iphone SE 같은 소형기기
       height: "35px",
     },
     "(min-width: 1000px)": {
