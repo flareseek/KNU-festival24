@@ -7,3 +7,4 @@
 **/.hg
 **/dist
 **/*.html
+**/assets

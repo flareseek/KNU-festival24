@@ -1,15 +1,32 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Suspense } from "react";
+import Layout from "./components/Layout";
+import routerInfo from "./shared/routing/routerInfo";
+import { Loading } from "./components/Loading";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: routerInfo.map(({ path, element: Element }) => ({
+      path,
+      element: (
+        <Suspense
+          fallback={
+            <div>
+              <Loading />
+            </div>
+          }
+        >
+          <Element />
+        </Suspense>
+      ),
+    })),
+  },
+]);
+
 function App() {
-  return (
-    <div>
-      <h1>Hello, KNU Festival!</h1>
-      {/*
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-        */}
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

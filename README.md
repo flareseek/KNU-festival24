@@ -76,10 +76,37 @@ Environment Setup (wiki 참조) <br/>
 
 ## Code Convention
 
+[CSS](#css)<br/>
 [Code style](#code-style) <br/>
 [Naming](#naming)<br/>
 [Image import](#image-import)<br/>
 [Secret key](#secret-key)<br/>
+
+### CSS
+
+- CSS 파일은 동일 폴더내에 `컴포넌트명.css.ts` 로 관리합니다. <br/>
+
+```typescript
+// app.css.ts
+import { style } from "@vanilla-extract/css";
+
+export const container = style({
+  backgroundColor: "lightblue",
+});
+```
+
+```jsx
+// App.tsx
+import { container } from "./App.css.ts";
+function App() {
+  return (
+    <div>
+      <h1 className={container}>Hello, KNU Festival!</h1>
+    </div>
+  );
+}
+export default App;
+```
 
 ### Code style
 
