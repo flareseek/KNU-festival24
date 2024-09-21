@@ -6,7 +6,8 @@ const BOOTHS: Readonly<Booth[]> = [
     title: "올해도 돌아온 떡삼",
     place: "미래광장",
     category: "식음료",
-    imgURL: "https://sussexbylines.co.uk/wp-content/uploads/2024/03/cat-out-hunting-750x536.jpg",
+    imgURL:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/450px-Cat_November_2010-1a.jpg",
     description: "떡꼬치삼겹살 판매",
     description2: "오직 강원대 대동제에서 합리적인 가격에 만나보세요",
     hours: "11:00 ~ 16:00",
@@ -18,10 +19,32 @@ const BOOTHS: Readonly<Booth[]> = [
           {
             title: "음식 이름",
             price: 0,
+            imgURL:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/450px-Cat_November_2010-1a.jpg",
           },
           {
             title: "음식 이름",
             price: 0,
+          },
+        ],
+      },
+      {
+        h3: "메인요리",
+        list: [
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
+            price: 0,
+          },
+          {
+            title: "음식 이름",
           },
         ],
       },

@@ -4,11 +4,19 @@ import { vars } from "../../shared/styles/vars.css";
 const mobileBreakpoint = "1000px";
 
 export const headerStyles = style({
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  padding: "10px 20px",
-  position: "relative",
+  padding: "0.75rem 1.5rem",
+  height: "2.25rem",
+  backdropFilter: "blur(10px)",
+  backgroundColor: "rgba(79,205,197,0.5)",
+  zIndex: 1000,
+  boxShadow: "0 4px 6px rgba(79,205,197, 0.4)",
 });
 
 export const logoStyles = style({
@@ -24,6 +32,14 @@ export const currentPageStyles = style({
   color: "white",
   fontSize: "16px",
   fontWeight: "bold",
+  "@media": {
+    [`(max-width: ${mobileBreakpoint})`]: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    },
+  },
 });
 
 export const toggleBtnStyles = style({
@@ -45,25 +61,33 @@ const menuTransition = "transform 0.3s ease-out, opacity 0.3s ease-out";
 
 export const menuStyles = style({
   position: "absolute",
+  display: "inline-block",
   top: "100%",
-  left: 0,
   right: 0,
   padding: "20px",
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-  transform: "translateX(-100%)",
+  boxShadow: "none",
+  transform: "translateX(100%)",
   opacity: 0,
   pointerEvents: "none",
-  transition: menuTransition,
+  transition: `${menuTransition}, background-color 0.3s ease-out, border-radius 0.3s ease-out`,
+  backgroundColor: "transparent",
+  borderTopLeftRadius: "0",
+  borderBottomLeftRadius: "0",
+  marginTop: "1rem",
   selectors: {
     "&.active": {
       transform: "translateX(0)",
       opacity: 1,
       pointerEvents: "auto",
-      backdropFilter: "blur(5px)",
+      backgroundColor: "rgba(54,181,203,0.9)",
+      borderTopLeftRadius: "24px",
+      borderBottomLeftRadius: "24px",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
     },
   },
   "@media": {
     [`(min-width: ${mobileBreakpoint})`]: {
+      marginTop: "0",
       position: "static",
       display: "flex",
       flexDirection: "row",
@@ -73,6 +97,9 @@ export const menuStyles = style({
       opacity: 1,
       pointerEvents: "auto",
       transition: "none",
+      backgroundColor: "transparent",
+      borderTopLeftRadius: "0",
+      borderBottomLeftRadius: "0",
     },
   },
 });

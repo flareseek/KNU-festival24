@@ -6,6 +6,8 @@ import {
   getDoc,
   deleteDoc,
   doc,
+  query,
+  orderBy,
 } from "firebase/firestore/lite";
 import { Notice, NoticeDto } from "../types/notice";
 import { db } from "./firebaseConfig";
@@ -31,7 +33,12 @@ export async function createNotice(newNotice: Notice): Promise<string> {
  */
 export async function getNoticeList(): Promise<NoticeDto[]> {
   try {
-    const querySnapshot = await getDocs(collection(db, "notice").withConverter(noticeConverter));
+    const q = query(
+      collection(db, "notice").withConverter(noticeConverter),
+      orderBy("order", "asc"),
+      orderBy("createdAt", "desc"),
+    );
+    const querySnapshot = await getDocs(q);
     const result: NoticeDto[] = [];
     querySnapshot.forEach((doc) => {
       result.push({ id: doc.id, ...doc.data() });

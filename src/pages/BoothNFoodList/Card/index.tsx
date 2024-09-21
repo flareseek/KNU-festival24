@@ -16,7 +16,7 @@ interface Props {
 
 export default function Card({ id, title, description, category, type, imgURL }: Props) {
   return (
-    <Link to={`/${type}/${id}`} className={styles.container}>
+    <Link to={`/booth_foodtruck_list/${type}/${id}`} className={styles.container}>
       <img src={imgURL} alt={`${title} 부스/푸드트럭 이미지`} className={styles.image} />
       <div className={styles.contentContainer}>
         <div className={styles.contentDiv13}>
