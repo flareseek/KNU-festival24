@@ -1,5 +1,5 @@
-import { Booth } from "../../shared/types/asset_types";
-import { availableAsset } from "../../shared/util/functions";
+import { Booth } from "../shared/types/asset_types";
+import { availableAsset } from "../shared/util/functions";
 
 export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
   new Booth({

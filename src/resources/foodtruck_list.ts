@@ -1,4 +1,4 @@
-import { FoodTruck } from "../../shared/types/asset_types";
+import { FoodTruck } from "../shared/types/asset_types";
 
 export const FOODTRUCK_60TH_ANNIV_LIST: FoodTruck[] = [
   new FoodTruck({
