@@ -15,7 +15,7 @@ export const searchContainer = style({
   marginBottom: 20,
   "@media": {
     "(max-width: 375px)": {
-      //Iphone SE 같은 소형폰
+      //Iphone SE 같은 소형기기
       height: "35px",
     },
     "(min-width: 1000px)": {
@@ -111,15 +111,16 @@ export const noticeNumber = style({
 });
 
 export const noticeContentWrapper = style({
-  width: "90%", // 부모 요소의 너비에 맞추기
+  width: "80%", // 부모 요소의 너비에 맞추기
   overflow: "hidden", // 넘치는 부분을 숨김
   position: "relative",
   marginLeft: 10,
+  cursor: "pointer",
 });
 
 export const noticeTitle = style({
   display: "inline-block",
-  whiteSpace: "nowrap",
+  whiteSpace: "pre-line",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
@@ -132,12 +133,16 @@ export const noticeTitle = style({
 });
 
 export const noticeDetail = style({
+  display: "flex",
+  flexDirection: "column",
   whiteSpace: "pre-wrap",
   overflow: "hidden",
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
+  borderRadius: "0 0 5px 5px",
   marginTop: -12,
   marginBottom: 5,
+  lineHeight: 1.3,
   width: "90%",
   "@media": {
     "(max-width: 375px)": {
@@ -160,13 +165,14 @@ export const emptyListAlert = style({
 
 //새 게시물에 뜨는 new 태그
 export const newBadge = style({
+  width: 25,
   marginLeft: "10px",
   padding: "3px 6px",
   backgroundColor: "#e74c3c",
   color: "#fff",
   borderRadius: "3px",
-  fontSize: "12px",
-  fontWeight: "bold",
+  fontSize: "14px",
+  fontWeight: 500,
 });
 
 export const arrowButton = style({
