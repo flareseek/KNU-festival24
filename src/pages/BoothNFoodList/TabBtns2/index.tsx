@@ -1,4 +1,4 @@
-import { places, types } from "./hook";
+import { places, types } from "../dataMapping";
 
 // TODO 푸드트럭이면 분홍, 부스면 초록 또는 대운동장따라서
 export default function TabBtns({

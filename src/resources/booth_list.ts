@@ -67,7 +67,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     imageName: "8ae87b7d0c",
   }),
   new Booth({
-    id: "fe8093b105",
+    id: "fe8093b1051",
     order: 3,
     place: "대운중앙노랑",
     name: "단과대학제전",
@@ -85,7 +85,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     imageName: "8ae87b7d0c",
   }),
   new Booth({
-    id: "e5eec3f24d",
+    id: "e5eec3f24d1",
     order: 5,
     place: "대운중앙노랑",
     name: "2024 백령대동제 굿즈 판매 및 수령",
@@ -817,7 +817,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     place: "함인섭",
   }),
   new Booth({
-    id: "3c8f3e0f3f",
+    id: "3c8f3e0f300f",
     order: 1,
     name: "강원대학교 총동창회(수)",
     description: "한우버거 및 한우불고기 나눔",
