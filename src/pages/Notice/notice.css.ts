@@ -132,6 +132,8 @@ export const noticeTitle = style({
 });
 
 export const noticeDetail = style({
+  display: "flex",
+  flexDirection: "column",
   whiteSpace: "pre-wrap",
   overflow: "hidden",
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
