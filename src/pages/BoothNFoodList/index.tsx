@@ -1,8 +1,8 @@
 import * as styles from "./index.css";
 
-import TabBtns from "./TabBtns2";
+import TabBtns from "./TabBtns";
 import Card from "./Card";
-import { useBoothNFoodtruckTabs } from "./TabBtns2/hook";
+import { useBoothNFoodtruckTabs } from "./TabBtns/hook";
 import { dataMappping } from "./dataMapping";
 
 import haminseop_layout from "../../assets/data/layout/haminseop_layout.png";
