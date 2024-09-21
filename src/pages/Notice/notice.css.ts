@@ -13,6 +13,15 @@ export const searchContainer = style({
   position: "absolute",
   top: 10,
   marginBottom: 20,
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "35px",
+    },
+    "(min-width: 1000px)": {
+      width: "60%",
+    },
+  },
 });
 
 // 검색 입력 필드 스타일
@@ -25,6 +34,12 @@ export const searchbar = style({
   padding: "0px 15px",
   fontSize: "18px",
   fontWeight: 500,
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      fontSize: "15px",
+    },
+  },
 });
 
 // 중간에 검색창을 배치하는 컨테이너
@@ -46,6 +61,11 @@ export const noticeList = style({
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "70%",
+    },
+  },
 });
 
 export const noticeContainer = style({
@@ -69,6 +89,12 @@ export const notice = style({
   alignItems: "center",
   flexDirection: "row",
   position: "relative",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "50px",
+    },
+  },
 });
 
 export const noticeNumber = style({
@@ -102,6 +128,12 @@ export const noticeDetail = style({
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      width: "88%",
+    },
+  },
 });
 
 //검색한 키워드가 없을 경우 뜨는 글귀
