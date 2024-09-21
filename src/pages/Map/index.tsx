@@ -4,9 +4,12 @@ import { PLACE, PLACE_INFO, Place } from "./mapData";
 import { useTabs } from "../../shared/util/useTabs";
 
 import * as styles from "./index.css.ts";
+import { useNavigate } from "react-router-dom";
 
 export default function Map() {
+  const navigator = useNavigate();
   const { activeTab, changeTab } = useTabs("place", [...PLACE]);
+
   return (
     <div>
       <div className={styles.selectContainer}>
@@ -25,7 +28,10 @@ export default function Map() {
       </div>
       <MapImg place={activeTab} />
       <div className={styles.bottomContainer}>
-        <button className={styles.detailBtn}>
+        <button
+          onClick={() => navigator(`/booth_foodtruck_list?place=${activeTab}`)}
+          className={styles.detailBtn}
+        >
           <span className="material-symbols-outlined">list</span>
           리스트 전체 보기
         </button>
