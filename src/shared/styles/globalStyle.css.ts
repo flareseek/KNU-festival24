@@ -46,11 +46,11 @@ globalStyle("a", {
 
 // globalStyle을 이용한 전역 스타일 적용
 globalStyle(`${noticeDetail} a`, {
-  width:'auto',
-  fontSize:15,
-  fontWeight:900,
-  color:vars.color.blue1,
-  borderBottom:`solid 1px ${vars.color.blue1}`,
+  width: "auto",
+  fontSize: 15,
+  fontWeight: 900,
+  color: vars.color.blue1,
+  borderBottom: `solid 1px ${vars.color.blue1}`,
   "@media": {
     "(min-height: 1000px)": {
       fontSize: "25px",
