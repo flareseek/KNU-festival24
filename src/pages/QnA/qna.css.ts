@@ -30,11 +30,16 @@ export const mid = style({
 
 export const qnaList = style({
   width: "100%",
-  height: 455,
+  height: 480,
   overflowY: "scroll",
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "70%",
+    },
+  },
 });
 
 export const qnaContainer = style({
@@ -50,7 +55,7 @@ export const qnaContainer = style({
 
 export const qna = style({
   width: "95%",
-  height: 60,
+  height: 65,
   backgroundColor: "white",
   borderRadius: 10,
   marginBottom: 7,
@@ -58,6 +63,12 @@ export const qna = style({
   alignItems: "center",
   flexDirection: "row",
   position: "relative",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "55px",
+    },
+  },
 });
 
 export const qnaNumber = style({
@@ -68,19 +79,25 @@ export const qnaNumber = style({
 });
 
 export const qnaContentWrapper = style({
-  width: "90%", // 부모 요소의 너비에 맞추기
+  width: "80%", // 부모 요소의 너비에 맞추기
   overflow: "hidden", // 넘치는 부분을 숨김
   position: "relative",
   marginLeft: 10,
+  cursor: "pointer",
 });
 
 export const qnaContent = style({
   display: "inline-block", // 텍스트가 한 줄로 스크롤되도록 설정
-  whiteSpace: "nowrap", // 텍스트를 한 줄로 유지
+  whiteSpace: "pre-line",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
   margin: 5,
+  "@media": {
+    "(min-height: 1000px)": {
+      fontSize: "23px",
+    },
+  },
 });
 
 export const qnaDetail = style({
@@ -90,9 +107,19 @@ export const qnaDetail = style({
   color: "white",
   borderRadius: "0 0 5px 5px",
   padding: "10px",
-  marginTop: -12,
+  marginTop: -10,
   marginBottom: 5,
+  lineHeight: 1.5,
   width: "90%",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      width: "88%",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "25px",
+    },
+  },
 });
 
 export const pageButton = style({

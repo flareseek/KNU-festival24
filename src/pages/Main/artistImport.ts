@@ -26,7 +26,7 @@ import {
 export const artistInfoList: artistInfoListProps[] = [
   { name: "에이핑크", image: apink, url: ARTIST_APINK_URL },
   { name: "로이킴", image: roy, url: ARTIST_ROY_URL },
-  { name: "글렌첸크", image: glen_chenck, url: ARTIST_GLEN_CENCK_URL },
+  { name: "글렌체크", image: glen_chenck, url: ARTIST_GLEN_CENCK_URL },
   { name: "크리스피", image: creespy, url: ARTIST_CREESPY_URL },
   { name: "권은비", image: kwon_eun_bi, url: ARTIST_KWON_EUNBI_URL },
   { name: "최유리", image: choi_yu_ree, url: ARTIST_CHOI_YU_REE_URL },
