@@ -12,6 +12,7 @@ import {
 import { Notice, NoticeDto } from "../types/notice";
 import { db } from "./firebaseConfig";
 import { noticeConverter } from "./noticeConverter";
+import { getAuth } from "firebase/auth";
 
 /**
  * 공지사항 생성
@@ -19,6 +20,11 @@ import { noticeConverter } from "./noticeConverter";
  * @returns 생성된 공지사항의 ID
  */
 export async function createNotice(newNotice: Notice): Promise<string> {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (!user) {
+    throw new Error("login required");
+  }
   try {
     const docRef = await addDoc(collection(db, "notice").withConverter(noticeConverter), newNotice);
     return docRef.id;
@@ -75,6 +81,11 @@ export async function getNoticeById(noticeId: string): Promise<NoticeDto> {
  * @param newNotice 수정할 내용이 담긴 Notice 객체
  */
 export async function updateNotice(noticeId: string, newNotice: Notice) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (!user) {
+    throw new Error("login required");
+  }
   try {
     const docRef = doc(db, "notice", noticeId).withConverter(noticeConverter);
     await updateDoc(docRef, { ...newNotice });
@@ -88,6 +99,11 @@ export async function updateNotice(noticeId: string, newNotice: Notice) {
  * @param noticeId 삭제할 공지사항의 ID
  */
 export async function deleteNotice(noticeId: string) {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (!user) {
+    throw new Error("login required");
+  }
   try {
     await deleteDoc(doc(db, "notice", noticeId));
   } catch (error) {
