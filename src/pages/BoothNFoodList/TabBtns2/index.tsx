@@ -1,32 +1,43 @@
+import * as styles from "./index.css.ts";
+
 import { places, types } from "../dataMapping";
 
-// TODO 푸드트럭이면 분홍, 부스면 초록 또는 대운동장따라서
 export default function TabBtns({
   activePlace,
   activeType,
   changeTab,
+  color,
 }: {
   activePlace: (typeof places)[number];
   activeType: string;
   changeTab: (key: "place" | "type", value: string) => void;
+  color: string;
 }) {
   return (
-    <>
-      {activePlace} {activeType}
-      <div>
+    <div className={styles.tabsContainer}>
+      <div className={styles.tabContainer}>
         {places.map((place) => (
-          <button key={place} onClick={() => changeTab("place", place)}>
+          <button
+            className={`${styles.tabBtn} ${styles.topBtns} ${place === activePlace ? styles.activeTopBtn : ""}`}
+            key={place}
+            onClick={() => changeTab("place", place)}
+          >
             {place}
           </button>
         ))}
       </div>
-      <div>
+      <div className={`${styles.tabContainer} ${styles.bottomTabContainer}`}>
         {types[activePlace].map((type) => (
-          <button key={type} onClick={() => changeTab("type", type)}>
+          <button
+            className={`${styles.tabBtn} ${styles.bottomBtns} ${type === activeType ? styles.activeBottomBtn : ""}`}
+            key={type}
+            style={type === activeType ? { backgroundColor: color } : {}}
+            onClick={() => changeTab("type", type)}
+          >
             {type}
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }

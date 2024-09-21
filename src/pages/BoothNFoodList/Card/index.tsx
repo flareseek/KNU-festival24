@@ -7,11 +7,12 @@ interface Props {
   order: number;
   name: string;
   description: string;
+  color: string;
   imgURL?: string;
   hasDetail: boolean;
 }
 
-export default function Card({ id, name, description, order, imgURL, hasDetail }: Props) {
+export default function Card({ id, name, color, description, order, imgURL, hasDetail }: Props) {
   const navigator = useNavigate();
 
   return (
@@ -23,7 +24,9 @@ export default function Card({ id, name, description, order, imgURL, hasDetail }
       <div className={styles.contentContainer}>
         <div className={styles.contentDiv13}>
           <h3 className={styles.title}>{name}</h3>
-          <span className={styles.order}>{order}</span>
+          <span className={styles.order} style={{ background: color }}>
+            No. {order}
+          </span>
         </div>
         <div className={styles.contentDiv2}>
           <p className={styles.description}>{description}</p>

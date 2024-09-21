@@ -47,19 +47,19 @@ export const title = style({
   fontFamily: vars.font.pyeongChangBold,
   fontSize: "16px",
   lineHeight: "22px",
-  width: "55vw",
+  width: "45vw",
 });
 export const order = style({
-  backgroundColor: vars.color.blue1,
   borderRadius: "99px",
   padding: "4px 8px",
-  color: vars.color.white,
+  border: `1px solid #2c2c2c`,
+  fontSize: "12px",
 });
 export const detailBtn = style({
   display: "flex",
   alignItems: "center",
   gap: "8px",
-  padding: "7px 10px",
+  padding: "5px 8px",
   cursor: "pointer",
   borderRadius: "99px",
   background: vars.color.blue2,
