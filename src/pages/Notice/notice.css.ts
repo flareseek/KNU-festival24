@@ -111,7 +111,7 @@ export const noticeNumber = style({
 });
 
 export const noticeContentWrapper = style({
-  width: "90%", // 부모 요소의 너비에 맞추기
+  width: "80%", // 부모 요소의 너비에 맞추기
   overflow: "hidden", // 넘치는 부분을 숨김
   position: "relative",
   marginLeft: 10,
@@ -119,7 +119,7 @@ export const noticeContentWrapper = style({
 
 export const noticeTitle = style({
   display: "inline-block",
-  whiteSpace: "nowrap",
+  whiteSpace: "pre-line", 
   fontSize: 16,
   fontWeight: 500,
   color: "black",
