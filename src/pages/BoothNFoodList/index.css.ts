@@ -5,13 +5,13 @@ export const cardContainer = style({
 });
 export const imgContainer = style({
   margin: "0px 10px",
-  padding: "8px",
   borderRadius: "12px",
-  backgroundColor: "#fff",
+  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  padding: "8px 30%",
   "@media": {
-    "(max-width: 1000px)": {
-      width: "30%",
-      margin: "0px auto",
+    "screen and (max-width: 768px)": {
+      backgroundColor: "#fff",
+      padding: "8px",
     },
   },
 });
