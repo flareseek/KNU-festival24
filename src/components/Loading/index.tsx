@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Lottie from "lottie-light-react";
 import loadingAnimation from "../../assets/loading.json";
 import { containerStyle, lottieStyle, textStyle, responsiveTextStyle } from "./.css.ts";
