@@ -6,12 +6,17 @@ globalStyle("body", {
   position: "relative",
   background:
     "linear-gradient(180deg, #4FD1C5 0%, #56C5CF 16.67%, #5DB9D9 33.33%, #63ADE3 50%, #63A1ED 66.7%, #4FD1C5 100%)",
-  backgroundSize: "100% 2400px",
+  backgroundSize: "1000% 2400px",
   backgroundRepeat: "repeat-y",
   minHeight: "100vh",
   width: "100%",
   paddingTop: "3.75rem",
-  overscrollBehavior: "none",
+  overscrollBehaviorY: "none",
+  "@media": {
+    "(min-height: 1000px)": {
+      overscrollBehaviorX: "none",
+    },
+  },
 });
 globalStyle("#root", {
   fontFamily: vars.font.pretendardRegular,
