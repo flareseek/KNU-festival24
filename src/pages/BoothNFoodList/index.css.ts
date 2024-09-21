@@ -5,9 +5,15 @@ export const cardContainer = style({
 });
 export const imgContainer = style({
   margin: "0px 10px",
-  padding: "8px",
   borderRadius: "12px",
-  backgroundColor: "#fff",
+  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  padding: "8px 30%",
+  "@media": {
+    "screen and (max-width: 768px)": {
+      backgroundColor: "#fff",
+      padding: "8px",
+    },
+  },
 });
 export const imgContainer2 = style({
   borderRadius: "8px",
