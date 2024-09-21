@@ -25,6 +25,7 @@ export default defineConfig({
           format: "webp",
           quality: "80", // 품질을 80%로 설정하여 손실 압축 적용
           removeMetadata: "",
+          h: "1080",
         }),
     }),
   ],
