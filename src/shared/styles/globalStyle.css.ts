@@ -11,6 +11,7 @@ globalStyle("body", {
   minHeight: "100vh",
   width: "100%",
   paddingTop: "3.75rem",
+  overscrollBehavior: "none",
 });
 globalStyle("#root", {
   fontFamily: vars.font.pretendardRegular,

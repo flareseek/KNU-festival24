@@ -8,7 +8,7 @@ const breakpoints = {
 export const footer = style({
   color: "#fff",
   marginTop: "20px",
-  padding: "20px",
+  marginBottom: "20px",
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -19,6 +19,21 @@ export const footer = style({
       flexDirection: "row",
       justifyContent: "space-around",
       alignItems: "center",
+    },
+  },
+});
+
+export const footerContent = style({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  alignContent: "center",
+  marginBottom: "15px",
+  "@media": {
+    [`screen and (min-width: ${breakpoints.tablet}px)`]: {
+      flexDirection: "row",
+
+      marginBottom: 0,
     },
   },
 });
@@ -38,6 +53,21 @@ export const footerLogo = style({
       width: "15vw",
       maxWidth: "180px",
     },
+  },
+});
+
+export const inquiryLink = style({
+  color: "#fff",
+  textDecoration: "none",
+  fontSize: "0.9rem",
+  padding: "5px 10px",
+  marginLeft: "8px",
+  border: "1px solid #fff",
+  borderRadius: "5px",
+  transition: "background-color 0.3s, color 0.3s",
+  ":hover": {
+    backgroundColor: "#fff",
+    color: "#000",
   },
 });
 
