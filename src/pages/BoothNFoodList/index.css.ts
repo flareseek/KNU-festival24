@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
 export const cardContainer = style({
-  margin: "30px",
+  margin: "10px",
 });

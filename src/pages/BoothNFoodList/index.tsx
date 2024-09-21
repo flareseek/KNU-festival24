@@ -1,10 +1,8 @@
-// import BOOTHS from "../../resources/BOOTHS";
-// import FOODTRUCKS from "../../resources/FOODTRUCKS";
-// import { BOOTH_PLACE, FOODTRUCKS_PLACE } from "../../shared/types/booth_foodtruck";
-
-// import Card from "./Card";
+import { BOOTH_HAMINSEOP_LIST } from "../../resources/booth_list";
 import { cardContainer } from "./index.css";
+
 import TabBtns from "./TabBtns2";
+import Card from "./Card";
 import { useBoothNFoodtruckTabs } from "./TabBtns2/hook";
 
 export default function BoothNFoodList() {
@@ -15,19 +13,17 @@ export default function BoothNFoodList() {
         <TabBtns activePlace={activePlace} activeType={activeType} changeTab={changeTab} />
       </section>
       <section className={cardContainer}>
-        {/* {(typeTab == "booth" ? BOOTHS : FOODTRUCKS).map((item) =>
-          placeTab === item.place ? (
-            <Card
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              description={item.description}
-              category={item.category}
-              type={typeTab as "booth" | "foodtruck"}
-              imgURL={item.imgURL}
-            />
-          ) : null,
-        )} */}
+        {BOOTH_HAMINSEOP_LIST.map((item) => (
+          <Card
+            key={item.id}
+            id={item.id}
+            description={item.description}
+            imgURL={item.image}
+            order={item.order}
+            name={item.name}
+            hasDetail={item.saleItems.length > 0 || item.description.length > 15}
+          />
+        ))}
       </section>
     </div>
   );

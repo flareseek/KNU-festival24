@@ -1,40 +1,43 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { booths_icon, foodtruck_icon } from "../../../shared/types/booth_foodtruck";
 import * as styles from "./index.css.ts";
 
-const icon_map = { ...booths_icon, ...foodtruck_icon };
-
 interface Props {
-  id: number;
-  title: string;
+  id: string;
+  order: number;
+  name: string;
   description: string;
-  type: "booth" | "foodtruck";
-  category: keyof typeof icon_map;
-  imgURL: string;
+  imgURL?: string;
+  hasDetail: boolean;
 }
 
-export default function Card({ id, title, description, category, type, imgURL }: Props) {
+export default function Card({ id, name, description, order, imgURL, hasDetail }: Props) {
+  const navigator = useNavigate();
+
   return (
-    <Link to={`/booth_foodtruck_list/${type}/${id}`} className={styles.container}>
-      <img src={imgURL} alt={`${title} 부스/푸드트럭 이미지`} className={styles.image} />
+    <div
+      {...(hasDetail && { onClick: () => navigator(`/booth_foodtruck_list/booth/${id}`) })}
+      className={styles.container}
+    >
+      {imgURL && <img src={imgURL} alt={`${name} 부스/푸드트럭 이미지`} className={styles.image} />}
       <div className={styles.contentContainer}>
         <div className={styles.contentDiv13}>
-          <h3 className={styles.title}>{title}</h3>
-          <span className={`material-symbols-outlined ${styles.icon}`}>{icon_map[category]}</span>
+          <h3 className={styles.title}>{name}</h3>
+          <span className={styles.order}>{order}</span>
         </div>
         <div className={styles.contentDiv2}>
-          <p className={styles.category}>{category}</p>
-          <p>{description}</p>
+          <p className={styles.description}>{description}</p>
         </div>
-        <div className={styles.contentDiv13}>
-          <div />
-          <div className={styles.detailBtn}>
-            <span className={`material-symbols-outlined ${styles.detailBtnIcon}`}>info</span>
-            <span>더보기</span>
+        {hasDetail && (
+          <div className={styles.contentDiv13}>
+            <div />
+            <div className={styles.detailBtn}>
+              <span className={`material-symbols-outlined ${styles.detailBtnIcon}`}>info</span>
+              <span>더보기</span>
+            </div>
           </div>
-        </div>
+        )}
       </div>
-    </Link>
+    </div>
   );
 }

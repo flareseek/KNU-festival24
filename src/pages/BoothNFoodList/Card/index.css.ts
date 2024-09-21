@@ -5,7 +5,7 @@ export const container = style({
   display: "flex",
   padding: "8px",
   marginBottom: "7px",
-  height: "114px",
+  height: "100px",
   borderRadius: "20px",
   backgroundColor: vars.color.white,
 });
@@ -18,36 +18,42 @@ export const contentContainer = style({
 });
 export const contentDiv13 = style({
   display: "flex",
+  width: "100%",
   justifyContent: "space-between",
-  alignItems: "center",
+  alignItems: "start",
 });
 
 export const contentDiv2 = style({
   display: "flex",
   marginBottom: "8px",
+  width: "40%",
   alignItems: "center",
+});
+export const description = style({
+  fontSize: "12px",
+  overflow: "hidden",
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
 });
 
 export const image = style({
-  aspectRatio: "1 / 1",
+  aspectRatio: "2 / 3",
   borderRadius: "16px 0px 0px 16px",
   marginRight: "16px",
+  objectFit: "cover",
+  objectPosition: "left",
 });
 export const title = style({
   fontFamily: vars.font.pyeongChangBold,
-  fontSize: "18px",
+  fontSize: "16px",
   lineHeight: "22px",
+  width: "55vw",
 });
-export const icon = style({
-  color: vars.color.blue1,
-  fontSize: "30px",
-});
-export const category = style({
-  border: "1.5px solid #000",
-  borderRadius: "14px",
-  marginRight: "8px",
-  lineHeight: "20px",
-  padding: "2px 8px",
+export const order = style({
+  backgroundColor: vars.color.blue1,
+  borderRadius: "99px",
+  padding: "4px 8px",
+  color: vars.color.white,
 });
 export const detailBtn = style({
   display: "flex",
@@ -58,7 +64,8 @@ export const detailBtn = style({
   borderRadius: "99px",
   background: vars.color.blue2,
   color: vars.color.white,
+  fontSize: "12px",
 });
 export const detailBtnIcon = style({
-  fontSize: "18px",
+  fontSize: "12px",
 });
