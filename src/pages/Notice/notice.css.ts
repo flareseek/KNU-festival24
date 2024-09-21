@@ -36,7 +36,7 @@ export const searchbar = style({
   borderRadius: 50, // 왼쪽만 둥글게
   padding: "0px 15px",
   fontSize: "18px",
-  fontWeight: 500,
+  fontWeight: 400,
   "@media": {
     "(max-width: 375px)": {
       //Iphone SE 같은 소형폰
