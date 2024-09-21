@@ -1,5 +1,6 @@
 import { places, types } from "./hook";
 
+// TODO 푸드트럭이면 분홍, 부스면 초록 또는 대운동장따라서
 export default function TabBtns({
   activePlace,
   activeType,
