@@ -21,6 +21,9 @@ export const searchContainer = style({
     "(min-width: 1000px)": {
       width: "60%",
     },
+    "(min-height: 1000px)": {
+      height: "50px",
+    },
   },
 });
 
@@ -38,6 +41,9 @@ export const searchbar = style({
     "(max-width: 375px)": {
       //Iphone SE 같은 소형폰
       fontSize: "15px",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "20px",
     },
   },
 });
@@ -118,6 +124,11 @@ export const noticeTitle = style({
   fontWeight: 500,
   color: "black",
   margin: 5,
+  "@media": {
+    "(min-height: 1000px)": {
+      fontSize: "23px",
+    },
+  },
 });
 
 export const noticeDetail = style({
@@ -132,6 +143,9 @@ export const noticeDetail = style({
     "(max-width: 375px)": {
       //Iphone SE 같은 소형폰
       width: "88%",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "25px",
     },
   },
 });
