@@ -17,25 +17,41 @@ import {
 } from "../../shared/mainPageConst.ts";
 import { timeTableInfoProps } from "../../shared/types/timeTable.ts";
 
-const apink: artistInfoListProps = { name: "에이핑크", image: _apink, url: ARTIST_APINK_URL };
-const roy_kim: artistInfoListProps = { name: "로이킴", image: _roy_kim, url: ARTIST_ROY_URL };
+const apink: artistInfoListProps = {
+  name: "에이핑크",
+  image: _apink,
+  url: `/artist/${ARTIST_APINK_URL}`,
+};
+const roy_kim: artistInfoListProps = {
+  name: "로이킴",
+  image: _roy_kim,
+  url: `/artist/${ARTIST_ROY_URL}`,
+};
 const glen_chenck: artistInfoListProps = {
   name: "글렌체크",
   image: _glen_chenck,
-  url: ARTIST_GLEN_CENCK_URL,
+  url: `/artist/${ARTIST_GLEN_CENCK_URL}`,
 };
-const creespy: artistInfoListProps = { name: "크리스피", image: _creespy, url: ARTIST_CREESPY_URL };
+const creespy: artistInfoListProps = {
+  name: "크리스피",
+  image: _creespy,
+  url: `/artist/${ARTIST_CREESPY_URL}`,
+};
 const kwon_eun_bi: artistInfoListProps = {
   name: "권은비",
   image: _kwon_eun_bi,
-  url: ARTIST_KWON_EUNBI_URL,
+  url: `/artist/${ARTIST_KWON_EUNBI_URL}`,
 };
 const choi_yu_ree: artistInfoListProps = {
   name: "최유리",
   image: _choi_yu_ree,
-  url: ARTIST_CHOI_YU_REE_URL,
+  url: `/artist/${ARTIST_CHOI_YU_REE_URL}`,
 };
-const gummy: artistInfoListProps = { name: "거미", image: _gummy, url: ARTIST_GUMMY_URL };
+const gummy: artistInfoListProps = {
+  name: "거미",
+  image: _gummy,
+  url: `/artist/${ARTIST_GUMMY_URL}`,
+};
 
 export const timeTableInfo: timeTableInfoProps[] = [
   {

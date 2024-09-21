@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { timeTableInfo } from "./timeTableInfo.ts";
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
-import * as styles from "./.css.ts"; // Import the Vanilla Extract styles
+import * as styles from "./.css.ts";
+import { Link } from "react-router-dom";
+import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 
 // Constants
 const TIME_TABLE_FILTER: timeTableFilterProps[] = [
@@ -50,11 +52,11 @@ const ArtistInfo: React.FC<{
 }> = React.memo(({ artist }) => (
   <div className={styles.artistInfoContainer}>
     <h3 className={styles.artistInfoTitle}>아티스트</h3>
-    {artist.map((a, index) => (
-      <div key={index} className={styles.artistItem}>
+    {artist.map((a: artistInfoListProps, index) => (
+      <Link to={a.url} key={index} className={styles.artistItem}>
         <img src={a.image} alt={a.name} className={styles.artistImage} />
         <p className={styles.artistName}>{a.name}</p>
-      </div>
+      </Link>
     ))}
   </div>
 ));
@@ -62,11 +64,12 @@ const ArtistInfo: React.FC<{
 const TimeTableItem: React.FC<{
   timeTable: timeTableInfoProps;
   currentTime: Date;
-}> = React.memo(({ timeTable, currentTime }) => {
+  refCallback: (node: HTMLDivElement | null) => void;
+}> = React.memo(({ timeTable, currentTime, refCallback }) => {
   const status = getEventStatus(timeTable, currentTime);
 
   return (
-    <div className={`${styles.timeTableItem}`}>
+    <div className={`${styles.timeTableItem}`} ref={status === "current" ? refCallback : null}>
       <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
       {timeTable.descriptionShow && (
         <p className={styles.timeTableDescription}>{timeTable.description}</p>
@@ -85,6 +88,7 @@ const TimeTableItem: React.FC<{
 export default function Timetable() {
   const [viewTime, setViewTime] = useState<Date>(START_DATE);
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  const lastCurrentEventRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const today = clearTime(new Date());
@@ -105,10 +109,6 @@ export default function Timetable() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleFilterClick = useCallback((date: Date) => {
-    setViewTime(clearTime(date));
-  }, []);
-
   const filteredTimeTableInfo = useMemo(
     () =>
       timeTableInfo
@@ -116,6 +116,19 @@ export default function Timetable() {
         .sort((a, b) => a.startTime.getTime() - b.startTime.getTime()),
     [viewTime],
   );
+
+  useEffect(() => {
+    // 진행 중인 마지막 요소로 스크롤
+    if (lastCurrentEventRef.current) {
+      if ("scrollIntoView" in lastCurrentEventRef.current) {
+        lastCurrentEventRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [filteredTimeTableInfo]);
+
+  const handleFilterClick = useCallback((date: Date) => {
+    setViewTime(clearTime(date));
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -133,10 +146,24 @@ export default function Timetable() {
         {filteredTimeTableInfo.map((timeTable, index) => (
           <React.Fragment key={index}>
             {index > 0 && <hr className={styles.timeSeparator} />}
-            <TimeTableItem timeTable={timeTable} currentTime={currentTime} />
+            <TimeTableItem
+              timeTable={timeTable}
+              currentTime={currentTime}
+              refCallback={(node) => {
+                if (node) lastCurrentEventRef.current = node;
+              }}
+            />
           </React.Fragment>
         ))}
       </div>
+      {TIME_TABLE_FILTER.map((timeTable, index) => (
+        <FilterButton
+          key={index}
+          timeTable={timeTable}
+          onClick={handleFilterClick}
+          isActive={clearTime(timeTable.date).getTime() === viewTime.getTime()}
+        />
+      ))}
     </section>
   );
 }
