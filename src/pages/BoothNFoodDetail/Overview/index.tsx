@@ -3,28 +3,27 @@ import * as styles from "./index.css.ts";
 
 type OverviewProps = {
   title: string;
-  category: string;
+  date: number[];
   imgURL: string;
-  keyword: string[];
-  hours: string;
 };
 
-export default function Overview({ title, category, imgURL, keyword, hours }: OverviewProps) {
+export default function Overview({ title, date, imgURL }: OverviewProps) {
   return (
     <div className={styles.container}>
       <ImageModal src={imgURL} alt={title} />
-      <div className={styles.category}>{category}</div>
       <div className={styles.bottomContainer}>
         <div>
-          {keyword.map((value, index) => (
-            <span key={index} className={styles.keywordLabel}>
-              {value}
-            </span>
-          ))}
+          <span className={styles.keywordLabel}>{title}</span>
         </div>
-        <div className={styles.hoursLabel}>
-          <span className="material-symbols-outlined">schedule</span>
-          <span>{hours}</span>
+        <div className={styles.hoursContainer}>
+          <div className={styles.hoursLabel}>
+            <span className="material-symbols-outlined">schedule</span>
+            <span>11:00 ~ 17:00</span>
+          </div>
+          <div className={styles.hoursLabel}>
+            <span className="material-symbols-outlined">date_range</span>
+            <span>{date.join(", ")} 일</span>
+          </div>
         </div>
       </div>
     </div>
