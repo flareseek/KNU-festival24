@@ -3,7 +3,7 @@ import { timeTableInfo } from "./timeTableInfo.ts";
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
 import * as styles from "./.css.ts";
 import { Link } from "react-router-dom";
-import {artistInfoListProps} from "../../shared/types/mainPage.ts";
+import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 
 // Constants
 const TIME_TABLE_FILTER: timeTableFilterProps[] = [
