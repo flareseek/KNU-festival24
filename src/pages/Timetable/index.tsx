@@ -119,10 +119,6 @@ export default function Timetable() {
 
   return (
     <section className={styles.section}>
-      <img
-        src="https://raw.githubusercontent.com/jjh4450/healix-frontend/refs/heads/main/public/preview_img.webp"
-        alt="로고"
-      />
       <div>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton
