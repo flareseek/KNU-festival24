@@ -54,7 +54,6 @@ export default function Card({ id, name, color, description, order, imgURL, hasD
         {hasDetail && (
           <div className={styles.detailBtn}>
             <span className={`material-symbols-outlined ${styles.detailBtnIcon}`}>info</span>
-            <span>더보기</span>
           </div>
         )}
       </div>

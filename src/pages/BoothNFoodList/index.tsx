@@ -56,8 +56,9 @@ export default function BoothNFoodList() {
               order={item.order}
               name={item.name}
               hasDetail={
+                // 판매중인 상품이 있거나 설명이 10자 이상인 경우에만 상세 페이지 존재
                 ("saleItems" in item ? item.saleItems.length > 0 : undefined) ||
-                item.description.length > 15
+                item.description.length > 10
               }
             />
           );

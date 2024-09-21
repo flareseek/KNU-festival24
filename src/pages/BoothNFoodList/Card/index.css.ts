@@ -3,7 +3,6 @@ import { vars } from "../../../shared/styles/vars.css";
 
 export const container = style({
   display: "flex",
-  alignItems: "center",
   padding: "8px",
   marginBottom: "16px",
   borderRadius: "20px",
@@ -43,8 +42,8 @@ export const textContainer = style({
 });
 
 export const title = style({
-  fontFamily: vars.font.pyeongChangBold,
-  fontSize: "18px",
+  fontFamily: vars.font.pyeongChangLight,
+  fontSize: "16px",
   lineHeight: "24px",
   whiteSpace: "nowrap",
   overflow: "hidden",
@@ -52,7 +51,7 @@ export const title = style({
 });
 
 export const description = style({
-  fontSize: "14px",
+  fontSize: "12px",
   lineHeight: "20px",
   whiteSpace: "nowrap",
   overflow: "hidden",
@@ -63,8 +62,9 @@ export const rightContainer = style({
   flexShrink: 0,
   display: "flex",
   flexDirection: "column",
+  padding: "8px 8px 8px 0",
+  justifyContent: "space-between",
   alignItems: "flex-end",
-  gap: "12px",
 });
 
 export const order = style({
@@ -76,15 +76,9 @@ export const order = style({
 });
 
 export const detailBtn = style({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
   gap: "8px",
-  padding: "8px 16px",
-  borderRadius: "99px",
-  background: vars.color.blue2,
-  color: vars.color.white,
-  fontSize: "14px",
+  color: vars.color.blue1,
+  fontSize: "12px",
   fontWeight: "bold",
   transition: "background-color 0.2s ease-in-out",
   ":hover": {
@@ -93,5 +87,6 @@ export const detailBtn = style({
 });
 
 export const detailBtnIcon = style({
-  fontSize: "16px",
+  fontSize: "14px",
+  fontWeight: "bold",
 });
