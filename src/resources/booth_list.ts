@@ -1,6 +1,45 @@
-import { Booth } from "../../shared/types/asset_types";
-import { availableAsset } from "../../shared/util/functions";
+import { Booth } from "../shared/types/asset_types";
+import { availableAsset } from "../shared/util/functions";
 
+export const BOOTH_MEMORIAL60_LIST: Booth[] = [
+  new Booth({
+    id: "1",
+    order: 0,
+    place: "60주년기념관",
+    name: "총학본부-YOUR EVENT",
+    description:
+      "총학생회 X 하이트진로 맥주 빨리 마시기 대회\n주류 판매 부스에서 판매되는 맥주 360ml로 경기 진행",
+    saleItems: [],
+  }),
+  new Booth({
+    id: "2",
+    order: 1,
+    place: "60주년기념관",
+    name: "주점",
+    description: "60주년 주점 주류 및 음료 안내",
+    saleItems: [
+      { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
+      { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
+      { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
+      { item: "anf 500ml", price: { min: 1000, max: 1000 } },
+    ],
+  }),
+];
+export const BOOTH_MIRAE_LIST: Booth[] = [
+  new Booth({
+    id: "a",
+    order: 0,
+    place: "미래광장",
+    name: "주점",
+    description: "미래광장 주점 주류 및 음료 안내",
+    saleItems: [
+      { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
+      { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
+      { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
+      { item: "anf 500ml", price: { min: 1000, max: 1000 } },
+    ],
+  }),
+];
 export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
   new Booth({
     id: "750ef3bc7b",
@@ -28,7 +67,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     imageName: "8ae87b7d0c",
   }),
   new Booth({
-    id: "fe8093b105",
+    id: "fe8093b1051",
     order: 3,
     place: "대운중앙노랑",
     name: "단과대학제전",
@@ -46,7 +85,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     imageName: "8ae87b7d0c",
   }),
   new Booth({
-    id: "e5eec3f24d",
+    id: "e5eec3f24d1",
     order: 5,
     place: "대운중앙노랑",
     name: "2024 백령대동제 굿즈 판매 및 수령",
@@ -778,7 +817,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     place: "함인섭",
   }),
   new Booth({
-    id: "3c8f3e0f3f",
+    id: "3c8f3e0f300f",
     order: 1,
     name: "강원대학교 총동창회(수)",
     description: "한우버거 및 한우불고기 나눔",

@@ -1,12 +1,20 @@
-const invalidImg = new URL("../../assets/data/invalid.png", import.meta.url).href;
+const invalidImg = new URL("../../assets/logo/main_page_logo.png", import.meta.url).href;
 
-export type BoothPlaceType = "대운중앙노랑" | "대운상단초록" | "대운하단분홍" | "함인섭";
+export type BoothPlaceType =
+  | "대운중앙노랑"
+  | "대운상단초록"
+  | "대운하단분홍"
+  | "함인섭"
+  | "미래광장"
+  | "60주년기념관";
 export type FoodtruckPlaceType = "60주년기념관" | "미래광장" | "함인섭광장";
 
 export class Asset {
   id: string;
   order: number;
   name: string;
+  image: string;
+  description: string;
   date: number[] = [23, 24, 25];
   visible: boolean = true;
 
@@ -15,30 +23,33 @@ export class Asset {
     order,
     name,
     visible,
+    description = "",
     date = [23, 24, 25],
   }: {
     id: string;
     order: number;
     name: string;
+    description: string;
     visible?: boolean;
     date?: number[];
   }) {
     this.id = id;
     this.order = order;
+    this.description = description;
     this.name = name;
     this.visible = visible ?? true;
     this.date = date;
+    this.image = invalidImg;
   }
 }
 
 export class FoodTruck extends Asset {
-  menu: string[];
   place: FoodtruckPlaceType;
   constructor({
     id,
     order,
     name,
-    menu,
+    description = "",
     place,
     visible,
     date = [23, 24, 25],
@@ -46,13 +57,12 @@ export class FoodTruck extends Asset {
     id: string;
     order: number;
     name: string;
-    menu: string[];
+    description: string;
     place: FoodtruckPlaceType;
     visible?: boolean;
     date?: number[];
   }) {
-    super({ id, order, name, visible, date });
-    this.menu = menu;
+    super({ id, order, description, name, visible, date });
     this.place = place;
   }
 }
@@ -63,10 +73,8 @@ export interface SaleItems {
 }
 
 export class Booth extends Asset {
-  description: string;
   saleItems: SaleItems[];
   place: BoothPlaceType;
-  image: string;
   constructor({
     id,
     order,
@@ -88,8 +96,7 @@ export class Booth extends Asset {
     visible?: boolean;
     date?: number[];
   }) {
-    super({ id, order, name, visible, date });
-    this.description = description;
+    super({ id, order, description, name, visible, date });
     this.saleItems = saleItems;
     this.place = place;
     this.image = new URL(
