@@ -16,9 +16,8 @@ export default function Makers() {
           <img className={website} src={makers_website}></img>
         </a>
       </div>
-    
+
       <img className={main} src={makers_main}></img>
-      
     </div>
   );
 }
