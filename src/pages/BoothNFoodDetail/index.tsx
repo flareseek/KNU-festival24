@@ -1,6 +1,6 @@
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { 
+import {
   BOOTH_MEMORIAL60_LIST,
   BOOTH_MIRAE_LIST,
   BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST,
@@ -20,20 +20,20 @@ import * as styles from "./index.css.ts";
  * @returns 부스, 푸드트럭 상세 페이지
  */
 export default function BoothNFoodDetail() {
-  const [id] = useLocation().pathname.split("/").reverse();
+  const { id } = useParams<{ id: string }>();
 
-    // 모든 부스 리스트를 하나의 배열로 합침
-    const allBooths = [
-      ...BOOTH_MEMORIAL60_LIST,
-      ...BOOTH_MIRAE_LIST,
-      ...BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST,
-      ...BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST,
-      ...BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST,
-      ...BOOTH_HAMINSEOP_LIST,
-    ];
-  
-    // 모든 리스트를 순회하여 id가 일치하는 객체 찾기
-    const content = allBooths.find((value) => value.id === id);
+  // 모든 부스 리스트를 하나의 배열로 합침
+  const allBooths = [
+    ...BOOTH_MEMORIAL60_LIST,
+    ...BOOTH_MIRAE_LIST,
+    ...BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST,
+    ...BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST,
+    ...BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST,
+    ...BOOTH_HAMINSEOP_LIST,
+  ];
+
+  // 모든 리스트를 순회하여 id가 일치하는 객체 찾기
+  const content = allBooths.find((value) => value.id === id);
 
   if (!content) {
     // TODO: 404 페이지로 리다이렉트
@@ -44,10 +44,7 @@ export default function BoothNFoodDetail() {
     <div className={styles.layout}>
       <div>
         <section>
-          <Overview
-            title={content.name}
-            imgURL={content.image ?? ""}
-          />
+          <Overview title={content.name} imgURL={content.image ?? ""} />
         </section>
         <section className={styles.descriptionContainer}>
           <div className={styles.description}>{content.description}</div>
