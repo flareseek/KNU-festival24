@@ -1,9 +1,9 @@
-import { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { timeTableInfo } from "./timeTableInfo.ts";
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
 import * as styles from "./.css.ts";
 import { Link } from "react-router-dom";
-import { artistInfoListProps } from "../../shared/types/mainPage.ts";
+import {artistInfoListProps} from "../../shared/types/mainPage.ts";
 
 // Constants
 const TIME_TABLE_FILTER: timeTableFilterProps[] = [
@@ -48,7 +48,7 @@ const FilterButton: React.FC<{
 ));
 
 const ArtistInfo: React.FC<{
-  artist: { name: string; image: string }[];
+  artist: artistInfoListProps[];
 }> = React.memo(({ artist }) => (
   <div className={styles.artistInfoContainer}>
     <h3 className={styles.artistInfoTitle}>아티스트</h3>
