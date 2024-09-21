@@ -117,12 +117,7 @@ export const artistData: ArtistData = {
       "https://www.youtube.com/watch?v=fGC7I4-y2lg",
       glencheck_hautecouture,
     ],
-    fourthSong: [
-      "Sins",
-      "Bleach",
-      "https://www.youtube.com/watch?v=6pFG-VYxr9Q",
-      glencheck_bleach,
-    ],
+    fourthSong: ["Sins", "Bleach", "https://www.youtube.com/watch?v=6pFG-VYxr9Q", glencheck_bleach],
   },
   creespy: {
     picture: creespy,
