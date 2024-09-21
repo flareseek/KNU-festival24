@@ -8,6 +8,12 @@ export const imgContainer = style({
   padding: "8px",
   borderRadius: "12px",
   backgroundColor: "#fff",
+  "@media": {
+    "(max-width: 1000px)": {
+      width: "30%",
+      margin: "0px auto",
+    },
+  },
 });
 export const imgContainer2 = style({
   borderRadius: "8px",
