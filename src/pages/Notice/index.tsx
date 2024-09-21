@@ -107,7 +107,7 @@ function Notice() {
                     {noticeItem.renewal && <span className={newBadge}>중요</span>}
                   </div>
 
-                  <div className={noticeContentWrapper}>
+                  <div onClick={() => toggleNotice(noticeItem.id)}  className={noticeContentWrapper}>
                     <p className={noticeTitle}>{noticeItem.title}</p>
                   </div>
 

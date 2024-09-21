@@ -127,7 +127,7 @@ function QnA() {
                     <p className={qnaNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
                   </div>
 
-                  <div className={qnaContentWrapper}>
+                  <div onClick={() => toggleQna(QnaItem.id)} className={qnaContentWrapper}>
                     <p className={qnaContent}>{QnaItem.title}</p>
                   </div>
                   {/* downbtn을 클릭하면 토글 */}
