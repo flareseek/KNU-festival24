@@ -104,7 +104,7 @@ function Notice() {
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <p className={noticeNumber}>{index + 1 + (currentPage - 1) * itemsPerPage}</p>
                     {/* 공지사항의 renewal이 true일 경우 'New' 배지를 표시 */}
-                    {noticeItem.renewal && <span className={newBadge}>New</span>}
+                    {noticeItem.renewal && <span className={newBadge}>중요</span>}
                   </div>
 
                   <div className={noticeContentWrapper}>

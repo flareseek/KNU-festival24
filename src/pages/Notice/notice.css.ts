@@ -138,7 +138,8 @@ export const noticeDetail = style({
   overflow: "hidden",
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
-  marginTop: -10,
+  borderRadius:"0 0 5px 5px",
+  marginTop: -12,
   marginBottom: 5,
   lineHeight: 1.3,
   width: "90%",
@@ -151,6 +152,7 @@ export const noticeDetail = style({
       fontSize: "25px",
     },
   },
+
 });
 
 //검색한 키워드가 없을 경우 뜨는 글귀
@@ -163,13 +165,14 @@ export const emptyListAlert = style({
 
 //새 게시물에 뜨는 new 태그
 export const newBadge = style({
+  width:25,
   marginLeft: "10px",
   padding: "3px 6px",
   backgroundColor: "#e74c3c",
   color: "#fff",
   borderRadius: "3px",
-  fontSize: "12px",
-  fontWeight: "bold",
+  fontSize: "14px",
+  fontWeight: 500,
 });
 
 export const arrowButton = style({
