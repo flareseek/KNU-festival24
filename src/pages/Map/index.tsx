@@ -26,6 +26,7 @@ export default function Map() {
           ))}
         </select>
       </div>
+      <p className={styles.text}>텍스트나 이미지를 클릭하시면 세부정보를 확인할 수 있습니다.</p>
       <MapImg place={activeTab} />
       <div className={styles.bottomContainer}>
         <button

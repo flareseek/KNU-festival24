@@ -20,14 +20,23 @@ export const select = style({
   boxShadow: `0 4px 4px rgba(0, 0, 0, 0.25)`,
 });
 
+export const text = style({
+  position: "absolute",
+  width: "100%",
+  color: vars.color.white,
+  top: "20vh",
+  fontSize: "10px",
+  textAlign: "center",
+  fontFamily: vars.font.pyeongChangLight,
+});
 export const fake = style({
-  height: "100px",
+  height: "130px",
 });
 export const bottomContainer = style({
   position: "fixed",
   width: "100%",
-  height: "190px",
-  top: "calc(100vh - 190px)",
+  height: "200px",
+  top: "calc(100vh - 200px)",
 });
 export const detailBtn = style({
   borderRadius: "99px",
@@ -45,12 +54,13 @@ export const detailBtn = style({
 export const notice = style({
   fontSize: "12px",
   fontWeight: "bold",
-  height: "130px",
+  height: "140px",
   textAlign: "center",
   borderRadius: "20px 20px 0 0",
   backgroundColor: "rgba(255, 255, 255, 0.8)",
   padding: "0 30px",
   display: "flex",
+  lineHeight: "1.5",
   flexDirection: "column",
   justifyContent: "center",
 });
