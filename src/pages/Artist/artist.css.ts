@@ -9,7 +9,7 @@ export const mid = style({
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
-  margin:"0 0 20px 0",
+  margin: "0 0 20px 0",
 });
 
 export const artistPicContainer = style({
@@ -35,7 +35,7 @@ export const artistIntro = style({
 
 export const artistIntroTitle = style({
   marginLeft: 15,
-  marginBottom:10,
+  marginBottom: 10,
   fontSize: 20,
   color: "white",
   fontFamily: `${vars.font.pyeongChangBold}`,
