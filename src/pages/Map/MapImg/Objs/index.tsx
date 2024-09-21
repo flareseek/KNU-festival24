@@ -172,7 +172,7 @@ export const MireaSquareObjs = () => {
         top={-24}
         left={34}
       />
-      <ObjImg src={tree_gomduri} top={17} left={-76} />
+      <ObjImg src={tree_gomduri} top={17} left={-65} />
     </div>
   );
 };
