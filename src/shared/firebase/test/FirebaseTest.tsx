@@ -7,6 +7,7 @@ import {
   deleteNotice,
 } from "../noticeService";
 import { NoticeDto } from "../../types/notice";
+import { signIn } from "../authentication";
 
 // 테스트용 컴포넌트 추후 삭제 예정
 function FirebaseTest() {
@@ -17,8 +18,29 @@ function FirebaseTest() {
   const [createdAt, setCreatedAt] = useState<Date>(new Date());
   const [notices, setNotices] = useState<NoticeDto[]>([]);
   const [noticeId, setNoticeId] = useState<string>("");
+  const [id, setId] = useState<string>("");
+  const [pw, setPw] = useState<string>("");
   return (
     <>
+      <div>
+        <h1>로그인</h1>
+        <label>
+          ID:
+          <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
+        </label>
+        <label>
+          PW:
+          <input type="text" value={pw} onChange={(e) => setPw(e.target.value)} />
+        </label>
+        <button
+          onClick={async () => {
+            await signIn(id, pw);
+          }}
+        >
+          로그인
+        </button>
+      </div>
+
       <div>
         <h1>공지사항 생성</h1>
         <label>
