@@ -121,7 +121,10 @@ function Notice() {
 
                 {/* 상세 내용 표시 - 확장 시만 보여줌 */}
                 {expandedNoticeId === noticeItem.id && (
-                  <div className={noticeDetail}>{noticeItem.contents}</div>
+                  <div
+                    className={noticeDetail}
+                    dangerouslySetInnerHTML={{ __html: noticeItem.contents }} // HTML로 렌더링
+                  />
                 )}
               </div>
             ))
