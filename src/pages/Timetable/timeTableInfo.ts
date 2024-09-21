@@ -20,7 +20,7 @@ import { timeTableInfoProps } from "../../shared/types/timeTable.ts";
 const apink: artistInfoListProps = { name: "에이핑크", image: _apink, url: ARTIST_APINK_URL };
 const roy_kim: artistInfoListProps = { name: "로이킴", image: _roy_kim, url: ARTIST_ROY_URL };
 const glen_chenck: artistInfoListProps = {
-  name: "글렌첸크",
+  name: "글렌체크",
   image: _glen_chenck,
   url: ARTIST_GLEN_CENCK_URL,
 };

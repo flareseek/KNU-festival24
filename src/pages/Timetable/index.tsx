@@ -26,9 +26,6 @@ const getEventStatus = (
   event: timeTableInfoProps,
   currentTime: Date,
 ): "past" | "current" | "future" => {
-  currentTime = new Date(2024, 8, 24, 15, 22, 0);
-  console.log(currentTime, event.startTime, event.endTime);
-  console.log(currentTime < event.startTime);
   if (currentTime < event.startTime) return "future";
   if (currentTime > event.endTime) return "past";
   return "current";
@@ -69,7 +66,7 @@ const TimeTableItem: React.FC<{
   const status = getEventStatus(timeTable, currentTime);
 
   return (
-    <div className={`${styles.timeTableItem} ${styles[status]}`}>
+    <div className={`${styles.timeTableItem}`}>
       <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
       {timeTable.descriptionShow && (
         <p className={styles.timeTableDescription}>{timeTable.description}</p>
