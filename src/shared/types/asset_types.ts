@@ -1,3 +1,5 @@
+const invalidImg = new URL("../../assets/logo/main_page_logo.png", import.meta.url).href;
+
 export type BoothPlaceType =
   | "대운중앙노랑"
   | "대운상단초록"
@@ -11,6 +13,7 @@ export class Asset {
   id: string;
   order: number;
   name: string;
+  image: string;
   description: string;
   date: number[] = [23, 24, 25];
   visible: boolean = true;
@@ -36,6 +39,7 @@ export class Asset {
     this.name = name;
     this.visible = visible ?? true;
     this.date = date;
+    this.image = invalidImg;
   }
 }
 
@@ -71,7 +75,6 @@ export interface SaleItems {
 export class Booth extends Asset {
   saleItems: SaleItems[];
   place: BoothPlaceType;
-  image?: string;
   constructor({
     id,
     order,
@@ -100,6 +103,6 @@ export class Booth extends Asset {
       `../../assets/data/booth_image/${place === "함인섭" ? "haminseop" : "playground/" + (place === "대운중앙노랑" ? "middle_yellow_line" : place === "대운상단초록" ? "top_green_line" : "bottom_pink_line")}/${imageName ?? this.id}.jpg`,
       import.meta.url,
     ).href;
-    if (this.image.endsWith("undefined")) this.image = undefined;
+    if (this.image.endsWith("undefined")) this.image = invalidImg;
   }
 }
