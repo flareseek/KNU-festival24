@@ -69,7 +69,7 @@ const TimeTableItem: React.FC<{
   const status = getEventStatus(timeTable, currentTime);
 
   return (
-    <div className={`${styles.timeTableItem} ${styles[status]}`}>
+    <div className={`${styles.timeTableItem}`}>
       <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
       {timeTable.descriptionShow && (
         <p className={styles.timeTableDescription}>{timeTable.description}</p>
