@@ -32,8 +32,8 @@ export const contentDiv2 = style({
 export const description = style({
   fontSize: "12px",
   overflow: "hidden",
-  whiteSpace: "nowrap",
-  textOverflow: "ellipsis",
+  // whiteSpace: "nowrap",
+  // textOverflow: "ellipsis",
 });
 
 export const image = style({
