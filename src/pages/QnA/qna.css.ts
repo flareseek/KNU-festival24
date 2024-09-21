@@ -83,6 +83,7 @@ export const qnaContentWrapper = style({
   overflow: "hidden", // 넘치는 부분을 숨김
   position: "relative",
   marginLeft: 10,
+  cursor: "pointer",
 });
 
 export const qnaContent = style({
