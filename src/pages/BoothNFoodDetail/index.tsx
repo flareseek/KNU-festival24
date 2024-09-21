@@ -14,6 +14,7 @@ import sparkles from "../../assets/sparkles.svg";
 // import Content from "./Content";
 import Overview from "./Overview";
 import * as styles from "./index.css.ts";
+import Content from "./Content/index.tsx";
 
 /**
  * type: 'booth'
@@ -52,11 +53,7 @@ export default function BoothNFoodDetail() {
           <img className={`${styles.sparkles} ${styles.sparkles2}`} src={sparkles} alt="spakles" />
         </section>
       </div>
-      {/* <section>
-        {content.saleItems.map((value, index) => (
-          <Content key={index} content={value} />
-        ))}
-      </section> */}
+      {content.saleItems.length ? <Content content={content.saleItems} /> : null}
     </div>
   );
 }
