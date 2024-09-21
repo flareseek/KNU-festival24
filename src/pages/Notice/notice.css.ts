@@ -119,7 +119,7 @@ export const noticeContentWrapper = style({
 
 export const noticeTitle = style({
   display: "inline-block",
-  whiteSpace: "pre-line", 
+  whiteSpace: "pre-line",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
