@@ -140,7 +140,7 @@ export const noticeDetail = style({
   padding: "10px",
   marginTop: -10,
   marginBottom: 5,
-  lineHeight:1.3,
+  lineHeight: 1.3,
   width: "90%",
   "@media": {
     "(max-width: 375px)": {
