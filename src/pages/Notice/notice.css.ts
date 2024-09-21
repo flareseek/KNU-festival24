@@ -138,8 +138,9 @@ export const noticeDetail = style({
   overflow: "hidden",
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
-  marginTop: -12,
+  marginTop: -10,
   marginBottom: 5,
+  lineHeight: 1.3,
   width: "90%",
   "@media": {
     "(max-width: 375px)": {
