@@ -4,9 +4,14 @@ import { vars } from "../../shared/styles/vars.css.ts";
 export const section = style({
   padding: "20px",
   fontFamily: vars.font.pretendardRegular,
+  margin: "0 auto",
   "@media": {
+    "screen and (min-width: 769px)": {
+      maxWidth: "50vw",
+    },
     "screen and (max-width: 768px)": {
       padding: "10px",
+      maxWidth: "none",
     },
   },
 });
