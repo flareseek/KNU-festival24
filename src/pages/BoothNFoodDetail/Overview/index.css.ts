@@ -39,6 +39,10 @@ export const keywordLabel = style({
   borderRadius: "10px",
   padding: "4px 8px",
 });
+export const hoursContainer = style({
+  display: "flex",
+  gap: "10px",
+});
 export const hoursLabel = style({
   fontFamily: vars.font.pyeongChangLight,
   fontSize: "15px",
