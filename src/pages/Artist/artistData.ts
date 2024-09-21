@@ -121,7 +121,6 @@ export const artistData: ArtistData = {
       "Sins",
       "Bleach",
       "https://www.youtube.com/watch?v=6pFG-VYxr9Q",
-      "/src/assets/artist/album/glencheck_bleach.jpeg",
       glencheck_bleach,
     ],
   },
