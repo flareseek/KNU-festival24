@@ -72,7 +72,7 @@ const TimeTableItem: React.FC<{
         <p className={styles.timeTableDescription}>{timeTable.description}</p>
       )}
       <p className={styles.timeTableTime}>
-        {timeTable.startTime.toString()} | {formatTime(timeTable.startTime)} ~{" "}
+        {timeTable.startTime.getMonth()+1}/{timeTable.startTime.getDate()} | {formatTime(timeTable.startTime)} ~{" "}
         {formatTime(timeTable.endTime)}
       </p>
       {timeTable.artist && <ArtistInfo artist={timeTable.artist} />}
