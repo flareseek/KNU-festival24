@@ -108,6 +108,7 @@ export const qnaDetail = style({
   padding: "10px",
   marginTop: -10,
   marginBottom: 5,
+  lineHeight: 1.5,
   width: "90%",
   "@media": {
     "(max-width: 375px)": {
