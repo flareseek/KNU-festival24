@@ -1,13 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../shared/styles/vars.css";
 
-export const titleText = style({
-  fontSize: 20,
-  fontWeight: 600,
-  color: "white",
-  marginTop: 60,
-});
-// 검색 필드와 버튼을 감싸는 컨테이너
+// 검색 필드를 감싸는 컨테이너
 export const searchContainer = style({
   display: "flex",
   alignItems: "center",
@@ -19,6 +13,18 @@ export const searchContainer = style({
   position: "absolute",
   top: 10,
   marginBottom: 20,
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "35px",
+    },
+    "(min-width: 1000px)": {
+      width: "60%",
+    },
+    "(min-height: 1000px)": {
+      height: "50px",
+    },
+  },
 });
 
 // 검색 입력 필드 스타일
@@ -31,14 +37,15 @@ export const searchbar = style({
   padding: "0px 15px",
   fontSize: "18px",
   fontWeight: 500,
-});
-
-// 상단의 빨간 컨테이너
-export const container = style({
-  width: "100%",
-  height: 110,
-  display: "flex",
-  justifyContent: "center",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      fontSize: "15px",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "20px",
+    },
+  },
 });
 
 // 중간에 검색창을 배치하는 컨테이너
@@ -60,6 +67,11 @@ export const noticeList = style({
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "70%",
+    },
+  },
 });
 
 export const noticeContainer = style({
@@ -83,6 +95,12 @@ export const notice = style({
   alignItems: "center",
   flexDirection: "row",
   position: "relative",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "50px",
+    },
+  },
 });
 
 export const noticeNumber = style({
@@ -99,23 +117,45 @@ export const noticeContentWrapper = style({
   marginLeft: 10,
 });
 
-export const noticeContent = style({
-  display: "inline-block", // 텍스트가 한 줄로 스크롤되도록 설정
-  whiteSpace: "nowrap", // 텍스트를 한 줄로 유지
+export const noticeTitle = style({
+  display: "inline-block",
+  whiteSpace: "nowrap",
   fontSize: 16,
   fontWeight: 500,
   color: "black",
   margin: 5,
+  "@media": {
+    "(min-height: 1000px)": {
+      fontSize: "23px",
+    },
+  },
 });
 
 export const noticeDetail = style({
+  whiteSpace: "pre-wrap",
   overflow: "hidden",
-  maxHeight: "500px", // 최대 높이를 설정
   backgroundColor: "rgba(255,255,255,0.6)", // 배경색
   padding: "10px",
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      width: "88%",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "25px",
+    },
+  },
+});
+
+//검색한 키워드가 없을 경우 뜨는 글귀
+export const emptyListAlert = style({
+  color: "white",
+  fontSize: 18,
+  fontWeight: 700,
+  textAlign: "center",
 });
 
 //새 게시물에 뜨는 new 태그
