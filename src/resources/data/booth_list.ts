@@ -1,6 +1,43 @@
 import { Booth } from "../../shared/types/asset_types";
 import { availableAsset } from "../../shared/util/functions";
 
+export const BOOTH_MEMORIAL60_LIST: Booth[] = [
+  new Booth({
+    id: "1",
+    order: 0,
+    place: "60주년기념관",
+    name: "총학본부-YOUR EVENT",
+    description: "총학생회 X 하이트진로 맥주 빨리 마시기 대회\n주류 판매 부스에서 판매되는 맥주 360ml로 경기 진행",
+    saleItems: [],
+  }),
+  new Booth({
+    id: "2",
+    order: 1,
+    place: "60주년기념관",
+    name: "주점",
+    description: "60주년 주점 주류 및 음료 안내",
+    saleItems: [
+      { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
+      { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
+      { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
+      { item: "anf 500ml", price: { min: 1000, max: 1000 } },],
+  }),
+]
+export const BOOTH_MIRAE: Booth[] = [
+  new Booth({
+    id: "a",
+    order: 0,
+    place: "미래광장",
+    name: "주점",
+    description: "미래광장 주점 주류 및 음료 안내",
+    saleItems: [ 
+      { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
+      { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
+      { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
+      { item: "anf 500ml", price: { min: 1000, max: 1000 } },
+     ],
+  }),
+]
 export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
   new Booth({
     id: "750ef3bc7b",
