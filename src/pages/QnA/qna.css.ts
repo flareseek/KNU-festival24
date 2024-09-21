@@ -35,6 +35,11 @@ export const qnaList = style({
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
+  "@media": {
+    "(min-width: 1000px)": {
+      width: "70%",
+    },
+  },
 });
 
 export const qnaContainer = style({
@@ -58,6 +63,12 @@ export const qna = style({
   alignItems: "center",
   flexDirection: "row",
   position: "relative",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      height: "50px",
+    },
+  },
 });
 
 export const qnaNumber = style({
@@ -81,6 +92,11 @@ export const qnaContent = style({
   fontWeight: 500,
   color: "black",
   margin: 5,
+  "@media": {
+    "(min-height: 1000px)": {
+      fontSize: "23px",
+    },
+  },
 });
 
 export const qnaDetail = style({
@@ -93,6 +109,15 @@ export const qnaDetail = style({
   marginTop: -12,
   marginBottom: 5,
   width: "90%",
+  "@media": {
+    "(max-width: 375px)": {
+      //Iphone SE 같은 소형폰
+      width: "88%",
+    },
+    "(min-height: 1000px)": {
+      fontSize: "25px",
+    },
+  },
 });
 
 export const pageButton = style({
