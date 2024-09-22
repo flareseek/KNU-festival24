@@ -178,7 +178,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
   },
   {
     title: "초청 아티스트 공연",
-    description: "글렌첸크, 크리스피, 권은비",
+    description: "글렌체크, 크리스피, 권은비",
     descriptionShow: true,
     artist: [glen_chenck, creespy, kwon_eun_bi],
     date: new Date("2024-09-24"),
