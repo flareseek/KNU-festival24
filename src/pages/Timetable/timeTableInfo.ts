@@ -60,7 +60,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
     descriptionShow: false,
     date: new Date("2024-09-23"),
     startTime: new Date("2024-09-23 11:00"),
-    endTime: new Date("2024-09-23 12:00"),
+    endTime: new Date("2024-09-23 18:00"),
   },
   {
     title: "리허설",
