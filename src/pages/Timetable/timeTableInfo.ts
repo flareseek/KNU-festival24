@@ -289,15 +289,6 @@ export const timeTableInfo: timeTableInfoProps[] = [
     startTime: new Date("2024-09-25 21:30"),
     endTime: new Date("2024-09-25 22:30"),
   },
-  // 4일차
-  {
-    title: "상시 프로그램 진행",
-    description: "상시 프로그램 진행",
-    descriptionShow: false,
-    date: new Date("2024-09-26"),
-    startTime: new Date("2024-09-26 11:00"),
-    endTime: new Date("2024-09-26 24:00"),
-  },
   // knu-artist (9/22 패치)
   {
     title: "co'k 공연1",
@@ -469,5 +460,14 @@ export const timeTableInfo: timeTableInfoProps[] = [
     date: new Date("2024-09-25"),
     startTime: new Date("2024-09-25 18:00"),
     endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-26"),
+    startTime: new Date("2024-09-26 18:00"),
+    endTime: new Date("2024-09-27 01:00"),
   },
 ];
