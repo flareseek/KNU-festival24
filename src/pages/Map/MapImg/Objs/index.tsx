@@ -26,32 +26,32 @@ export const MemorialObjs = () => {
     <div className={styles.movDiv}>
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "부스"))}
         top={-60}
         left={-75}
       />
       <ObjImg
         src={foodtruck_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "foodtruck"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "푸드트럭"))}
         button="푸트 트럭"
         top={-70}
         left={-150}
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "부스"))}
         top={-10}
         left={-70}
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "부스"))}
         button="주점"
         top={30}
         left={-10}
       />
       <MoveObj top={-28} left={-18}>
-        <LableBtn handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "booth"))}>
+        <LableBtn handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "부스"))}>
           총학 부스
         </LableBtn>
       </MoveObj>
@@ -65,33 +65,33 @@ export const HamSquareObjs = () => {
     <div className={styles.movDiv}>
       <ObjImg
         src={foodtruck_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "foodtruck"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "푸드트럭"))}
         top={-143}
         left={34}
       />
       <ObjImg
         src={foodtruck_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "foodtruck"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "푸드트럭"))}
         button="푸트 트럭"
         top={-113}
         left={85}
       />
       <ObjImg
         src={booth_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "부스"))}
         top={-62}
         left={-164}
       />
       <ObjImg
         src={booth_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "부스"))}
         button="부스"
         top={-40}
         left={-127}
       />
       <ObjImg
         src={booth_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "부스"))}
         top={-12}
         left={-64}
       />
@@ -107,13 +107,13 @@ export const StadiumObjs = () => {
       <ObjImg src={guitar_gomduri} top={-6} left={90} />
       <ObjImg
         src={booth_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("대운동장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("대운동장", "부스(분홍)"))}
         top={-66}
         left={-122}
       />
       <ObjImg
         src={booth_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("대운동장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("대운동장", "부스(분홍)"))}
         button="부스"
         top={-40}
         left={-91}
@@ -136,39 +136,39 @@ export const MireaSquareObjs = () => {
     <div className={styles.movDiv}>
       <ObjImg
         src={foodtruck_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "foodtruck"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "푸드트럭"))}
         top={-124}
         left={42}
       />
       <ObjImg
         src={foodtruck_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "foodtruck"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "푸드트럭"))}
         top={-96}
         left={87}
         button="푸트 트럭"
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "부스"))}
         top={-86}
         left={-89}
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "부스"))}
         button="주점"
         top={-42}
         left={-87}
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "부스"))}
         top={-12}
         left={-19}
       />
       <ObjImg
         src={table_obj}
-        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "booth"))}
+        handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "부스"))}
         top={-24}
         left={34}
       />
