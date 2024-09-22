@@ -19,7 +19,7 @@ export const types = {
   함인섭광장: ["부스", "푸드트럭"],
   미래광장: ["부스", "푸드트럭"],
 };
-const colors = ["#d196ed", "#b1f492", "#b8e5e0", "#feefc5"]; // pink, green, blue, yellow
+const colors = ["#d196ed", "#b1f492", "#b8e5e0", "#f2ebc1"]; // pink, green, blue, yellow
 
 export const dataMappping = (place: (typeof places)[number], type: string) => {
   switch (place) {
