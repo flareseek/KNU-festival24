@@ -28,7 +28,18 @@ const getEventStatus = (
   event: timeTableInfoProps,
   currentTime: Date,
 ): "past" | "current" | "future" => {
-  if (currentTime < event.startTime) return "future";
+  let adjustedStartTime = new Date(event.startTime);
+
+  // KNU-ARTIST 항목에 대한 시작 시간 조정
+  if (event.description.includes("KNU-ARTIST")) {
+    if (event.description.includes("댄스")) {
+      adjustedStartTime = new Date(adjustedStartTime.getTime() - 5 * 60000);
+    } else if (event.description.includes("밴드")) {
+      adjustedStartTime = new Date(adjustedStartTime.getTime() - 4 * 60000);
+    }
+  }
+
+  if (currentTime < adjustedStartTime) return "future";
   if (currentTime > event.endTime) return "past";
   return "current";
 };
@@ -122,8 +133,10 @@ export default function Timetable() {
     if (lastCurrentEventRef.current) {
       if ("scrollIntoView" in lastCurrentEventRef.current) {
         lastCurrentEventRef.current.scrollIntoView({ behavior: "smooth" });
+        return;
       }
     }
+    window.scrollTo(0, 0);
   }, [filteredTimeTableInfo]);
 
   const handleFilterClick = useCallback((date: Date) => {
