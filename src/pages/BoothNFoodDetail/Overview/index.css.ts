@@ -24,7 +24,7 @@ export const title = style({
   margin: "10px",
   padding: "6px",
   fontSize: "17px",
-  width: "70%",
+  maxWidth: "70%",
   borderRadius: "10px",
   backgroundColor: "rgba(255, 255, 255, 0.5)",
 });
