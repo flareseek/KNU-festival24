@@ -19,5 +19,5 @@ export interface routerInfoType {
   korean: string;
   expose: boolean;
   mainPage: boolean;
-  scrollOptions?: "never" | "top" | "bottom";
+  scrollOptions?: "never" | "save";
 }

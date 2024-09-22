@@ -12,7 +12,8 @@ export default function ScrollToTop({ children }: { children: React.ReactNode })
   const currentPage = useCurrentPage();
 
   useEffect(() => {
-    if (currentPage.scrollOptions === "never") {
+    if (currentPage.scrollOptions === "never") return;
+    if (currentPage.scrollOptions === "save") {
       window.scrollTo(0, savedScrollY);
     } else {
       window.scrollTo(0, 0);
