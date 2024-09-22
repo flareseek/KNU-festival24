@@ -133,6 +133,8 @@ export default function Timetable() {
     if (lastCurrentEventRef.current) {
       if ("scrollIntoView" in lastCurrentEventRef.current) {
         lastCurrentEventRef.current.scrollIntoView({ behavior: "smooth" });
+      }else{
+        window.scrollTo(0, 0);
       }
     }
   }, [filteredTimeTableInfo]);
