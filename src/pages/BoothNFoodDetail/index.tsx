@@ -45,7 +45,13 @@ export default function BoothNFoodDetail() {
     <div className={styles.layout}>
       <div>
         <section>
-          <Overview title={content.name} date={content.date} imgURL={content.image ?? ""} />
+          <Overview
+            title={content.name}
+            date={content.date}
+            imgURL={content.image ?? ""}
+            order={content.order}
+            place={content.place}
+          />
         </section>
         <section className={styles.descriptionContainer}>
           <div className={styles.description}>{content.description}</div>
