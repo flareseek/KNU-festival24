@@ -5,6 +5,8 @@ import _glen_chenck from "../../assets/artist/글렌체크.jpg";
 import _kwon_eun_bi from "../../assets/artist/권은비.jpg";
 import _roy_kim from "../../assets/artist/로이킴.jpg";
 import _gummy from "../../assets/artist/거미.jpg";
+import _sixtyPub from "../../assets/data/pub/sixty_pub.png";
+import _futurePub from "../../assets/data/pub/future_pub.png";
 import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 import {
   ARTIST_APINK_URL,
@@ -51,6 +53,18 @@ const gummy: artistInfoListProps = {
   name: "거미",
   image: _gummy,
   url: `/artist/${ARTIST_GUMMY_URL}`,
+};
+
+const sixtyPubInfo: artistInfoListProps = {
+  name: "60주년 기념관 주점",
+  image: _sixtyPub,
+  url: `/booth_foodtruck_list/booth/2`,
+};
+
+const futurePubInfo: artistInfoListProps = {
+  name: "미래광장 주점",
+  image: _futurePub,
+  url: `/booth_foodtruck_list/booth/a`,
 };
 
 export const timeTableInfo: timeTableInfoProps[] = [
@@ -428,5 +442,32 @@ export const timeTableInfo: timeTableInfoProps[] = [
     date: new Date("2024-09-25"),
     startTime: new Date("2024-09-25 17:50"),
     endTime: new Date("2024-09-25 24:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 18:00"),
+    endTime: new Date("2024-09-24 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
   },
 ];
