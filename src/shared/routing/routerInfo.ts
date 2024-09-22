@@ -33,6 +33,7 @@ export const routerInfo: routerInfoType[] = [
     korean: "부스 & 푸드트럭 리스트",
     expose: true,
     mainPage: true,
+    scrollOptions: "save", //example
   },
   {
     path: "booth_foodtruck_list/foodtruck/:id",
@@ -81,6 +82,7 @@ export const routerInfo: routerInfoType[] = [
     korean: "타임테이블",
     expose: true,
     mainPage: true,
+    scrollOptions: "never",
   },
 ];
 
