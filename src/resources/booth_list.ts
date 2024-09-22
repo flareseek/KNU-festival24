@@ -23,6 +23,7 @@ export const BOOTH_MEMORIAL60_LIST: Booth[] = [
       { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
       { item: "물 500ml", price: { min: 1000, max: 1000 } },
     ],
+    imageName: "sixty_pub",
   }),
 ];
 export const BOOTH_MIRAE_LIST: Booth[] = [
@@ -38,6 +39,7 @@ export const BOOTH_MIRAE_LIST: Booth[] = [
       { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
       { item: "물 500ml", price: { min: 1000, max: 1000 } },
     ],
+    imageName: "future_pub",
   }),
 ];
 export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
