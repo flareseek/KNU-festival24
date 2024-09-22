@@ -52,7 +52,8 @@ export const filterButton = styleVariants({
       WebkitBackgroundClip: "text", // 텍스트에만 그라데이션 적용
       WebkitTextFillColor: "transparent", // 텍스트 색상 채우기 제거
       position: "relative", // 텍스트와 배경 분리
-      "::before": { // 배경 유지
+      "::before": {
+        // 배경 유지
         content: '""',
         position: "absolute",
         top: 0,
@@ -91,7 +92,7 @@ export const timeTableTitle = style({
   fontFamily: vars.font.pyeongChangBold,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "1.3rem", 
+      fontSize: "1.3rem",
       marginBottom: "8px",
     },
   },
