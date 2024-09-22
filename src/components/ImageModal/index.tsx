@@ -9,7 +9,7 @@ interface ImageModalProps {
 export default function ImageModal({ src, alt, activePlace }: ImageModalProps) {
   const placeLinks: { [key: string]: string } = {
     "60주년기념관": "https://kko.to/hKoJW3SEaa",
-    함인섭광장: "https://kko.to/egxFtxQlQ0",
+    함인섭광장: "https://kko.to/KvvTprkn8T",
     대운동장: "https://kko.to/MkBZQvfuH0",
   };
 
