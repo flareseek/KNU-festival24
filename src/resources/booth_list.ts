@@ -21,7 +21,7 @@ export const BOOTH_MEMORIAL60_LIST: Booth[] = [
       { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
       { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
       { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
-      { item: "anf 500ml", price: { min: 1000, max: 1000 } },
+      { item: "물 500ml", price: { min: 1000, max: 1000 } },
     ],
   }),
 ];
@@ -36,7 +36,7 @@ export const BOOTH_MIRAE_LIST: Booth[] = [
       { item: "참이슬 400ml", price: { min: 4000, max: 4000 } },
       { item: "테라, 켈리 360ml", price: { min: 4000, max: 4000 } },
       { item: "콜라, 사이다, 탐스제로 355ml", price: { min: 2000, max: 2000 } },
-      { item: "anf 500ml", price: { min: 1000, max: 1000 } },
+      { item: "물 500ml", price: { min: 1000, max: 1000 } },
     ],
   }),
 ];
@@ -591,7 +591,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     order: 5,
     name: "강원대학교 구내안경원",
     description: "강원대학교 천지관 1층에 위치한 구내안경원입니다!",
-    saleItems: [{ item: "창고 정리 파격 세일!", price: { min: null, max: null } }],
+    saleItems: [{ item: "창고 정리 파격 세일!", price: null }],
     place: "대운상단초록",
   }),
   new Booth({
@@ -653,7 +653,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     description: "강원대학교 운동부를 소개합니다:)",
     saleItems: [
       { item: "이벤트 참가비", price: { min: 1000, max: 1000 } },
-      { item: "상품: 스티커, 키링, 인형", price: { min: null, max: null } },
+      { item: "상품: 스티커, 키링, 인형", price: null },
     ],
     place: "대운상단초록",
   }),
@@ -663,8 +663,8 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     name: "우리다누리",
     description: "필요한 만큼 챙겨가세요 행복충전소",
     saleItems: [
-      { item: "전통매듭키링", price: { min: null, max: null } },
-      { item: "슈링클스키링과 다양한 게임까지 전부 무료", price: { min: null, max: null } },
+      { item: "전통매듭키링", price: null },
+      { item: "슈링클스키링과 다양한 게임까지 전부 무료", price: null },
     ],
     place: "대운상단초록",
   }),
@@ -995,7 +995,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "7c5910d4f4",
       order: 20,
-      name: "강원대학교 국제교류과(9/23, 9/25)",
+      name: "강원대학교 국제교류과",
       description:
         "국제교류과 소개 및 운영 프로그램 홍보 학생 상담 참가자 대상 이벤트 진행 후 기념품 증정",
       saleItems: [],
@@ -1006,7 +1006,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "9f79b8e2f4",
       order: 20,
-      name: "강원국제개발협력센터(9/24)",
+      name: "강원국제개발협력센터",
       description:
         "해외봉사단 및 국제개발협력 분야 설명회 1:1 컨설팅 진행 예정 참여자 대상 기념품 및 상품 증정",
       saleItems: [],
@@ -1070,7 +1070,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "ff6f6aa9f8",
       order: 27,
-      name: "근화동_쁘미브레드(9/23)",
+      name: "근화동_쁘미브레드",
       description:
         "국내산 쌀과 현미가루를 사용해 쫄깃함을 더 업 시켜준 건강한 쌀베이글, 발효 버터를 사용해 깊은 맛과 풍미가 잘 어울어진 겉바속촉 쌀휘낭시에",
       saleItems: [],
@@ -1080,7 +1080,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "3c68f8eaf2",
       order: 27,
-      name: "학생상담센터 학습상담실(9/24)",
+      name: "학생상담센터 학습상담실",
       description:
         "학생상담센터 학습상담실 이용안내 및 학습상담 다이렉트 신청 SNS계정 팔로우 이벤트를 통한 홍보물 제공",
       saleItems: [],
@@ -1090,7 +1090,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "b8c04518c0",
       order: 27,
-      name: "학생상담센터(9/25)",
+      name: "학생상담센터",
       description:
         "스트레스 측정 및 심리상담 진행 정신건강 지원 캠페인 진행 잠가자 대상 홍보 물품 제공",
       saleItems: [],
@@ -1102,7 +1102,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "49b7801be8",
       order: 28,
-      name: "여성가족인권상담센터 '한삶'(9/23)",
+      name: "여성가족인권상담센터 '한삶'",
       description: "QR 질문 참여 통한 기관홍보 OX퀴즈 및 뽑기 퀴즈 진행 참가자 대상 홍보물품 증정",
       saleItems: [],
       place: "함인섭",
@@ -1111,7 +1111,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "fc7e7fda5f",
       order: 28,
-      name: "(사)강원여성인권지원공동체(9/24)",
+      name: "(사)강원여성인권지원공동체",
       description: "성매매방지 OX퀴즈판 운영 퀴즈 성공 시 홍보물품 증정",
       saleItems: [],
       place: "함인섭",
@@ -1120,7 +1120,7 @@ export const BOOTH_HAMINSEOP_LIST: Booth[] = [
     new Booth({
       id: "0b9b4a7c3b",
       order: 28,
-      name: "(재)착한목자수녀회(9/25)",
+      name: "(재)착한목자수녀회",
       description: "여성폭력피해상담 및 결혼이주여성상담정보 제공",
       saleItems: [],
       place: "함인섭",
