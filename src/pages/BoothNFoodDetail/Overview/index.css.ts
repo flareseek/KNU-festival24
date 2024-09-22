@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { vars } from "../../../shared/styles/vars.css.ts";
 
-export const container = style({
+export const imgContainer = style({
   position: "relative",
   width: "100%",
   aspectRatio: "16 / 9",
@@ -17,13 +17,14 @@ export const bottomContainer = style({
   background: "linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 180))",
 });
 
-export const category = style({
+export const title = style({
   position: "absolute",
   top: "0",
   right: "0",
   margin: "10px",
   padding: "6px",
-  fontSize: "20px",
+  fontSize: "17px",
+  maxWidth: "70%",
   borderRadius: "10px",
   backgroundColor: "rgba(255, 255, 255, 0.5)",
 });
@@ -45,7 +46,15 @@ export const hoursContainer = style({
 });
 export const hoursLabel = style({
   fontFamily: vars.font.pyeongChangLight,
-  fontSize: "15px",
+  fontSize: "12px",
   display: "flex",
   alignItems: "center",
+});
+export const place = style({
+  fontFamily: vars.font.pyeongChangLight,
+  fontSize: "12px",
+  margin: "5px",
+  width: "clac(100%-5px)",
+  textAlign: "right",
+  color: vars.color.white,
 });
