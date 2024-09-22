@@ -109,6 +109,7 @@ const Header: React.FC = () => {
                   className={`${menuItemLinkStyles} ${
                     isCurrentPath(item, location) ? highlightStyles : ""
                   }`}
+                  onClick={handleToggle}
                 >
                   {item.korean}
                 </Link>
