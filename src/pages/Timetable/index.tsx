@@ -62,7 +62,7 @@ const ArtistInfo: React.FC<{
   artist: artistInfoListProps[];
 }> = React.memo(({ artist }) => (
   <div className={styles.artistInfoContainer}>
-    <h3 className={styles.artistInfoTitle}>아티스트</h3>
+    <h3 className={styles.artistInfoTitle}>상세정보</h3>
     {artist.map((a: artistInfoListProps, index) => (
       <Link to={a.url} key={index} className={styles.artistItem}>
         <img src={a.image} alt={a.name} className={styles.artistImage} />

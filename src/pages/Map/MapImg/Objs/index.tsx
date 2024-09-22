@@ -33,7 +33,7 @@ export const MemorialObjs = () => {
       <ObjImg
         src={foodtruck_obj}
         handleRoute={() => navigator(URLS.booth_foodtruck("60주년기념관", "푸드트럭"))}
-        button="푸트 트럭"
+        button="푸드 트럭"
         top={-70}
         left={-150}
       />
@@ -72,7 +72,7 @@ export const HamSquareObjs = () => {
       <ObjImg
         src={foodtruck_obj}
         handleRoute={() => navigator(URLS.booth_foodtruck("함인섭광장", "푸드트럭"))}
-        button="푸트 트럭"
+        button="푸드 트럭"
         top={-113}
         left={85}
       />
@@ -145,7 +145,7 @@ export const MireaSquareObjs = () => {
         handleRoute={() => navigator(URLS.booth_foodtruck("미래광장", "푸드트럭"))}
         top={-96}
         left={87}
-        button="푸트 트럭"
+        button="푸드 트럭"
       />
       <ObjImg
         src={table_obj}

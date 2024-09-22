@@ -33,6 +33,5 @@ export const activeTopBtn = style({
   color: vars.color.blue1,
 });
 export const activeBottomBtn = style({
-  border: `1px solid #2c2c2c`,
   color: "#2c2c2c",
 });

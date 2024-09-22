@@ -5,6 +5,8 @@ import _glen_chenck from "../../assets/artist/글렌체크.jpg";
 import _kwon_eun_bi from "../../assets/artist/권은비.jpg";
 import _roy_kim from "../../assets/artist/로이킴.jpg";
 import _gummy from "../../assets/artist/거미.jpg";
+import _sixtyPub from "../../assets/data/booth_image/playground/bottom_pink_line/sixty_pub.jpg";
+import _futurePub from "../../assets/data/booth_image/playground/bottom_pink_line/future_pub.jpg";
 import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 import {
   ARTIST_APINK_URL,
@@ -53,6 +55,18 @@ const gummy: artistInfoListProps = {
   url: `/artist/${ARTIST_GUMMY_URL}`,
 };
 
+const sixtyPubInfo: artistInfoListProps = {
+  name: "60주년 기념관 주점",
+  image: _sixtyPub,
+  url: `/booth_foodtruck_list/booth/2`,
+};
+
+const futurePubInfo: artistInfoListProps = {
+  name: "미래광장 주점",
+  image: _futurePub,
+  url: `/booth_foodtruck_list/booth/a`,
+};
+
 export const timeTableInfo: timeTableInfoProps[] = [
   {
     title: "상시 프로그램 진행",
@@ -60,7 +74,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
     descriptionShow: false,
     date: new Date("2024-09-23"),
     startTime: new Date("2024-09-23 11:00"),
-    endTime: new Date("2024-09-23 12:00"),
+    endTime: new Date("2024-09-23 18:00"),
   },
   {
     title: "리허설",
@@ -178,7 +192,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
   },
   {
     title: "초청 아티스트 공연",
-    description: "글렌첸크, 크리스피, 권은비",
+    description: "글렌체크, 크리스피, 권은비",
     descriptionShow: true,
     artist: [glen_chenck, creespy, kwon_eun_bi],
     date: new Date("2024-09-24"),
@@ -274,15 +288,6 @@ export const timeTableInfo: timeTableInfoProps[] = [
     date: new Date("2024-09-25"),
     startTime: new Date("2024-09-25 21:30"),
     endTime: new Date("2024-09-25 22:30"),
-  },
-  // 4일차
-  {
-    title: "상시 프로그램 진행",
-    description: "상시 프로그램 진행",
-    descriptionShow: false,
-    date: new Date("2024-09-26"),
-    startTime: new Date("2024-09-26 11:00"),
-    endTime: new Date("2024-09-26 24:00"),
   },
   // knu-artist (9/22 패치)
   {
@@ -380,5 +385,89 @@ export const timeTableInfo: timeTableInfoProps[] = [
     date: new Date("2024-09-24"),
     startTime: new Date("2024-09-24 20:04"),
     endTime: new Date("2024-09-24 20:14"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 17:00"),
+    endTime: new Date("2024-09-23 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 17:50"),
+    endTime: new Date("2024-09-23 24:00"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 17:00"),
+    endTime: new Date("2024-09-24 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 17:50"),
+    endTime: new Date("2024-09-24 24:00"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 17:00"),
+    endTime: new Date("2024-09-25 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 17:50"),
+    endTime: new Date("2024-09-25 24:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 18:00"),
+    endTime: new Date("2024-09-24 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-26"),
+    startTime: new Date("2024-09-26 18:00"),
+    endTime: new Date("2024-09-27 01:00"),
   },
 ];
