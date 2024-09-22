@@ -29,15 +29,15 @@ export default function BoothNFoodList() {
         <div className={styles.imgContainer2}>
           {activePlace !== "미래광장" && (
             <ImageModal
-              {...{
-                src:
-                  activePlace === "함인섭광장"
-                    ? haminseop_layout
-                    : activePlace === "대운동장"
-                      ? playground_layout
-                      : sixty_anniv_layout,
-                alt: "layout",
-              }}
+              src={
+                activePlace === "함인섭광장"
+                  ? haminseop_layout
+                  : activePlace === "대운동장"
+                    ? playground_layout
+                    : sixty_anniv_layout
+              }
+              alt="layout"
+              activePlace={activePlace}
             />
           )}
         </div>
