@@ -5,8 +5,8 @@ import _glen_chenck from "../../assets/artist/글렌체크.jpg";
 import _kwon_eun_bi from "../../assets/artist/권은비.jpg";
 import _roy_kim from "../../assets/artist/로이킴.jpg";
 import _gummy from "../../assets/artist/거미.jpg";
-import _sixtyPub from "../../assets/data/pub/sixty_pub.png";
-import _futurePub from "../../assets/data/pub/future_pub.png";
+import _sixtyPub from "../../assets/data/booth_image/playground/bottom_pink_line/sixty_pub.jpg";
+import _futurePub from "../../assets/data/booth_image/playground/bottom_pink_line/future_pub.jpg";
 import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 import {
   ARTIST_APINK_URL,
