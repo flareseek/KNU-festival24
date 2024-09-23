@@ -79,7 +79,7 @@ export const routerInfo: routerInfoType[] = [
     path: "timetable",
     element: lazy(() => import("../../pages/Timetable")),
     english: "Timetable",
-    korean: "타임테이블",
+    korean: "실시간 일정",
     expose: true,
     mainPage: true,
     scrollOptions: "never",
