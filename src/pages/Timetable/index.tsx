@@ -4,7 +4,6 @@ import * as styles from "./.css.ts";
 import { FilterButton, TimeTableItem } from "./subComponents.tsx";
 import { clearTime, END_DATE, START_DATE, TIME_TABLE_FILTER } from "./utils.tsx";
 
-// Main component
 export default function Timetable() {
   const [viewTime, setViewTime] = useState<Date>(START_DATE);
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
