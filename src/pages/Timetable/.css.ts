@@ -154,11 +154,11 @@ export const artistImage = style({
 });
 
 export const artistName = style({
-  fontSize: "2rem",
+  fontSize: "1.7rem",
   fontFamily: vars.font.pyeongChangLight,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "2rem",
+      fontSize: "1.7rem",
     },
   },
 });
