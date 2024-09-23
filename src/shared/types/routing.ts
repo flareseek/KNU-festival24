@@ -11,6 +11,7 @@ import React, { ComponentType } from "react";
  * @property {boolean} expose - 헤더 노출 여부
  * @property {boolean} mainPage - 메인 페이지 퀵링크 항목 공개 여부
  */
+
 export interface routerInfoType {
   path: string;
   element: React.LazyExoticComponent<ComponentType<unknown>>;
@@ -18,4 +19,5 @@ export interface routerInfoType {
   korean: string;
   expose: boolean;
   mainPage: boolean;
+  scrollOptions?: "never" | "save";
 }

@@ -1,38 +1,68 @@
-import BOOTHS from "../../resources/BOOTHS";
-import FOODTRUCKS from "../../resources/FOODTRUCKS";
-import { BOOTH_PLACE, FOODTRUCKS_PLACE } from "../../shared/types/booth_foodtruck";
+import * as styles from "./index.css";
 
+import TabBtns from "./TabBtns";
 import Card from "./Card";
-import useTabBtns from "./TabBtns";
-import { cardContainer } from "./index.css";
+import { useBoothNFoodtruckTabs } from "./TabBtns/hook";
+import { dataMappping } from "./dataMapping";
+
+import haminseop_layout from "../../assets/data/layout/haminseop_layout.png";
+import playground_layout from "../../assets/data/layout/playground_layout.png";
+import sixty_anniv_layout from "../../assets/data/layout/sixty_anniv_layout.png";
+import ImageModal from "../../components/ImageModal";
 
 export default function BoothNFoodList() {
-  const { activeTab: typeTab, TabBtns: TypeTabBtns } = useTabBtns(["booth", "foodtruck"], "type");
-  const { activeTab: placeTab, TabBtns: PlaceTabBtns } = useTabBtns(
-    [...(typeTab == "booth" ? BOOTH_PLACE : FOODTRUCKS_PLACE)],
-    "place",
-  );
+  const { activePlace, activeType, changeTab } = useBoothNFoodtruckTabs();
+  let prevName = "";
+  const { data, color } = dataMappping(activePlace, activeType);
 
   return (
     <div>
-      <section>
-        <TypeTabBtns tabBtnNames={["부스", "푸드트럭"]} />
-        <PlaceTabBtns />
+      <section className={styles.tabContainer}>
+        <TabBtns
+          color={color}
+          activePlace={activePlace}
+          activeType={activeType}
+          changeTab={changeTab}
+        />
       </section>
-      <section className={cardContainer}>
-        {(typeTab == "booth" ? BOOTHS : FOODTRUCKS).map((item) =>
-          placeTab === item.place ? (
+      <section className={styles.imgContainer}>
+        <div className={styles.imgContainer2}>
+          {activePlace !== "미래광장" && (
+            <ImageModal
+              {...{
+                src:
+                  activePlace === "함인섭광장"
+                    ? haminseop_layout
+                    : activePlace === "대운동장"
+                      ? playground_layout
+                      : sixty_anniv_layout,
+                alt: "layout",
+              }}
+            />
+          )}
+        </div>
+      </section>
+      <section className={styles.cardContainer}>
+        {data.map((item) => {
+          if (prevName === item.name) return null;
+          prevName = item.name;
+          return (
             <Card
               key={item.id}
               id={item.id}
-              title={item.title}
               description={item.description}
-              category={item.category}
-              type={typeTab as "booth" | "foodtruck"}
-              imgURL={item.imgURL}
+              imgURL={"image" in item ? item.image : undefined}
+              color={color}
+              order={item.order}
+              name={item.name}
+              hasDetail={
+                // 판매중인 상품이 있거나 설명이 10자 이상인 경우에만 상세 페이지 존재
+                ("saleItems" in item ? item.saleItems.length > 0 : undefined) ||
+                item.description.length > 10
+              }
             />
-          ) : null,
-        )}
+          );
+        })}
       </section>
     </div>
   );

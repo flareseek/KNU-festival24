@@ -3,29 +3,34 @@ import * as styles from "./index.css.ts";
 
 type OverviewProps = {
   title: string;
-  category: string;
+  date: number[];
   imgURL: string;
-  keyword: string[];
-  hours: string;
+  order: number;
+  place: string;
 };
 
-export default function Overview({ title, category, imgURL, keyword, hours }: OverviewProps) {
+export default function Overview({ title, date, imgURL, order, place }: OverviewProps) {
   return (
-    <div className={styles.container}>
-      <ImageModal src={imgURL} alt={title} />
-      <div className={styles.category}>{category}</div>
-      <div className={styles.bottomContainer}>
-        <div>
-          {keyword.map((value, index) => (
-            <span key={index} className={styles.keywordLabel}>
-              {value}
-            </span>
-          ))}
+    <div>
+      <div className={styles.imgContainer}>
+        <ImageModal src={imgURL} alt={title} />
+        <span className={styles.title}>{title}</span>
+        <div className={styles.bottomContainer}>
+          <div></div>
+          <div className={styles.hoursContainer}>
+            <div className={styles.hoursLabel}>
+              <span className="material-symbols-outlined">schedule</span>
+              <span>{title.includes("주점") ? "18:00 ~ 01:00" : "11:00 ~ 17:00"}</span>
+            </div>
+            <div className={styles.hoursLabel}>
+              <span className="material-symbols-outlined">date_range</span>
+              <span>{date.join(", ")} 일</span>
+            </div>
+          </div>
         </div>
-        <div className={styles.hoursLabel}>
-          <span className="material-symbols-outlined">schedule</span>
-          <span>{hours}</span>
-        </div>
+      </div>
+      <div className={styles.place}>
+        {place} {order}번 부스
       </div>
     </div>
   );

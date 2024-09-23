@@ -4,61 +4,89 @@ import { vars } from "../../../shared/styles/vars.css";
 export const container = style({
   display: "flex",
   padding: "8px",
-  marginBottom: "7px",
-  height: "114px",
+  marginBottom: "16px",
   borderRadius: "20px",
   backgroundColor: vars.color.white,
-});
-export const contentContainer = style({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  padding: "8px",
-  width: "100%",
-});
-export const contentDiv13 = style({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-});
-
-export const contentDiv2 = style({
-  display: "flex",
-  marginBottom: "8px",
-  alignItems: "center",
+  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  transition: "transform 0.2s ease-in-out",
+  cursor: "pointer",
+  ":hover": {
+    transform: "translateY(-2px)",
+  },
 });
 
 export const image = style({
-  aspectRatio: "1 / 1",
-  borderRadius: "16px 0px 0px 16px",
+  flexShrink: 0,
+  width: "80px",
+  height: "80px",
+  borderTopLeftRadius: "16px",
+  borderBottomLeftRadius: "16px",
+  objectFit: "cover",
   marginRight: "16px",
 });
-export const title = style({
-  fontFamily: vars.font.pyeongChangBold,
-  fontSize: "18px",
-  lineHeight: "22px",
-});
-export const icon = style({
-  color: vars.color.blue1,
-  fontSize: "30px",
-});
-export const category = style({
-  border: "1.5px solid #000",
-  borderRadius: "14px",
-  marginRight: "8px",
-  lineHeight: "20px",
-  padding: "2px 8px",
-});
-export const detailBtn = style({
+
+export const contentContainer = style({
+  flex: "1 1 auto",
+  minWidth: 0,
   display: "flex",
-  alignItems: "center",
-  gap: "8px",
-  padding: "7px 10px",
-  cursor: "pointer",
-  borderRadius: "99px",
-  background: vars.color.blue2,
-  color: vars.color.white,
+  flexDirection: "column",
+  justifyContent: "center",
+  marginRight: "16px",
 });
+
+export const textContainer = style({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+});
+
+export const title = style({
+  fontFamily: vars.font.pyeongChangLight,
+  fontSize: "16px",
+  lineHeight: "24px",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+});
+
+export const description = style({
+  fontSize: "12px",
+  lineHeight: "20px",
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+});
+
+export const rightContainer = style({
+  flexShrink: 0,
+  display: "flex",
+  flexDirection: "column",
+  padding: "8px 8px 8px 0",
+  justifyContent: "space-between",
+  alignItems: "flex-end",
+});
+
+export const order = style({
+  borderRadius: "99px",
+  padding: "4px 8px",
+  border: `1px solid #2c2c2c`,
+  fontSize: "12px",
+  fontWeight: "bold",
+});
+
+export const detailBtn = style({
+  gap: "8px",
+  color: vars.color.blue1,
+  fontSize: "12px",
+  fontWeight: "bold",
+  transition: "background-color 0.2s ease-in-out",
+  ":hover": {
+    backgroundColor: vars.color.blue3,
+  },
+});
+
 export const detailBtnIcon = style({
-  fontSize: "18px",
+  fontSize: "14px",
+  fontWeight: "bold",
 });

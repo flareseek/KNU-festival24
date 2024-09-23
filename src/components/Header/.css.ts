@@ -50,6 +50,7 @@ export const toggleBtnStyles = style({
   cursor: "pointer",
   display: "block",
   height: "1.5em",
+  width: "1.5em",
   "@media": {
     [`(min-width: ${mobileBreakpoint})`]: {
       display: "none",

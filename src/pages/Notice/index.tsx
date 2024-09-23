@@ -18,6 +18,7 @@ import {
 } from "./notice.css.ts"; // 스타일 가져오기
 import { getNoticeList } from "../../shared/firebase/noticeService"; // Firebase에서 getNoticeList 가져오기
 import { NoticeDto } from "../../shared/types/notice"; // NoticeDto 타입 정의
+import { Loading } from "../../components/Loading/index.tsx";
 
 function Notice() {
   const [notices, setNotices] = useState<NoticeDto[]>([]); // 공지사항 목록 상태
@@ -77,7 +78,7 @@ function Notice() {
 
   // 로딩 중일 때 로딩 메시지 표시
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

@@ -47,8 +47,8 @@ const settings: SliderSettings = {
   slidesToScroll: 1,
   initialSlide: 2,
   autoplay: true,
-  speed: 1500,
-  autoplaySpeed: 3500,
+  speed: 500,
+  autoplaySpeed: 2500,
 };
 
 /**

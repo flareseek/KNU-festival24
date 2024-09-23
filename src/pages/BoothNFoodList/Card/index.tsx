@@ -1,40 +1,61 @@
-import { Link } from "react-router-dom";
-
-import { booths_icon, foodtruck_icon } from "../../../shared/types/booth_foodtruck";
+import { useNavigate } from "react-router-dom";
 import * as styles from "./index.css.ts";
 
-const icon_map = { ...booths_icon, ...foodtruck_icon };
-
 interface Props {
-  id: number;
-  title: string;
+  id: string;
+  order: number;
+  name: string;
   description: string;
-  type: "booth" | "foodtruck";
-  category: keyof typeof icon_map;
-  imgURL: string;
+  color: string;
+  imgURL?: string;
+  hasDetail: boolean;
 }
 
-export default function Card({ id, title, description, category, type, imgURL }: Props) {
+export default function Card({ id, name, color, description, order, imgURL, hasDetail }: Props) {
+  const navigate = useNavigate();
+
+  /**
+   * 카드 클릭 시 상세 페이지로 이동
+   */
+  const handleClick = () => {
+    if (hasDetail) {
+      navigate(`/booth_foodtruck_list/booth/${id}`);
+    }
+  };
+
   return (
-    <Link to={`/booth_foodtruck_list/${type}/${id}`} className={styles.container}>
-      <img src={imgURL} alt={`${title} 부스/푸드트럭 이미지`} className={styles.image} />
+    <div className={styles.container} onClick={handleClick} role={hasDetail ? "button" : undefined}>
+      {/*부스 이미지 항목*/}
+      {imgURL && <img src={imgURL} alt={`${name} 부스/푸드트럭 이미지`} className={styles.image} />}
+      {/*부스 이름, 설명 항목*/}
       <div className={styles.contentContainer}>
-        <div className={styles.contentDiv13}>
-          <h3 className={styles.title}>{title}</h3>
-          <span className={`material-symbols-outlined ${styles.icon}`}>{icon_map[category]}</span>
-        </div>
-        <div className={styles.contentDiv2}>
-          <p className={styles.category}>{category}</p>
-          <p>{description}</p>
-        </div>
-        <div className={styles.contentDiv13}>
-          <div />
-          <div className={styles.detailBtn}>
-            <span className={`material-symbols-outlined ${styles.detailBtnIcon}`}>info</span>
-            <span>더보기</span>
-          </div>
+        <div className={styles.textContainer}>
+          {/*부스 이름*/}
+          <h3 className={styles.title} title={name}>
+            {name}
+          </h3>
+
+          {/*부스 설명*/}
+          <p className={styles.description} title={description}>
+            {description}
+          </p>
         </div>
       </div>
-    </Link>
+
+      {/*부스 순서, 상세보기 버튼 항목*/}
+      <div className={styles.rightContainer}>
+        {/*부스 번호*/}
+        <span className={styles.order} style={{ background: color }}>
+          No. {order}
+        </span>
+
+        {/*상세보기 버튼*/}
+        {hasDetail && (
+          <div className={styles.detailBtn}>
+            <span className={`material-symbols-outlined ${styles.detailBtnIcon}`}>info</span>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

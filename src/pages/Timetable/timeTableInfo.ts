@@ -5,6 +5,8 @@ import _glen_chenck from "../../assets/artist/글렌체크.jpg";
 import _kwon_eun_bi from "../../assets/artist/권은비.jpg";
 import _roy_kim from "../../assets/artist/로이킴.jpg";
 import _gummy from "../../assets/artist/거미.jpg";
+import _sixtyPub from "../../assets/data/booth_image/playground/bottom_pink_line/sixty_pub.jpg";
+import _futurePub from "../../assets/data/booth_image/playground/bottom_pink_line/future_pub.jpg";
 import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 import {
   ARTIST_APINK_URL,
@@ -17,25 +19,53 @@ import {
 } from "../../shared/mainPageConst.ts";
 import { timeTableInfoProps } from "../../shared/types/timeTable.ts";
 
-const apink: artistInfoListProps = { name: "에이핑크", image: _apink, url: ARTIST_APINK_URL };
-const roy_kim: artistInfoListProps = { name: "로이킴", image: _roy_kim, url: ARTIST_ROY_URL };
+const apink: artistInfoListProps = {
+  name: "에이핑크",
+  image: _apink,
+  url: `/artist/${ARTIST_APINK_URL}`,
+};
+const roy_kim: artistInfoListProps = {
+  name: "로이킴",
+  image: _roy_kim,
+  url: `/artist/${ARTIST_ROY_URL}`,
+};
 const glen_chenck: artistInfoListProps = {
   name: "글렌체크",
   image: _glen_chenck,
-  url: ARTIST_GLEN_CENCK_URL,
+  url: `/artist/${ARTIST_GLEN_CENCK_URL}`,
 };
-const creespy: artistInfoListProps = { name: "크리스피", image: _creespy, url: ARTIST_CREESPY_URL };
+const creespy: artistInfoListProps = {
+  name: "크리스피",
+  image: _creespy,
+  url: `/artist/${ARTIST_CREESPY_URL}`,
+};
 const kwon_eun_bi: artistInfoListProps = {
   name: "권은비",
   image: _kwon_eun_bi,
-  url: ARTIST_KWON_EUNBI_URL,
+  url: `/artist/${ARTIST_KWON_EUNBI_URL}`,
 };
 const choi_yu_ree: artistInfoListProps = {
   name: "최유리",
   image: _choi_yu_ree,
-  url: ARTIST_CHOI_YU_REE_URL,
+  url: `/artist/${ARTIST_CHOI_YU_REE_URL}`,
 };
-const gummy: artistInfoListProps = { name: "거미", image: _gummy, url: ARTIST_GUMMY_URL };
+const gummy: artistInfoListProps = {
+  name: "거미",
+  image: _gummy,
+  url: `/artist/${ARTIST_GUMMY_URL}`,
+};
+
+const sixtyPubInfo: artistInfoListProps = {
+  name: "60주년 기념관 주점",
+  image: _sixtyPub,
+  url: `/booth_foodtruck_list/booth/2`,
+};
+
+const futurePubInfo: artistInfoListProps = {
+  name: "미래광장 주점",
+  image: _futurePub,
+  url: `/booth_foodtruck_list/booth/a`,
+};
 
 export const timeTableInfo: timeTableInfoProps[] = [
   {
@@ -44,7 +74,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
     descriptionShow: false,
     date: new Date("2024-09-23"),
     startTime: new Date("2024-09-23 11:00"),
-    endTime: new Date("2024-09-23 12:00"),
+    endTime: new Date("2024-09-23 18:00"),
   },
   {
     title: "리허설",
@@ -116,15 +146,7 @@ export const timeTableInfo: timeTableInfoProps[] = [
     descriptionShow: true,
     date: new Date("2024-09-23"),
     startTime: new Date("2024-09-23 18:50"),
-    endTime: new Date("2024-09-23 19:30"),
-  },
-  {
-    title: "KNU-ARTIST",
-    description: "댄스 3팀",
-    descriptionShow: true,
-    date: new Date("2024-09-23"),
-    startTime: new Date("2024-09-23 19:30"),
-    endTime: new Date("2024-09-23 21:00"),
+    endTime: new Date("2024-09-23 19:20"),
   },
   {
     title: "초청 아티스트 공연",
@@ -169,16 +191,8 @@ export const timeTableInfo: timeTableInfoProps[] = [
     endTime: new Date("2024-09-24 18:00"),
   },
   {
-    title: "KNU-ARTIST",
-    description: "밴드 8팀",
-    descriptionShow: true,
-    date: new Date("2024-09-24"),
-    startTime: new Date("2024-09-24 18:00"),
-    endTime: new Date("2024-09-24 20:00"),
-  },
-  {
     title: "초청 아티스트 공연",
-    description: "글렌첸크, 크리스피, 권은비",
+    description: "글렌체크, 크리스피, 권은비",
     descriptionShow: true,
     artist: [glen_chenck, creespy, kwon_eun_bi],
     date: new Date("2024-09-24"),
@@ -275,13 +289,185 @@ export const timeTableInfo: timeTableInfoProps[] = [
     startTime: new Date("2024-09-25 21:30"),
     endTime: new Date("2024-09-25 22:30"),
   },
-  // 4일차
+  // knu-artist (9/22 패치)
   {
-    title: "상시 프로그램 진행",
-    description: "상시 프로그램 진행",
+    title: "co'k 공연1",
+    description: "KNU-ARTIST (댄스 3팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 19:20"),
+    endTime: new Date("2024-09-23 19:29"),
+  },
+  {
+    title: "co'k 공연2",
+    description: "KNU-ARTIST (댄스 3팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 19:34"),
+    endTime: new Date("2024-09-23 19:50"),
+  },
+  {
+    title: "브로커 공연",
+    description: "KNU-ARTIST (댄스 3팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 19:55"),
+    endTime: new Date("2024-09-23 20:08"),
+  },
+  {
+    title: "전야 공연",
+    description: "KNU-ARTIST (댄스 3팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 20:13"),
+    endTime: new Date("2024-09-23 20:31"),
+  },
+  {
+    title: "헤모글로빈 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 17:59"),
+    endTime: new Date("2024-09-24 18:09"),
+  },
+  {
+    title: "오소리 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:13"),
+    endTime: new Date("2024-09-24 18:31"),
+  },
+  {
+    title: "한울림 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:35"),
+    endTime: new Date("2024-09-24 18:50"),
+  },
+  {
+    title: "허밍 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:54"),
+    endTime: new Date("2024-09-24 19:04"),
+  },
+  {
+    title: "부리또 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 19:13"),
+    endTime: new Date("2024-09-24 19:23"),
+  },
+  {
+    title: "기타치노 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 19:27"),
+    endTime: new Date("2024-09-24 19:41"),
+  },
+  {
+    title: "하루 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 19:45"),
+    endTime: new Date("2024-09-24 20:00"),
+  },
+  {
+    title: "라스트댄스 공연",
+    description: "KNU-ARTIST (밴드 8팀)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 20:04"),
+    endTime: new Date("2024-09-24 20:14"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 17:00"),
+    endTime: new Date("2024-09-23 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 17:50"),
+    endTime: new Date("2024-09-23 24:00"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 17:00"),
+    endTime: new Date("2024-09-24 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 17:50"),
+    endTime: new Date("2024-09-24 24:00"),
+  },
+  {
+    title: "재학생 우선 입장",
+    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    descriptionShow: true,
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 17:00"),
+    endTime: new Date("2024-09-25 17:50"),
+  },
+  {
+    title: "전체 입장",
+    description: "전체 입장 시간",
+    descriptionShow: true,
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 17:50"),
+    endTime: new Date("2024-09-25 24:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
     descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-23"),
+    startTime: new Date("2024-09-23 18:00"),
+    endTime: new Date("2024-09-24 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-24"),
+    startTime: new Date("2024-09-24 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
+    date: new Date("2024-09-25"),
+    startTime: new Date("2024-09-25 18:00"),
+    endTime: new Date("2024-09-25 01:00"),
+  },
+  {
+    title: "주점 개시",
+    description: "",
+    descriptionShow: false,
+    artist: [futurePubInfo, sixtyPubInfo],
     date: new Date("2024-09-26"),
-    startTime: new Date("2024-09-26 11:00"),
-    endTime: new Date("2024-09-26 24:00"),
+    startTime: new Date("2024-09-26 18:00"),
+    endTime: new Date("2024-09-27 01:00"),
   },
 ];
