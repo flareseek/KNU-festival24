@@ -51,17 +51,20 @@ export default function Timetable() {
    * 현재 진행중인 이벤트로 스크롤
    */
   useEffect(() => {
-    if (lastCurrentEventRef.current && clearTime(currentTime).getTime() === clearTime(viewTime).getTime()) {
-
+    if (
+      lastCurrentEventRef.current &&
+      clearTime(currentTime).getTime() === clearTime(viewTime).getTime()
+    ) {
       const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
       const offset = rootFontSize * 3.75;
 
-      const elementPosition = lastCurrentEventRef.current!.getBoundingClientRect().top + window.scrollY;
+      const elementPosition =
+        lastCurrentEventRef.current!.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - offset;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     } else {
       window.scrollTo(0, 0);

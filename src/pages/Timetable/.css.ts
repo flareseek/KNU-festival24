@@ -17,18 +17,18 @@ export const section = style({
 });
 
 const baseFilterButton = style({
-  position: 'relative',
+  position: "relative",
   padding: "10px 15px",
   margin: "0 5px 10px 0",
   border: "none",
   borderRadius: "20px",
   cursor: "pointer",
   transition: "all 0.3s ease",
-  overflow: 'hidden',
+  overflow: "hidden",
 
-  '::before': {
+  "::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
@@ -52,26 +52,26 @@ export const filterButton = styleVariants({
     {
       color: vars.color.white,
 
-      ':hover::before': {
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      ":hover::before": {
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
       },
     },
   ],
   active: [
     baseFilterButton,
     {
-      backgroundImage: 'linear-gradient(to top left, #04D1C3, #009efd, #FFFFFF)',
-      fontWeight: 'bold',
-      WebkitBackgroundClip: 'text',
-      backgroundClip: 'text',
-      color: 'transparent',
+      backgroundImage: "linear-gradient(to top left, #04D1C3, #009efd, #FFFFFF)",
+      fontWeight: "bold",
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
 
-      '::before': {
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+      "::before": {
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
       },
 
-      ':hover::before': {
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+      ":hover::before": {
+        backgroundColor: "rgba(255, 255, 255, 0.4)",
       },
     },
   ],
