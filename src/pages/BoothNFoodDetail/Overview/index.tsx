@@ -1,4 +1,5 @@
 import ImageModal from "../../../components/ImageModal/index.tsx";
+import { BoothPlaceType } from "../../../shared/types/asset_types.ts";
 import * as styles from "./index.css.ts";
 
 type OverviewProps = {
@@ -6,7 +7,7 @@ type OverviewProps = {
   date: number[];
   imgURL: string;
   order: number;
-  place: string;
+  place: BoothPlaceType;
 };
 
 export default function Overview({ title, date, imgURL, order, place }: OverviewProps) {
@@ -20,7 +21,13 @@ export default function Overview({ title, date, imgURL, order, place }: Overview
           <div className={styles.hoursContainer}>
             <div className={styles.hoursLabel}>
               <span className="material-symbols-outlined">schedule</span>
-              <span>{title === "주점" ? "18:00 ~ 01:00" : "11:00 ~ 17:00"}</span>
+              <span>
+                {title === "주점"
+                  ? place === "미래광장"
+                    ? "18:00 ~ 00:00"
+                    : "18:00 ~ 01:00"
+                  : "11:00 ~ 17:00"}
+              </span>
             </div>
             <div className={styles.hoursLabel}>
               <span className="material-symbols-outlined">date_range</span>
