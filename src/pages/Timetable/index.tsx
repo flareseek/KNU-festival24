@@ -10,6 +10,9 @@ export default function Timetable() {
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const lastCurrentEventRef = useRef<HTMLDivElement | null>(null);
 
+  /**
+   * 현재 날짜에 맞게 기준시간 설정
+   */
   useEffect(() => {
     const today = clearTime(new Date());
     const start = clearTime(START_DATE);
@@ -29,6 +32,11 @@ export default function Timetable() {
     return () => clearInterval(timer);
   }, []);
 
+  /**
+   * 필터링된 타임테이블 정보
+   * @see timeTableInfo
+   * @see useMemo
+   */
   const filteredTimeTableInfo = useMemo(
     () =>
       timeTableInfo
@@ -37,6 +45,9 @@ export default function Timetable() {
     [viewTime],
   );
 
+  /**
+   * 현재 진행중인 이벤트로 스크롤
+   */
   useEffect(() => {
     // 진행 중인 마지막 요소로 스크롤
     if (lastCurrentEventRef.current) {
@@ -48,12 +59,19 @@ export default function Timetable() {
     window.scrollTo(0, 0);
   }, [filteredTimeTableInfo]);
 
+  /**
+   * 필터 클릭 이벤트
+   */
   const handleFilterClick = useCallback((date: Date) => {
     setViewTime(clearTime(date));
   }, []);
 
+  /**
+   * 렌더링
+   */
   return (
     <section className={styles.section}>
+      {/*상단 필터링 버튼*/}
       <div>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton
@@ -64,6 +82,7 @@ export default function Timetable() {
           />
         ))}
       </div>
+      {/*필터링된 타임테이블 정보*/}ㄴ
       <div>
         {filteredTimeTableInfo.map((timeTable, index) => (
           <React.Fragment key={index}>
@@ -78,6 +97,7 @@ export default function Timetable() {
           </React.Fragment>
         ))}
       </div>
+      {/*하단 필터링 버튼*/}
       <div>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton

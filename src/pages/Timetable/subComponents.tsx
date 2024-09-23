@@ -3,9 +3,11 @@ import { artistInfoListProps } from "../../shared/types/mainPage.ts";
 import * as styles from ".css.ts";
 import { Link } from "react-router-dom";
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
-
 import { clearTime, formatTime, getEventStatus } from "./utils.tsx";
 
+/**
+ * 일별 필터 버튼
+ */
 export const FilterButton: React.FC<{
   timeTable: timeTableFilterProps;
   onClick: (date: Date) => void;
@@ -18,6 +20,12 @@ export const FilterButton: React.FC<{
     {timeTable.name}
   </button>
 ));
+
+/**
+ * 아티스트 정보
+ * @param artist 아티스트 정보
+ * @see artistInfoListProps
+ */
 const ArtistInfo: React.FC<{
   artist: artistInfoListProps[];
 }> = React.memo(({ artist }) => (
@@ -31,6 +39,13 @@ const ArtistInfo: React.FC<{
     ))}
   </div>
 ));
+
+/**
+ * 타임테이블 아이템
+ * @param timeTable 타임테이블 정보
+ * @param currentTime 현재 시간
+ * @param refCallback 현재 진행중인 이벤트를 가리키기 위한 콜백
+ */
 export const TimeTableItem: React.FC<{
   timeTable: timeTableInfoProps;
   currentTime: Date;
