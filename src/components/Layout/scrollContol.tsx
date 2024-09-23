@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useCurrentPage } from "../../shared/routing/routerUtils.ts";
 
-let savedScrollY = 0;
+const savedScrollYKey = "savedScrollY";
 
 const handleScroll = () => {
-  savedScrollY = window.scrollY;
-  console.log(window.scrollY);
+  sessionStorage.setItem(savedScrollYKey, String(window.scrollY));
 };
 
 export default function ScrollToTop({ children }: { children: React.ReactNode }) {
@@ -14,7 +13,10 @@ export default function ScrollToTop({ children }: { children: React.ReactNode })
   useEffect(() => {
     if (currentPage.scrollOptions === "never") return;
     if (currentPage.scrollOptions === "save") {
-      window.scrollTo(0, savedScrollY);
+      setTimeout(
+        () => window.scrollTo(0, Number(sessionStorage.getItem(savedScrollYKey)) || 0),
+        500,
+      );
     } else {
       window.scrollTo(0, 0);
     }
