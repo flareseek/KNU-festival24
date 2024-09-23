@@ -83,7 +83,19 @@ const TimeTableItem: React.FC<{
     <div className={`${styles.timeTableItem}`} ref={status === "current" ? refCallback : null}>
       <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
       {timeTable.descriptionShow && (
-        <p className={styles.timeTableDescription}>{timeTable.description}</p>
+        <p className={styles.timeTableDescription}>
+          {timeTable.description}
+          {timeTable.link && (
+            <a
+              className={styles.timeTableLink}
+              href={timeTable.link.url}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {timeTable.link.text}
+            </a>
+          )}
+        </p>
       )}
       <p className={styles.timeTableTime}>
         {timeTable.startTime.getMonth() + 1}/{timeTable.startTime.getDate()} |{" "}

@@ -94,6 +94,13 @@ export const timeTableDescription = style({
   },
 });
 
+export const timeTableLink = style({
+  color: vars.color.blue2,
+  textDecoration: "none",
+  marginLeft: "5px",
+  fontFamily: vars.font.pretendardRegular,
+});
+
 export const timeTableTime = style({
   fontSize: "0.9rem",
   fontWeight: "bold",

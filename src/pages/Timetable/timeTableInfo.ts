@@ -388,11 +388,15 @@ export const timeTableInfo: timeTableInfoProps[] = [
   },
   {
     title: "재학생 우선 입장",
-    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    description: "재학생 우선 입장 시간",
     descriptionShow: true,
     date: new Date("2024-09-23"),
     startTime: new Date("2024-09-23 17:00"),
     endTime: new Date("2024-09-23 17:50"),
+    link: {
+      text: "(자세히보기)",
+      url: "https://www.instagram.com/p/DAFpPQ_SQyL",
+    },
   },
   {
     title: "전체 입장",
@@ -404,11 +408,15 @@ export const timeTableInfo: timeTableInfoProps[] = [
   },
   {
     title: "재학생 우선 입장",
-    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    description: "재학생 우선 입장 시간",
     descriptionShow: true,
     date: new Date("2024-09-24"),
     startTime: new Date("2024-09-24 17:00"),
     endTime: new Date("2024-09-24 17:50"),
+    link: {
+      text: "(자세히보기)",
+      url: "https://www.instagram.com/p/DAFpPQ_SQyL",
+    },
   },
   {
     title: "전체 입장",
@@ -420,11 +428,15 @@ export const timeTableInfo: timeTableInfoProps[] = [
   },
   {
     title: "재학생 우선 입장",
-    description: "재학생 우선 입장 시간 (자세한 안내는 인스타그램 참조)",
+    description: "재학생 우선 입장 시간",
     descriptionShow: true,
     date: new Date("2024-09-25"),
     startTime: new Date("2024-09-25 17:00"),
     endTime: new Date("2024-09-25 17:50"),
+    link: {
+      text: "(자세히보기)",
+      url: "https://www.instagram.com/p/DAFpPQ_SQyL",
+    },
   },
   {
     title: "전체 입장",

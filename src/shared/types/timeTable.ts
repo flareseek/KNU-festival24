@@ -8,6 +8,7 @@ export interface timeTableInfoProps {
   date: Date;
   startTime: Date;
   endTime: Date;
+  link?: { text: string; url: string };
 }
 
 export interface timeTableFilterProps {
