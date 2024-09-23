@@ -16,7 +16,14 @@ export const section = style({
   },
 });
 
+export const dayFilter = style({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around",
+});
+
 const baseFilterButton = style({
+  flexGrow: 1,
   position: "relative",
   padding: "10px 15px",
   margin: "0 5px 10px 0",
