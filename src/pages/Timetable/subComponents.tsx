@@ -54,7 +54,10 @@ export const TimeTableItem: React.FC<{
   const status = getEventStatus(timeTable, currentTime);
 
   return (
-    <div className={`${styles.timeTableItem}`} ref={status === "current" ? refCallback : null}>
+    <div
+      className={`${styles.timeTableItem} ${status === "current" && styles.timeTableHighlight}`}
+      ref={status === "current" ? refCallback : null}
+    >
       <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
       {timeTable.descriptionShow && (
         <p className={styles.timeTableDescription}>

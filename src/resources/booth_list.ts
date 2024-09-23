@@ -74,7 +74,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     place: "대운중앙노랑",
     name: "단과대학제전",
     description: "기록;을 맺는 순간\n강원대학교 최고의 단과대학을 가리는 단과대학제전",
-    saleItems: [],
+    saleItems: [{ item: "사격/만보기/악력/황새오래걷기 등", price: null }],
     imageName: "8ae87b7d0c",
   }),
   new Booth({
@@ -92,7 +92,24 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     place: "대운중앙노랑",
     name: "2024 백령대동제 굿즈 판매 및 수령",
     description: "백령인을 하나로 모을 대동제 한정판 굿즈 판매",
-    saleItems: [],
+    saleItems: [
+      {
+        item: "하키 유니폼",
+        price: { min: 38000, max: 38000 },
+      },
+      {
+        item: "야구 유니폼",
+        price: { min: 35000, max: 35000 },
+      },
+      {
+        item: "농구 유니폼",
+        price: { min: 32000, max: 32000 },
+      },
+      {
+        item: "슬로건/반다나",
+        price: { min: 3000, max: 3000 },
+      },
+    ],
     imageName: "8ae87b7d0c",
   }),
   new Booth({
@@ -109,8 +126,13 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     order: 7,
     place: "대운중앙노랑",
     name: "대학일자리플러스센터",
-    description: "학생들의 수요에 맞는 다양한 프로그램을 기획해드립니다!",
-    saleItems: [],
+    description: "축제와 찰떡인 타투스티커! 대플과 함께 해요",
+    saleItems: [
+      {
+        item: "나래플러스가 직접 맹든 타투스티커! 무료!",
+        price: null,
+      },
+    ],
   }),
   new Booth({
     id: "fa178d3fa1",
@@ -118,7 +140,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     place: "대운중앙노랑",
     name: "법무부 저스티스 서포터스 17기 SLS",
     description: "법무부 저스티스 서포터스와 함께 범죄예방정책 톺아보기!",
-    saleItems: [],
+    saleItems: [{ item: "범죄예방관련 문제를 풀고 상품 받아가세요!", price: null }],
   }),
   new Booth({
     id: "b25a73b0f6",
@@ -142,7 +164,7 @@ export const BOOTH_PLAYGROUND_MIDDLE_YELLOW_LINE_LIST: Booth[] = [
     id: "02b75dfc25",
     order: 11,
     place: "대운중앙노랑",
-    name: "빛길",
+    name: "빛길(뽑자뽑자 1336)",
     description: "도박문제 헬프라인 1336을 뽑아라! 참여만 해도 상품이!\n",
     saleItems: [{ item: "참여만 해도 간식꾸러미 증정 (무료)", price: null }],
   }),
@@ -200,9 +222,12 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "09eb7da1de",
     order: 4,
-    name: "20주들",
+    name: "Fall in Love... 시럽빙수♥️",
     description: "일본식 빙수 '카키고오리'와 함께 특별한 순간을 달콤한 추억으로 물들이세요!",
-    saleItems: [{ item: "시럽빙수", price: { min: 3000, max: 3000 } }],
+    saleItems: [
+      { item: "시럽빙수", price: { min: 3500, max: 3500 } },
+      { item: "레인보우 시럽빙수", price: { min: 4000, max: 4000 } },
+    ],
     place: "대운하단분홍",
   }),
   new Booth({
@@ -219,7 +244,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "50c1fce68a",
     order: 6,
-    name: "강원대학교 4-H회",
+    name: "강원대학교 4-H회(일루와아)",
     description: "게임과 함께 맛있는 와플&아이스크림 먹어요!",
     saleItems: [
       { item: "아이스크림&와플", price: { min: 3500, max: 3500 } },
@@ -231,9 +256,12 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "73f46f69f4",
     order: 7,
-    name: "테이스티타임",
+    name: "테이스티타임(오일장버거)",
     description: "오일장버거",
-    saleItems: [],
+    saleItems: [
+      { item: "오일장버거", price: { min: 4000, max: 6500 } },
+      { item: "콜라", price: { min: 2000, max: 2000 } },
+    ],
     place: "대운하단분홍",
   }),
   new Booth({
@@ -271,7 +299,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "f93f7d8c06",
     order: 11,
-    name: "도화",
+    name: "도화(백령청과)",
     description: "대학생 필수 비타민 여기 다 들어있다! 나랑.. 과일 스껄할래?",
     saleItems: [
       { item: "제철 생과일 컵", price: { min: 3000, max: 3000 } },
@@ -284,7 +312,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "2996a8de2d",
     order: 12,
-    name: "LinkU",
+    name: "LinkU(슬러시 & 콜팝)",
     description: "추억의 콜팝 & 슬러시",
     saleItems: [
       { item: "메론 슬러시", price: { min: 2000, max: 2000 } },
@@ -295,7 +323,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "93d949f5e9",
     order: 13,
-    name: "농사직썰",
+    name: "농사직썰(대학생 농부들의 리얼 포레스트)",
     description: "농사직썰 회원들이 키운 농산물! 함께 나눠요~!🧑‍🌾",
     saleItems: [
       { item: "삼겹살", price: { min: 3000, max: 3000 } },
@@ -307,7 +335,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "4c06b8ef37",
     order: 14,
-    name: "ALFS",
+    name: "ALFS(이거 좀 다른데, 디저트 먹고 갈래?)",
     description: "제로를 넘은 알러지 프리 디저트로 진정한 자유로움을 맛보세요!",
     saleItems: [{ item: "비스코티(2ea)", price: { min: 2500, max: 2500 } }],
     place: "대운하단분홍",
@@ -327,7 +355,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
   new Booth({
     id: "67e3c1c3cc",
     order: 16,
-    name: "홀로그램",
+    name: "고묘의 슬쩍슬떡(홀로그램)",
     description: "떡볶이 맛집 홀로그램에 많은 방문바랍니다!",
     saleItems: [
       { item: "떡볶이", price: { min: 4000, max: 4000 } },
@@ -336,20 +364,8 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "36b68df0f4",
-    order: 17,
-    name: "도담상점",
-    description: "반짝이는 비즈마을에 오신걸 환영합니다!",
-    saleItems: [
-      { item: "비즈키링", price: { min: 2000, max: 10000 } },
-      { item: "비즈반지", price: { min: 2000, max: 10000 } },
-      { item: "비즈팔찌", price: { min: 2000, max: 10000 } },
-    ],
-    place: "대운하단분홍",
-  }),
-  new Booth({
     id: "ffb5da54d5",
-    order: 18,
+    order: 17,
     name: "달리는푸드카페",
     description: "커피 ,직접 갈아만든 방울토마토 주스로 여러분을 찾아뵙겠습니다!",
     saleItems: [
@@ -362,8 +378,28 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "7497d24939",
+    id: "36b68df0f4",
+    order: 18,
+    name: "도담상점",
+    description: "반짝이는 비즈마을에 오신걸 환영합니다!",
+    saleItems: [
+      { item: "비즈키링", price: { min: 2000, max: 10000 } },
+      { item: "비즈반지", price: { min: 2000, max: 10000 } },
+      { item: "비즈팔찌", price: { min: 2000, max: 10000 } },
+    ],
+    place: "대운하단분홍",
+  }),
+  new Booth({
+    id: "e185176c19",
     order: 19,
+    name: "풀가",
+    description: "풀가의 털복숭이 칭구들",
+    saleItems: [{ item: "캐릭터 문구 다꾸 리빙제품", price: { min: 2000, max: 2000 } }],
+    place: "대운하단분홍",
+  }),
+  new Booth({
+    id: "7497d24939",
+    order: 20,
     name: "준수비즈",
     description: "블링블링 러블리한 비즈 액세서리를 만듭니다.",
     saleItems: [
@@ -375,16 +411,16 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "e185176c19",
-    order: 20,
-    name: "풀가",
-    description: "풀가의 털복숭이 칭구들",
-    saleItems: [{ item: "캐릭터 문구 다꾸 리빙제품", price: { min: 2000, max: 2000 } }],
+    id: "0c761c827e",
+    order: 21,
+    name: "쁘띠쁘띠",
+    description: "고온의 온도에 유리를 녹여 만든 액세서리입니다.",
+    saleItems: [{ item: "써지컬 유리반지", price: { min: 15000, max: 15000 } }],
     place: "대운하단분홍",
   }),
   new Booth({
     id: "cdd594c254",
-    order: 21,
+    order: 22,
     name: "수미악세사리",
     description: "해마타이트 혈액순환을 도와주는 원석을 가공하여 만든 액세서리",
     saleItems: [
@@ -394,40 +430,24 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "0c761c827e",
-    order: 22,
-    name: "쁘띠쁘띠",
-    description: "고온의 온도에 유리를 녹여 만든 액세서리입니다.",
-    saleItems: [{ item: "써지컬 유리반지", price: { min: 15000, max: 15000 } }],
-    place: "대운하단분홍",
-  }),
-  new Booth({
-    id: "9c5d6a5577",
-    order: 23,
-    name: "개인의취향",
-    description: "귀여운 캐릭터 모양에 예븐 파츠를 응용하여 만든 석고 방향제입니다!",
-    saleItems: [{ item: "석고방향제", price: { min: 8000, max: 8000 } }],
-    place: "대운하단분홍",
-  }),
-  new Booth({
     id: "43c62c61f9",
-    order: 24,
+    order: 23,
     name: "공간잡화점",
     description: "자개악세사리, 헤어제품, 키링 등 여러가지 제품을 만듭니다.",
     saleItems: [{ item: "자개 오픈팔찌", price: { min: 8000, max: 8000 } }],
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "8a18754738",
-    order: 25,
-    name: "향기운",
-    description: "향기로 공간을 꾸며주세요.",
-    saleItems: [{ item: "석고 방향제", price: { min: 5000, max: 20000 } }],
+    id: "9c5d6a5577",
+    order: 24,
+    name: "개인의취향",
+    description: "귀여운 캐릭터 모양에 예븐 파츠를 응용하여 만든 석고 방향제입니다!",
+    saleItems: [{ item: "석고방향제", price: { min: 8000, max: 8000 } }],
     place: "대운하단분홍",
   }),
   new Booth({
     id: "27c55c0463",
-    order: 26,
+    order: 25,
     name: "안방과연필",
     description: "100% 핸드메이드 아기자기 코바늘 소품",
     saleItems: [
@@ -436,8 +456,24 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "327afcdba7",
+    id: "8a18754738",
+    order: 26,
+    name: "향기운",
+    description: "향기로 공간을 꾸며주세요.",
+    saleItems: [{ item: "석고 방향제", price: { min: 5000, max: 20000 } }],
+    place: "대운하단분홍",
+  }),
+  new Booth({
+    id: "0c96d9a479",
     order: 27,
+    name: "나나쭈니",
+    description: "다양한 지비츠를 판매합니다.",
+    saleItems: [{ item: "지비츠", price: { min: 5000, max: 5000 } }],
+    place: "대운하단분홍",
+  }),
+  new Booth({
+    id: "327afcdba7",
+    order: 28,
     name: "HESSDOLL",
     description: "인형놀이를 위한 뜨개, 가방이나 모자 등 소품도 취급해요!",
     saleItems: [
@@ -447,44 +483,25 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "0c96d9a479",
-    order: 28,
-    name: "나나쭈니",
-    description: "다양한 지비츠를 판매합니다.",
-    saleItems: [{ item: "지비츠", price: { min: 5000, max: 5000 } }],
-    place: "대운하단분홍",
-  }),
-  new Booth({
-    id: "1c1d260dc6",
-    order: 29,
-    name: "시월의주",
-    description: "진주/원석/실버 액세서리 판매합니다.",
-    saleItems: [{ item: "원석 실버 목걸이", price: { min: 15000, max: 50000 } }],
-    place: "대운하단분홍",
-  }),
-  new Booth({
     id: "02ab7987ed",
-    order: 30,
+    order: 29,
     name: "언니의 공예방",
     description: "생화, 자개 등 자연물을 직접 디자인하여 특별한 액세서리를 만듭니다.",
     saleItems: [{ item: "생화 액세서리", price: { min: 7000, max: 23000 } }],
     place: "대운하단분홍",
   }),
   new Booth({
-    id: "19aa65aa9d",
-    order: 31,
-    name: "이에스몰",
-    description: "수제 문구류와 싸지컬 비즈 액세서리를 판매합니다.",
-    saleItems: [
-      { item: "문구류", price: { min: 800, max: 800 } },
-      { item: "액세서리", price: { min: 3000, max: 3000 } },
-    ],
+    id: "1c1d260dc6",
+    order: 30,
+    name: "시월의주",
+    description: "진주/원석/실버 액세서리 판매합니다.",
+    saleItems: [{ item: "원석 실버 목걸이", price: { min: 15000, max: 50000 } }],
     place: "대운하단분홍",
   }),
   availableAsset([
     new Booth({
       id: "23e09c30f3",
-      order: 32,
+      order: 31,
       name: "스링(월,수)",
       description: "저연스러움을 추구하는 주얼리",
       saleItems: [{ item: "파도하트 목걸이", price: { min: 35000, max: 35000 } }],
@@ -493,7 +510,7 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     }),
     new Booth({
       id: "1e70e18f7f",
-      order: 32,
+      order: 31,
       name: "강원FC Playground(화)",
       description: "미니골대 활용한 축구게임 진행\n구단 홍보물 및 경품 증정",
       saleItems: [],
@@ -502,16 +519,19 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
     }),
   ]),
   new Booth({
-    id: "a57dbe82b5",
-    order: 33,
-    name: "작심",
-    description: "일상 속 '마음 짓기'에 필요한 제품을 만듭니다.",
-    saleItems: [{ item: "미니카드, 해빗, 트래커 등", price: { min: 2000, max: 2000 } }],
+    id: "19aa65aa9d",
+    order: 32,
+    name: "이에스몰",
+    description: "수제 문구류와 싸지컬 비즈 액세서리를 판매합니다.",
+    saleItems: [
+      { item: "문구류", price: { min: 800, max: 800 } },
+      { item: "액세서리", price: { min: 3000, max: 3000 } },
+    ],
     place: "대운하단분홍",
   }),
   new Booth({
     id: "bded94c18d",
-    order: 34,
+    order: 33,
     name: "도담메이드",
     description: "귀엽고 포근포근한, 일사으이 패브릭 소품을 만듭니다.",
     saleItems: [
@@ -519,6 +539,14 @@ export const BOOTH_PLAYGROUND_BOTTOM_PINK_LINE_LIST: Booth[] = [
       { item: "거즈담요", price: { min: 3900, max: 5900 } },
       { item: "기타", price: { min: 13000, max: 13000 } },
     ],
+    place: "대운하단분홍",
+  }),
+  new Booth({
+    id: "a57dbe82b5",
+    order: 34,
+    name: "작심",
+    description: "일상 속 '마음 짓기'에 필요한 제품을 만듭니다.",
+    saleItems: [{ item: "미니카드, 해빗, 트래커 등", price: { min: 2000, max: 2000 } }],
     place: "대운하단분홍",
   }),
   new Booth({
@@ -552,13 +580,10 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "7c4e5392f1",
     order: 1,
-    name: "8llow me",
+    name: "정선블루베리협동조합",
     description:
       "“몸에 좋고, 맛도 좋은” 해발 600m 정선에서 슈퍼푸드 블루베리를 유기농으로 재배했습니다.",
-    saleItems: [
-      { item: "블루베리 에이드", price: { min: 3900, max: 3900 } },
-      { item: "블루베리 누룽지", price: { min: 2000, max: 2000 } },
-    ],
+    saleItems: [{ item: "블루베리 에이드", price: { min: 3900, max: 3900 } }],
     place: "대운상단초록",
   }),
   new Booth({
@@ -572,7 +597,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "b5f1c98b87",
     order: 3,
-    name: "언럭키비키",
+    name: "운이 좋클리버",
     description: "당신의 행운을 찾아가세요 !",
     saleItems: [{ item: "네잎클로버 투명코팅 카드", price: { min: 2000, max: 2000 } }],
     place: "대운상단초록",
@@ -593,7 +618,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     order: 5,
     name: "강원대학교 구내안경원",
     description: "강원대학교 천지관 1층에 위치한 구내안경원입니다!",
-    saleItems: [{ item: "창고 정리 파격 세일!", price: null }],
+    saleItems: [{ item: "창고 정리 파격 세일!", price: { min: 23000, max: 43000 } }],
     place: "대운상단초록",
   }),
   new Booth({
@@ -604,6 +629,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     saleItems: [
       { item: "바질화분", price: { min: 7000, max: 7000 } },
       { item: "이오난사 DIY화분 키트", price: { min: 7000, max: 7000 } },
+      { item: "미니어쳐", price: { min: 1000, max: 2000 } },
     ],
     place: "대운상단초록",
   }),
@@ -629,7 +655,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "245e6a34b4",
     order: 9,
-    name: "별과함께",
+    name: "티파니앤코파니",
     description: "떠오르는 브랜드 티파니앤코파니 귀여운 체인목걸이 & 키링 보러 방문해주세요!!",
     saleItems: [
       { item: "하트클로버 목걸이", price: { min: null, max: 9900 } },
@@ -651,10 +677,10 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "19ff8c4742",
     order: 11,
-    name: "강원대 운동부 서포터즈",
+    name: "강원대학교 운동부를 아세요?",
     description: "강원대학교 운동부를 소개합니다:)",
     saleItems: [
-      { item: "이벤트 참가비", price: { min: 1000, max: 1000 } },
+      { item: "공던지기 이벤트 참가비", price: { min: 1000, max: 1000 } },
       { item: "상품: 스티커, 키링, 인형", price: null },
     ],
     place: "대운상단초록",
@@ -685,7 +711,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "db9d8e9f8b",
     order: 14,
-    name: "자치기구발전위원회",
+    name: "추억을 자바라",
     description: "그대의 추억을 직접 만드는 키링과 지비츠 속에..",
     saleItems: [
       { item: "셀프메이드 지비츠/키링(공방)", price: { min: 2000, max: 2000 } },
@@ -733,7 +759,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "e0c77622d5",
     order: 18,
-    name: "워치친구들",
+    name: "은하빛 사과 스트랩",
     description: "가격은 가볍게! 실용성은 높게! 다양한 워치 스트랩으로 스타일을 더하세요!",
     saleItems: [
       { item: "실리콘 스트랩(8종)", price: { min: 3000, max: 3000 } },
@@ -746,7 +772,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "6e57a5c0d4",
     order: 19,
-    name: "푸더바",
+    name: "팩트는 안오면 손해라는 거임",
     description: "핸드폰, 가방, 다이어리에 꾸미면 착붙인 스티커&키링",
     saleItems: [
       { item: "힙스터 키링", price: { min: 4300, max: 4300 } },
@@ -769,7 +795,10 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
     order: 21,
     name: "OECO",
     description: "당신이 상상하는 모든 자연을 선물합니다",
-    saleItems: [{ item: "생물 스티커", price: { min: 500, max: 500 } }],
+    saleItems: [
+      { item: "생물 스티커", price: { min: 500, max: 500 } },
+      { item: "미션 2개 성공하면 상품 드립니다", price: null },
+    ],
     place: "대운상단초록",
   }),
   new Booth({
@@ -787,7 +816,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "c8db2c5e3f",
     order: 23,
-    name: "액션(AC7OIN)",
+    name: "1+1 제로 곰두리 카페",
     description: "제로음료를 사면 컵이 무료!",
     saleItems: [
       { item: "얼박사+컵", price: { min: 5000, max: 5000 } },
@@ -798,7 +827,7 @@ export const BOOTH_PLAYGROUND_TOP_GREEN_LINE_LIST: Booth[] = [
   new Booth({
     id: "b5a95ac64b",
     order: 24,
-    name: "0304",
+    name: "실타래",
     description: "정성이 가득한 100% 핸드메이드 다양한 뜨개 인형과 비즈 악세사리",
     saleItems: [
       { item: "토끼 인형키링", price: { min: 16000, max: 16000 } },
