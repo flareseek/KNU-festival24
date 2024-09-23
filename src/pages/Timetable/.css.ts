@@ -180,6 +180,7 @@ export const artistImage = style({
 export const artistName = style({
   fontSize: "1.7rem",
   fontFamily: vars.font.pyeongChangLight,
+  wordBreak: "keep-all",
   "@media": {
     "screen and (max-width: 768px)": {
       fontSize: "1.7rem",
