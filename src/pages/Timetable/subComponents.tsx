@@ -1,6 +1,6 @@
 import React from "react";
 import { artistInfoListProps } from "../../shared/types/mainPage.ts";
-import * as styles from ".css.ts";
+import * as styles from "./.css.ts";
 import { Link } from "react-router-dom";
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
 import { clearTime, formatTime, getEventStatus } from "./utils.tsx";
