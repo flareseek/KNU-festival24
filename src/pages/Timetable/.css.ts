@@ -16,7 +16,14 @@ export const section = style({
   },
 });
 
+export const dayFilter = style({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around",
+});
+
 const baseFilterButton = style({
+  flexGrow: 1,
   position: "relative",
   padding: "10px 15px",
   margin: "0 5px 10px 0",
@@ -79,6 +86,8 @@ export const filterButton = styleVariants({
 
 export const timeTableItem = style({
   backgroundColor: vars.color.white,
+  opacity: 0.7,
+  borderColor: vars.color.blue3,
   borderRadius: "8px",
   padding: "15px",
   marginBottom: "15px",
@@ -89,6 +98,12 @@ export const timeTableItem = style({
       marginBottom: "10px",
     },
   },
+});
+
+export const timeTableHighlight = style({
+  opacity: 1,
+  border: "2px solid",
+  borderColor: vars.color.green3,
 });
 
 export const timeTableTitle = style({

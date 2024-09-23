@@ -84,7 +84,7 @@ export default function Timetable() {
   return (
     <section className={styles.section}>
       {/*상단 필터링 버튼*/}
-      <div>
+      <div className={styles.dayFilter}>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton
             key={index}
