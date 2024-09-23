@@ -130,10 +130,14 @@ function QnA() {
                   <div className={qnaContentWrapper}>
                     <p className={qnaContent}>{QnaItem.title}</p>
                   </div>
+
                   {/* downbtn을 클릭하면 토글 */}
                   <button
-                    onClick={() => toggleQna(QnaItem.id)}
-                    className={arrowButton} // 스타일 추가
+                    onClick={(e) => {
+                      e.stopPropagation(); // 이벤트 버블링을 막음
+                      toggleQna(QnaItem.id);
+                    }}
+                    className={arrowButton}
                   >
                     <span className="material-symbols-outlined">
                       {expandedQna.includes(QnaItem.id) ? "arrow_drop_up" : "arrow_drop_down"}

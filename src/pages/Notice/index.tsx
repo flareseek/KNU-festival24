@@ -112,7 +112,13 @@ function Notice() {
                   </div>
 
                   {/* downbtn을 클릭하면 토글 */}
-                  <button onClick={() => toggleNotice(noticeItem.id)} className={arrowButton}>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // 이벤트 전파 방지
+                      toggleNotice(noticeItem.id);
+                    }}
+                    className={arrowButton}
+                  >
                     <span className="material-symbols-outlined">
                       {expandedNoticeId === noticeItem.id ? "arrow_drop_up" : "arrow_drop_down"}
                     </span>
