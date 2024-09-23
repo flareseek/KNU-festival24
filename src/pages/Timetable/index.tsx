@@ -1,106 +1,20 @@
-import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { timeTableInfo } from "./timeTableInfo.ts";
-import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
 import * as styles from "./.css.ts";
-import { Link } from "react-router-dom";
-import { artistInfoListProps } from "../../shared/types/mainPage.ts";
+import { FilterButton, TimeTableItem } from "./subComponents.tsx";
+import { clearTime, END_DATE, START_DATE, TIME_TABLE_FILTER } from "./utils.tsx";
 
-// Constants
-const TIME_TABLE_FILTER: timeTableFilterProps[] = [
-  { name: "1일차", date: new Date("2024-09-23T00:00:00+09:00") },
-  { name: "2일차", date: new Date("2024-09-24T00:00:00+09:00") },
-  { name: "3일차", date: new Date("2024-09-25T00:00:00+09:00") },
-  { name: "4일차", date: new Date("2024-09-26T00:00:00+09:00") },
-];
-
-const START_DATE = new Date("2024-09-23T00:00:00+09:00");
-const END_DATE = new Date("2024-09-26T00:00:00+09:00");
-
-const clearTime = (date: Date): Date => {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-};
-
-const formatTime = (date: Date): string => {
-  return date.toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit", hour12: false });
-};
-
-const getEventStatus = (
-  event: timeTableInfoProps,
-  currentTime: Date,
-): "past" | "current" | "future" => {
-  let adjustedStartTime = new Date(event.startTime);
-
-  // KNU-ARTIST 항목에 대한 시작 시간 조정
-  if (event.description.includes("KNU-ARTIST")) {
-    if (event.description.includes("댄스")) {
-      adjustedStartTime = new Date(adjustedStartTime.getTime() - 5 * 60000);
-    } else if (event.description.includes("밴드")) {
-      adjustedStartTime = new Date(adjustedStartTime.getTime() - 4 * 60000);
-    }
-  }
-
-  if (currentTime < adjustedStartTime) return "future";
-  if (currentTime > event.endTime) return "past";
-  return "current";
-};
-
-// Sub-components
-const FilterButton: React.FC<{
-  timeTable: timeTableFilterProps;
-  onClick: (date: Date) => void;
-  isActive: boolean;
-}> = React.memo(({ timeTable, onClick, isActive }) => (
-  <button
-    className={isActive ? styles.filterButton.active : styles.filterButton.default}
-    onClick={() => onClick(clearTime(timeTable.date))}
-  >
-    {timeTable.name}
-  </button>
-));
-
-const ArtistInfo: React.FC<{
-  artist: artistInfoListProps[];
-}> = React.memo(({ artist }) => (
-  <div className={styles.artistInfoContainer}>
-    <h3 className={styles.artistInfoTitle}>상세정보</h3>
-    {artist.map((a: artistInfoListProps, index) => (
-      <Link to={a.url} key={index} className={styles.artistItem}>
-        <img src={a.image} alt={a.name} className={styles.artistImage} />
-        <p className={styles.artistName}>{a.name}</p>
-      </Link>
-    ))}
-  </div>
-));
-
-const TimeTableItem: React.FC<{
-  timeTable: timeTableInfoProps;
-  currentTime: Date;
-  refCallback: (node: HTMLDivElement | null) => void;
-}> = React.memo(({ timeTable, currentTime, refCallback }) => {
-  const status = getEventStatus(timeTable, currentTime);
-
-  return (
-    <div className={`${styles.timeTableItem}`} ref={status === "current" ? refCallback : null}>
-      <h2 className={styles.timeTableTitle}>{timeTable.title}</h2>
-      {timeTable.descriptionShow && (
-        <p className={styles.timeTableDescription}>{timeTable.description}</p>
-      )}
-      <p className={styles.timeTableTime}>
-        {timeTable.startTime.getMonth() + 1}/{timeTable.startTime.getDate()} |{" "}
-        {formatTime(timeTable.startTime)} ~ {formatTime(timeTable.endTime)}
-      </p>
-      {timeTable.artist && <ArtistInfo artist={timeTable.artist} />}
-      {status === "current" && <div className={styles.currentIndicator}>진행 중</div>}
-    </div>
-  );
-});
-
-// Main component
+/**
+ * 타임테이블 페이지
+ */
 export default function Timetable() {
   const [viewTime, setViewTime] = useState<Date>(START_DATE);
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const lastCurrentEventRef = useRef<HTMLDivElement | null>(null);
 
+  /**
+   * 현재 날짜에 맞게 기준시간 설정
+   */
   useEffect(() => {
     const today = clearTime(new Date());
     const start = clearTime(START_DATE);
@@ -120,6 +34,11 @@ export default function Timetable() {
     return () => clearInterval(timer);
   }, []);
 
+  /**
+   * 필터링된 타임테이블 정보
+   * @see timeTableInfo
+   * @see useMemo
+   */
   const filteredTimeTableInfo = useMemo(
     () =>
       timeTableInfo
@@ -128,23 +47,43 @@ export default function Timetable() {
     [viewTime],
   );
 
+  /**
+   * 현재 진행중인 이벤트로 스크롤
+   */
   useEffect(() => {
-    // 진행 중인 마지막 요소로 스크롤
-    if (lastCurrentEventRef.current) {
-      if ("scrollIntoView" in lastCurrentEventRef.current) {
-        lastCurrentEventRef.current.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
+    if (
+      lastCurrentEventRef.current &&
+      clearTime(currentTime).getTime() === clearTime(viewTime).getTime()
+    ) {
+      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const offset = rootFontSize * 3.75;
+
+      const elementPosition =
+        lastCurrentEventRef.current!.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
   }, [filteredTimeTableInfo]);
 
+  /**
+   * 필터 클릭 이벤트
+   */
   const handleFilterClick = useCallback((date: Date) => {
     setViewTime(clearTime(date));
   }, []);
 
+  /**
+   * 렌더링
+   */
   return (
     <section className={styles.section}>
+      {/*상단 필터링 버튼*/}
       <div>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton
@@ -155,6 +94,7 @@ export default function Timetable() {
           />
         ))}
       </div>
+      {/*필터링된 타임테이블 정보*/}
       <div>
         {filteredTimeTableInfo.map((timeTable, index) => (
           <React.Fragment key={index}>
@@ -169,6 +109,7 @@ export default function Timetable() {
           </React.Fragment>
         ))}
       </div>
+      {/*하단 필터링 버튼*/}
       <div>
         {TIME_TABLE_FILTER.map((timeTable, index) => (
           <FilterButton

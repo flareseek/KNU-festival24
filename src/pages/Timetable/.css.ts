@@ -17,13 +17,27 @@ export const section = style({
 });
 
 const baseFilterButton = style({
+  position: "relative",
   padding: "10px 15px",
   margin: "0 5px 10px 0",
   border: "none",
   borderRadius: "20px",
   cursor: "pointer",
-  transition: "background-color 0.3s ease",
-  backgroundColor: "rgba(79, 205, 197, 0.5)",
+  transition: "all 0.3s ease",
+  overflow: "hidden",
+
+  "::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    transition: "background-color 0.3s ease",
+    zIndex: -1,
+  },
+
   "@media": {
     "screen and (max-width: 768px)": {
       padding: "8px 12px",
@@ -37,7 +51,8 @@ export const filterButton = styleVariants({
     baseFilterButton,
     {
       color: vars.color.white,
-      ":hover": {
+
+      ":hover::before": {
         backgroundColor: "rgba(255, 255, 255, 0.2)",
       },
     },
@@ -45,10 +60,17 @@ export const filterButton = styleVariants({
   active: [
     baseFilterButton,
     {
+      backgroundImage: "linear-gradient(to top left, #04D1C3, #009efd, #FFFFFF)",
       fontWeight: "bold",
-      backgroundColor: "rgba(255, 255, 255, 0.3)",
-      color: vars.color.white,
-      ":hover": {
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
+
+      "::before": {
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
+      },
+
+      ":hover::before": {
         backgroundColor: "rgba(255, 255, 255, 0.4)",
       },
     },
@@ -70,13 +92,13 @@ export const timeTableItem = style({
 });
 
 export const timeTableTitle = style({
-  fontSize: "1.2rem",
+  fontSize: "1.3rem",
   fontWeight: "bold",
   marginBottom: "10px",
   fontFamily: vars.font.pyeongChangBold,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "1rem",
+      fontSize: "1.3rem",
       marginBottom: "8px",
     },
   },
@@ -85,13 +107,20 @@ export const timeTableTitle = style({
 export const timeTableDescription = style({
   fontSize: "0.9rem",
   color: "#6c757d",
-  marginBottom: "10px",
+  marginBottom: "20px",
   fontFamily: vars.font.pretendardRegular,
   "@media": {
     "screen and (max-width: 768px)": {
       fontSize: "0.8rem",
     },
   },
+});
+
+export const timeTableLink = style({
+  color: vars.color.blue2,
+  textDecoration: "none",
+  marginLeft: "5px",
+  fontFamily: vars.font.pretendardRegular,
 });
 
 export const timeTableTime = style({
@@ -101,7 +130,7 @@ export const timeTableTime = style({
   fontFamily: vars.font.pretendardRegular,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "0.8rem",
+      fontSize: "1rem",
     },
   },
 });
@@ -145,20 +174,22 @@ export const artistImage = style({
   height: "100px",
   marginRight: "10px",
   objectFit: "cover",
+
   "@media": {
     "screen and (max-width: 768px)": {
-      width: "80px",
-      height: "80px",
+      width: "150px",
+      height: "150px",
     },
   },
 });
 
 export const artistName = style({
-  fontSize: "2rem",
+  fontSize: "1.7rem",
   fontFamily: vars.font.pyeongChangLight,
+  wordBreak: "keep-all",
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "2rem",
+      fontSize: "1.7rem",
     },
   },
 });
