@@ -20,7 +20,7 @@ export default function Overview({ title, date, imgURL, order, place }: Overview
           <div className={styles.hoursContainer}>
             <div className={styles.hoursLabel}>
               <span className="material-symbols-outlined">schedule</span>
-              <span>{title.includes("주점") ? "18:00 ~ 01:00" : "11:00 ~ 17:00"}</span>
+              <span>{title === "주점" ? "18:00 ~ 01:00" : "11:00 ~ 17:00"}</span>
             </div>
             <div className={styles.hoursLabel}>
               <span className="material-symbols-outlined">date_range</span>
