@@ -17,16 +17,30 @@ export const section = style({
 });
 
 const baseFilterButton = style({
+  position: "relative",
   padding: "10px 15px",
   margin: "0 5px 10px 0",
   border: "none",
   borderRadius: "20px",
   cursor: "pointer",
-  transition: "background-color 0.3s ease",
-  backgroundColor: "rgba(79, 205, 197, 0.5)",
+  transition: "all 0.3s ease",
+  overflow: "hidden",
+
+  "::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
+    transition: "background-color 0.3s ease",
+    zIndex: -1,
+  },
+
   "@media": {
     "screen and (max-width: 768px)": {
-      padding: "16px 26px",
+      padding: "8px 12px",
       margin: "0 3px 8px 0",
     },
   },
@@ -37,7 +51,8 @@ export const filterButton = styleVariants({
     baseFilterButton,
     {
       color: vars.color.white,
-      ":hover": {
+
+      ":hover::before": {
         backgroundColor: "rgba(255, 255, 255, 0.2)",
       },
     },
@@ -45,26 +60,17 @@ export const filterButton = styleVariants({
   active: [
     baseFilterButton,
     {
+      backgroundImage: "linear-gradient(to top left, #04D1C3, #009efd, #FFFFFF)",
       fontWeight: "bold",
-      backgroundColor: "rgba(255, 255, 255, 0.3)", // 강조 네모 배경
-      color: "transparent", // 텍스트 색상 투명
-      backgroundImage: "linear-gradient(to top left,  #04D1C3,#009efd, #FFFFFF)", // 텍스트 그라데이션
-      WebkitBackgroundClip: "text", // 텍스트에만 그라데이션 적용
-      WebkitTextFillColor: "transparent", // 텍스트 색상 채우기 제거
-      position: "relative", // 텍스트와 배경 분리
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
+
       "::before": {
-        // 배경 유지
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: "rgba(255, 255, 255, 0.3)", // 강조 네모 배경
-        borderRadius: "20px", // 배경의 모서리 둥글게
-        zIndex: -1, // 배경이 텍스트 뒤로 가게
+        backgroundColor: "rgba(255, 255, 255, 0.5)",
       },
-      ":hover": {
+
+      ":hover::before": {
         backgroundColor: "rgba(255, 255, 255, 0.4)",
       },
     },
@@ -180,6 +186,7 @@ export const artistImage = style({
 export const artistName = style({
   fontSize: "1.7rem",
   fontFamily: vars.font.pyeongChangLight,
+  wordBreak: "keep-all",
   "@media": {
     "screen and (max-width: 768px)": {
       fontSize: "1.7rem",
