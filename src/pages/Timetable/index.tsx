@@ -51,14 +51,21 @@ export default function Timetable() {
    * 현재 진행중인 이벤트로 스크롤
    */
   useEffect(() => {
-    // 진행 중인 마지막 요소로 스크롤
-    if (lastCurrentEventRef.current) {
-      if ("scrollIntoView" in lastCurrentEventRef.current) {
-        lastCurrentEventRef.current.scrollIntoView({ behavior: "smooth" });
-        return;
-      }
+    if (lastCurrentEventRef.current && clearTime(currentTime).getTime() === clearTime(viewTime).getTime()) {
+
+      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const offset = rootFontSize * 3.75;
+
+      const elementPosition = lastCurrentEventRef.current!.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo(0, 0);
     }
-    window.scrollTo(0, 0);
   }, [filteredTimeTableInfo]);
 
   /**
