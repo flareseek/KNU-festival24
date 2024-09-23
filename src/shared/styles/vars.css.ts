@@ -1,12 +1,14 @@
 import { createGlobalTheme, fontFace } from "@vanilla-extract/css";
+import boldFont from "../../assets/fonts/subset-PyeongChangPeace-Bold.woff2";
+import lightFont from "../../assets/fonts/subset-PyeongChangPeace-Light.woff2";
 
 const pyeongChangBold = fontFace({
-  src: "url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');",
+  src: `url('${boldFont}') format('woff2');`,
   fontWeight: 700,
   fontStyle: "nomal",
 });
 const pyeongChangLight = fontFace({
-  src: "url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');",
+  src: `url('${lightFont}') format('woff2');`,
   fontWeight: 300,
   fontStyle: "nomal",
 });
