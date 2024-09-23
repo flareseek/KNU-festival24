@@ -84,7 +84,7 @@ export default function Timetable() {
           />
         ))}
       </div>
-      {/*필터링된 타임테이블 정보*/}ㄴ
+      {/*필터링된 타임테이블 정보*/}
       <div>
         {filteredTimeTableInfo.map((timeTable, index) => (
           <React.Fragment key={index}>
