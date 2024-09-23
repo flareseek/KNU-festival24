@@ -26,7 +26,7 @@ const baseFilterButton = style({
   backgroundColor: "rgba(79, 205, 197, 0.5)",
   "@media": {
     "screen and (max-width: 768px)": {
-      padding: "8px 12px",
+      padding: "16px 26px",
       margin: "0 3px 8px 0",
     },
   },
@@ -46,8 +46,24 @@ export const filterButton = styleVariants({
     baseFilterButton,
     {
       fontWeight: "bold",
-      backgroundColor: "rgba(255, 255, 255, 0.3)",
-      color: vars.color.white,
+      backgroundColor: "rgba(255, 255, 255, 0.3)", // 강조 네모 배경
+      color: "transparent", // 텍스트 색상 투명
+      backgroundImage: "linear-gradient(to top left,  #04D1C3,#009efd, #FFFFFF)", // 텍스트 그라데이션
+      WebkitBackgroundClip: "text", // 텍스트에만 그라데이션 적용
+      WebkitTextFillColor: "transparent", // 텍스트 색상 채우기 제거
+      position: "relative", // 텍스트와 배경 분리
+      "::before": {
+        // 배경 유지
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "rgba(255, 255, 255, 0.3)", // 강조 네모 배경
+        borderRadius: "20px", // 배경의 모서리 둥글게
+        zIndex: -1, // 배경이 텍스트 뒤로 가게
+      },
       ":hover": {
         backgroundColor: "rgba(255, 255, 255, 0.4)",
       },
@@ -70,13 +86,13 @@ export const timeTableItem = style({
 });
 
 export const timeTableTitle = style({
-  fontSize: "1.2rem",
+  fontSize: "1.3rem",
   fontWeight: "bold",
   marginBottom: "10px",
   fontFamily: vars.font.pyeongChangBold,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "1rem",
+      fontSize: "1.3rem",
       marginBottom: "8px",
     },
   },
@@ -85,7 +101,7 @@ export const timeTableTitle = style({
 export const timeTableDescription = style({
   fontSize: "0.9rem",
   color: "#6c757d",
-  marginBottom: "10px",
+  marginBottom: "20px",
   fontFamily: vars.font.pretendardRegular,
   "@media": {
     "screen and (max-width: 768px)": {
@@ -108,7 +124,7 @@ export const timeTableTime = style({
   fontFamily: vars.font.pretendardRegular,
   "@media": {
     "screen and (max-width: 768px)": {
-      fontSize: "0.8rem",
+      fontSize: "1rem",
     },
   },
 });
@@ -152,10 +168,11 @@ export const artistImage = style({
   height: "100px",
   marginRight: "10px",
   objectFit: "cover",
+
   "@media": {
     "screen and (max-width: 768px)": {
-      width: "80px",
-      height: "80px",
+      width: "150px",
+      height: "150px",
     },
   },
 });
