@@ -13,6 +13,21 @@
 import { timeTableFilterProps, timeTableInfoProps } from "../../shared/types/timeTable.ts";
 
 /**
+ * 축제 시작일
+ */
+export const START_DATE = new Date("2024-09-23T00:00:00+09:00");
+
+/**
+ * 축제 종료일
+ */
+export const END_DATE = new Date("2024-09-26T00:00:00+09:00");
+
+/**
+ * 데모용 날짜
+ */
+export const DEMO_DATE = new Date("1970-01-01T00:00:00");
+
+/**
  * 일별 필터 버튼
  * name: 버튼 이름
  * date: 필터링할 날짜
@@ -22,17 +37,10 @@ export const TIME_TABLE_FILTER: timeTableFilterProps[] = [
   { name: "2일차", date: new Date("2024-09-24T00:00:00+09:00") },
   { name: "3일차", date: new Date("2024-09-25T00:00:00+09:00") },
   { name: "4일차", date: new Date("2024-09-26T00:00:00+09:00") },
+  { name: "demo", date: DEMO_DATE},
 ];
 
-/**
- * 축제 시작일
- */
-export const START_DATE = new Date("2024-09-23T00:00:00+09:00");
 
-/**
- * 축제 종료일
- */
-export const END_DATE = new Date("2024-09-26T00:00:00+09:00");
 
 /**
  * 시간을 00:00:00으로 설정 (날짜만 유지, 시간 초기화)
