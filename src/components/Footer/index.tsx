@@ -21,14 +21,12 @@ export function Footer() {
         <Link to={"/makers"}>
           <FooterLogo className={styles.footerLogo} />
         </Link>
-        <a
-          href="https://docs.google.com/forms/d/1faPr7Csw59XleXz56_oYiU4raGi44BV-2aT7OLhrVJw/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to = {"/site_info"}
           className={styles.inquiryLink}
         >
-          사이트 문의
-        </a>
+          사이트 정보
+        </Link>
       </div>
       <p className={styles.footerText}>
         COPYRIGHT Ⓒ 2024 LIKELION KANGWON NATIONAL UNIV. ALL RIGHTS RESERVED.
