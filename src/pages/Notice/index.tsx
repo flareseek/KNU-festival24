@@ -31,6 +31,7 @@ import {
 import { getNoticeList } from "../../shared/firebase/noticeService"; // Firebase에서 getNoticeList 가져오기
 import { NoticeDto } from "../../shared/types/notice"; // NoticeDto 타입 정의
 import { Loading } from "../../components/Loading/index.tsx";
+import { noticeData } from "../../shared/firebase/mockData.ts";
 
 function Notice() {
   const [notices, setNotices] = useState<NoticeDto[]>([]); // 공지사항 목록 상태
@@ -43,7 +44,7 @@ function Notice() {
   // Firebase에서 공지사항 데이터를 가져오는 함수
   const fetchNotices = async () => {
     try {
-      const noticeList = await getNoticeList(); // Firebase에서 데이터 가져오기
+      const noticeList = noticeData; // Firebase에서 데이터 가져오기(chage to mock data 2024.09.28)
       setNotices(noticeList); // 데이터를 상태에 저장
       setLoading(false); // 로딩 완료
     } catch (error) {
@@ -142,8 +143,11 @@ function Notice() {
                 {expandedNoticeId === noticeItem.id && (
                   <div
                     className={noticeDetail}
-                    dangerouslySetInnerHTML={{ __html: noticeItem.contents }} // HTML로 렌더링
-                  />
+                    //@build-time-remove: dangerouslySetInnerHTML={{ __html: noticeItem.contents }} // HTML로 렌더링
+                    //@build-time-remove: (off and change to text after 2024.09.28 for security by jjh4450git@gmail.com)
+                  >
+                    {noticeItem.contents}
+                  </div>
                 )}
               </div>
             ))
