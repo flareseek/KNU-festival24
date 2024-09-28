@@ -1,21 +1,38 @@
 import { style } from "@vanilla-extract/css";
 
+// 공통 스타일: 글꼴, 색상, 기본 박스 쉐도우 등을 재사용할 수 있도록 변수화
+const commonColors = {
+  primary: "#0781CD",
+  secondary: "#029FD7",
+  accent: "#04D1C3",
+  background: "#F0F8FF",
+  white: "#FFFFFF",
+  shadow: "rgba(7, 129, 205, 0.1)",
+  hoverShadow: "rgba(7, 129, 205, 0.15)",
+};
+
+const fontStyles = {
+  headingFont: "pyeongChangBold, sans-serif",
+  subHeadingFont: "pyeongChangLight, sans-serif",
+  bodyFont: "pretendard, sans-serif",
+};
+
 export const container = style({
   maxWidth: "1000px",
   margin: "0 auto",
   padding: "2rem",
   backgroundColor: "rgba(255,255,255,0.32)",
-  color: "#0781CD",
-  fontFamily: "pretendard, sans-serif",
-  boxShadow: "0 4px 6px rgba(7, 129, 205, 0.1)",
+  color: commonColors.primary,
+  fontFamily: fontStyles.bodyFont,
+  boxShadow: `0 4px 6px ${commonColors.shadow}`,
   borderRadius: "8px",
 });
 
 export const heading = style({
   fontSize: "2.5rem",
-  color: "#029FD7",
+  color: commonColors.secondary,
   marginBottom: "1.5rem",
-  fontFamily: "pyeongChangBold, sans-serif",
+  fontFamily: fontStyles.headingFont,
   textAlign: "center",
   position: "relative",
   ":after": {
@@ -23,14 +40,14 @@ export const heading = style({
     display: "block",
     width: "50px",
     height: "3px",
-    backgroundColor: "#04D1C3",
+    backgroundColor: commonColors.accent,
     margin: "0.5rem auto",
   },
 });
 
 export const section = style({
   marginBottom: "2rem",
-  background: "#F0F8FF", // Light blue background
+  background: commonColors.background,
   padding: "1.5rem",
   borderRadius: "6px",
   transition: "transform 0.3s ease",
@@ -41,10 +58,10 @@ export const section = style({
 
 export const subHeading = style({
   fontSize: "1.8rem",
-  color: "#0781CD",
+  color: commonColors.primary,
   marginBottom: "1rem",
-  fontFamily: "pyeongChangLight, sans-serif",
-  borderBottom: "2px solid #04D1C3",
+  fontFamily: fontStyles.subHeadingFont,
+  borderBottom: `2px solid ${commonColors.accent}`,
   paddingBottom: "0.5rem",
 });
 
@@ -57,57 +74,61 @@ export const list = style({
 });
 
 export const listItem = style({
-  backgroundColor: "#FFFFFF",
+  backgroundColor: commonColors.white,
   padding: "1rem",
   borderRadius: "6px",
-  boxShadow: "0 2px 4px rgba(7, 129, 205, 0.1)",
+  boxShadow: `0 2px 4px ${commonColors.shadow}`,
   transition: "box-shadow 0.3s ease",
   ":hover": {
-    boxShadow: "0 4px 8px rgba(7, 129, 205, 0.15)",
+    boxShadow: `0 4px 8px ${commonColors.hoverShadow}`,
   },
 });
 
 export const personName = style({
   fontWeight: "bold",
-  color: "#029FD7",
+  color: commonColors.secondary,
   fontSize: "1.2rem",
   marginBottom: "0.5rem",
 });
 
+// contactInfo 스타일 추가
 export const contactInfo = style({
   display: "flex",
   flexWrap: "wrap",
   gap: "0.5rem",
   fontSize: "0.875rem",
   marginBottom: "0.5rem",
-  a: {
-    color: "transparent", // 글자색을 투명하게 설정
-    backgroundImage: "linear-gradient(90deg, #0781CD, #00CFFD, #029FD7, #00274D)", // 더 극적인 그라데이션 색상 추가
-    backgroundClip: "text", // 배경을 텍스트에만 적용
-    WebkitBackgroundClip: "text", // 웹킷 브라우저 지원
-    textDecoration: "none",
-    padding: "0.25rem 0.5rem",
-    borderRadius: "4px",
-    transition: "background-color 0.3s ease",
-    ":hover": {
-      backgroundColor: "#029FD7", // 호버 시 배경색
-    },
-  },
 });
 
+// responsibilities 스타일 추가
 export const responsibilities = style({
   marginTop: "0.75rem",
   paddingLeft: "1rem",
-  color: "#0781CD",
+  color: commonColors.primary,
   fontSize: "0.9rem",
-  li: {
-    marginBottom: "0.25rem",
-    position: "relative",
-    ":before": {
-      content: '"•"',
-      position: "absolute",
-      left: "-1rem",
-      color: "#04D1C3",
-    },
+});
+
+export const link = style({
+  color: "transparent",
+  backgroundImage: `linear-gradient(90deg, ${commonColors.primary}, #00CFFD, ${commonColors.secondary}, #00274D)`,
+  backgroundClip: "text",
+  WebkitBackgroundClip: "text",
+  textDecoration: "none",
+  padding: "0.25rem 0.5rem",
+  borderRadius: "4px",
+  transition: "background-color 0.3s ease",
+  ":hover": {
+    backgroundColor: commonColors.secondary,
+  },
+});
+
+export const responsibilityItem = style({
+  marginBottom: "0.25rem",
+  position: "relative",
+  ":before": {
+    content: '"•"',
+    position: "absolute",
+    left: "-1rem",
+    color: commonColors.accent,
   },
 });

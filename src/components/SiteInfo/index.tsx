@@ -9,7 +9,9 @@ import {
   personName,
   contactInfo,
   responsibilities,
-} from "./.css";
+  link,
+  responsibilityItem,
+} from "./.css.ts";
 import { siteData } from "./Info";
 import { personProps, categoryProps } from "../../shared/types/stieInfoTypes";
 
@@ -30,14 +32,28 @@ export default function SiteInfo() {
                 <li key={index} className={listItem}>
                   <span className={personName}>{person.name}</span>
                   <div className={contactInfo}>
-                    {person.email && <a href={`mailto:${person.email}`}>{person.email}</a>}
-                    {person.github && <a href={person.github}>GitHub</a>}
-                    {person.website && <a href={person.website}>Website</a>}
+                    {person.email && (
+                      <a className={link} href={`mailto:${person.email}`}>
+                        {person.email}
+                      </a>
+                    )}
+                    {person.github && (
+                      <a className={link} href={person.github}>
+                        GitHub
+                      </a>
+                    )}
+                    {person.website && (
+                      <a className={link} href={person.website}>
+                        Website
+                      </a>
+                    )}
                   </div>
                   {person.responsibilities && (
                     <ul className={responsibilities}>
                       {person.responsibilities.map((resp, idx) => (
-                        <li key={idx}>{resp}</li>
+                        <li key={idx} className={responsibilityItem}>
+                          {resp}
+                        </li>
                       ))}
                     </ul>
                   )}
