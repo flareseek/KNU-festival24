@@ -10,7 +10,6 @@
  * Any contributions made after September 26, 2024, are subject to the terms of the MPL 2.0 and are licensed accordingly.
  */
 
-import React from "react";
 import {
   container,
   heading,
