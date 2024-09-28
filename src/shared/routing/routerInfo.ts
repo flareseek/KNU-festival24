@@ -103,7 +103,7 @@ export const routerInfo: routerInfoType[] = [
     korean: "사이트 정보",
     expose: false,
     mainPage: false,
-  }
+  },
 ];
 
 export default routerInfo;

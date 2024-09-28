@@ -28,7 +28,6 @@ import {
   activePageButton,
   emptyListAlert,
 } from "./notice.css.ts"; // 스타일 가져오기
-import { getNoticeList } from "../../shared/firebase/noticeService"; // Firebase에서 getNoticeList 가져오기
 import { NoticeDto } from "../../shared/types/notice"; // NoticeDto 타입 정의
 import { Loading } from "../../components/Loading/index.tsx";
 import { noticeData } from "../../shared/firebase/mockData.ts";

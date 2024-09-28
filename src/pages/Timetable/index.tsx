@@ -35,7 +35,7 @@ export default function Timetable() {
     if (today >= start && today <= end) {
       setViewTime(today);
     } else {
-      setViewTime(DEMO_DATE);// 축제기간이 아닐 경우 데모용 날짜로 설정
+      setViewTime(DEMO_DATE); // 축제기간이 아닐 경우 데모용 날짜로 설정
     }
 
     // 현재 시간을 1분마다 업데이트

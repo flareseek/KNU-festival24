@@ -21,10 +21,7 @@ export function Footer() {
         <Link to={"/makers"}>
           <FooterLogo className={styles.footerLogo} />
         </Link>
-        <Link
-          to = {"/site_info"}
-          className={styles.inquiryLink}
-        >
+        <Link to={"/site_info"} className={styles.inquiryLink}>
           사이트 정보
         </Link>
       </div>

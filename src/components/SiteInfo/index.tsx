@@ -1,5 +1,15 @@
-import React from 'react';
-import { container, heading, subHeading, section, list, listItem, personName, contactInfo, responsibilities } from './.css';
+import React from "react";
+import {
+  container,
+  heading,
+  subHeading,
+  section,
+  list,
+  listItem,
+  personName,
+  contactInfo,
+  responsibilities,
+} from "./.css";
 import { siteData } from "./Info";
 import { personProps, categoryProps } from "../../shared/types/stieInfoTypes";
 
@@ -11,7 +21,7 @@ export default function SiteInfo() {
       <h2 className={subHeading}>{siteData.creators.label}</h2>
 
       {(Object.entries(siteData.creators) as [string, categoryProps][]).map(([key, value]) => {
-        if (key === 'label') return null;
+        if (key === "label") return null;
         return (
           <section key={key} className={section}>
             <h3 className={subHeading}>{value.label}</h3>
