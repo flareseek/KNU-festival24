@@ -50,7 +50,7 @@ export const noticeData: NoticeDto[] = [
     createdAt: new Date(),
     order: 5,
     renewal: false,
-    title: "랄랄라 신규 게시물",
+    title: "신규 게시물",
     contents: "백엔드 서버 서비스 종료에 따라 임시 데이터를 제공합니다. e",
   },
   {
