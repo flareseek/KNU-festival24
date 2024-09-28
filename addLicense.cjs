@@ -13,7 +13,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const LICENSE_TEXT  = `/**
+const LICENSE_TEXT = `/**
  * @license
  * This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
  * If a copy of the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
@@ -60,7 +60,7 @@ function processDirectory(directory) {
 
       if (stat.isDirectory() && item !== "node_modules") {
         processDirectory(itemPath);
-      } else if (TARGET_EXTENSIONS.some(ext => item.endsWith(ext))) {
+      } else if (TARGET_EXTENSIONS.some((ext) => item.endsWith(ext))) {
         prependLicense(itemPath);
       }
     });
