@@ -30,6 +30,7 @@ import {
   ARTIST_ROY_URL,
 } from "../../shared/mainPageConst.ts";
 import { timeTableInfoProps } from "../../shared/types/timeTable.ts";
+import { DEMO_DATE } from "./utils.tsx";
 
 const apink: artistInfoListProps = {
   name: "에이핑크",
@@ -78,6 +79,25 @@ const futurePubInfo: artistInfoListProps = {
   image: _futurePub,
   url: `/booth_foodtruck_list/booth/a`,
 };
+
+function fillDemoData(): timeTableInfoProps[] {
+  const ret: timeTableInfoProps[] = [];
+  for (let i = 0; i < 24; i += 2) {
+    ret.push({
+      title: `${i}시 ~ ${i + 2}시 일정`,
+      description: "시연용 데이터",
+      link: {
+        text: "(코드 보러가기)",
+        url: "https://github.com/flareseek/KNU-festival24/tree/release/src/pages/Timetable",
+      },
+      descriptionShow: true,
+      date: DEMO_DATE,
+      startTime: new Date(DEMO_DATE.getTime() + i * 60000 * 60),
+      endTime: new Date(DEMO_DATE.getTime() + (i + 2) * 60000 * 60),
+    });
+  }
+  return ret;
+}
 
 export const timeTableInfo: timeTableInfoProps[] = [
   {
@@ -530,4 +550,5 @@ export const timeTableInfo: timeTableInfoProps[] = [
     startTime: new Date("2024-09-26 18:00"),
     endTime: new Date("2024-09-27 01:00"),
   },
+  ...fillDemoData(),
 ];

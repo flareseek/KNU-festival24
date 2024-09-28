@@ -23,9 +23,17 @@ export const START_DATE = new Date("2024-09-23T00:00:00+09:00");
 export const END_DATE = new Date("2024-09-26T00:00:00+09:00");
 
 /**
- * 데모용 날짜
+ * 시간을 00:00:00으로 설정 (날짜만 유지, 시간 초기화)
+ * @param date 날짜
  */
-export const DEMO_DATE = new Date("1970-01-01T00:00:00");
+export const clearTime = (date: Date): Date => {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+/**
+ * 데모용 날짜(현재 날짜)
+ */
+export const DEMO_DATE = clearTime(new Date());
 
 /**
  * 일별 필터 버튼
@@ -39,16 +47,6 @@ export const TIME_TABLE_FILTER: timeTableFilterProps[] = [
   { name: "4일차", date: new Date("2024-09-26T00:00:00+09:00") },
   { name: "demo", date: DEMO_DATE},
 ];
-
-
-
-/**
- * 시간을 00:00:00으로 설정 (날짜만 유지, 시간 초기화)
- * @param date 날짜
- */
-export const clearTime = (date: Date): Date => {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-};
 
 /**
  * Date 객체가 들어왔을때 시간을 mm:hh 형식으로 변환

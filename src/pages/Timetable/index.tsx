@@ -14,7 +14,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { timeTableInfo } from "./timeTableInfo.ts";
 import * as styles from "./.css.ts";
 import { FilterButton, TimeTableItem } from "./subComponents.tsx";
-import { clearTime, END_DATE, START_DATE, TIME_TABLE_FILTER } from "./utils.tsx";
+import { clearTime, DEMO_DATE, END_DATE, START_DATE, TIME_TABLE_FILTER } from "./utils.tsx";
 
 /**
  * 타임테이블 페이지
@@ -35,7 +35,7 @@ export default function Timetable() {
     if (today >= start && today <= end) {
       setViewTime(today);
     } else {
-      setViewTime(start);
+      setViewTime(DEMO_DATE);// 축제기간이 아닐 경우 데모용 날짜로 설정
     }
 
     // 현재 시간을 1분마다 업데이트
