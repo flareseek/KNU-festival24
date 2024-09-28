@@ -10,24 +10,24 @@
  * Any contributions made after September 26, 2024, are subject to the terms of the MPL 2.0 and are licensed accordingly.
  */
 
-import FooterLogo from "../../assets/footer.svg?react";
-import * as styles from "./.css.ts";
-import { Link } from "react-router-dom";
+export interface personProps {
+  name: string;
+  email: string;
+  github?: string;
+  website?: string;
+  responsibilities?: string[];
+}
 
-export function Footer() {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        <Link to={"/makers"}>
-          <FooterLogo className={styles.footerLogo} />
-        </Link>
-        <Link to={"/site_info"} className={styles.inquiryLink}>
-          사이트 정보
-        </Link>
-      </div>
-      <p className={styles.footerText}>
-        COPYRIGHT Ⓒ 2024 LIKELION KANGWON NATIONAL UNIV. ALL RIGHTS RESERVED.
-      </p>
-    </footer>
-  );
+export interface categoryProps {
+  label: string;
+  people: personProps[];
+}
+
+export interface siteDataProps {
+  creators: {
+    label: string;
+    manager: categoryProps;
+    developers: categoryProps;
+    designers: categoryProps;
+  };
 }

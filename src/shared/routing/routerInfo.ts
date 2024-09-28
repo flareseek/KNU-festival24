@@ -96,6 +96,14 @@ export const routerInfo: routerInfoType[] = [
     mainPage: true,
     scrollOptions: "never",
   },
+  {
+    path: "site_info",
+    element: lazy(() => import("../../components/SiteInfo")),
+    english: "Site Information",
+    korean: "사이트 정보",
+    expose: false,
+    mainPage: false,
+  },
 ];
 
 export default routerInfo;
